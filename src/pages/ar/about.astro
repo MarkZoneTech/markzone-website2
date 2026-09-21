@@ -1,0 +1,90 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import Cta from '../../components/Cta.astro';
+import { SITE } from '../../data/site';
+const values = [
+  ['دعم محلي', 'ناس حقيقيين في الإمارات يردون عليك.'],
+  ['أسعار صادقة', 'عادلة وواضحة، وبدون تكاليف مخفية.'],
+  ['السرعة', 'تجهيز سريع، حل سريع، وتسليم سريع.'],
+  ['مبنية على طريقة شغلك', 'برامج تمشي مع طريقة شغلك، مب العكس.'],
+];
+const stats = [
+  ['+400', 'شركة وثقت في ماركزون من 2019'],
+  ['+15', 'شركة على تطبيقاتنا الجديدة من أول شهورها'],
+  ['7', 'إمارات نخدمها'],
+  ['4.4★', `تقييمنا على جوجل من ${SITE.googleRating.count} تقييم`],
+];
+const schema = [{ '@context': 'https://schema.org', '@type': 'AboutPage', name: 'عن ماركزون تكنولوجي', url: `${SITE.url}/ar/about`, inLanguage: 'ar-AE', about: { '@id': `${SITE.url}/#business` } }];
+---
+<Base lang="ar" title="عن ماركزون تكنولوجي | شركة برمجيات في دبي من 2019" description="ماركزون تكنولوجي شركة برمجيات في دبي تسوي تطبيقات منظمة وفي المتناول للشركات الصغيرة في الإمارات. أكثر من 400 شركة وثقت فينا من 2019، ونخدم الإمارات السبع." alternate={{ en: '/about', ar: '/ar/about' }} schema={schema}>
+  <PageHero lang="ar" eyebrow="من نحن" title="نساعد الشركات في الإمارات تنظم شغلها" lead="ماركزون تكنولوجي شركة برمجيات في دبي. نصمم ونركّب ونبيع وندعم البرامج، من تطبيقات إدارة الأعمال لين المواقع والأنظمة الخاصة، للشركات الصغيرة والمتوسطة في كل الإمارات السبع." crumb={[{ href: '/ar/about', label: 'من نحن' }]} />
+  <section class="section">
+    <div class="wrap story">
+      <div><span class="eyebrow">قصتنا</span><h2>بدت من شغف بالبرمجة والإلكترونيات</h2></div>
+      <div class="story__text">
+        <p>كنا نشوف نفس الشي كل مرة: شركات في الإمارات تدفع أسعار مبالغ فيها على البرامج، وبعدها ما تلقى دعم عدل. عشان جي قررنا نقدم حلول تقدر عليها الشركات الصغيرة، ومبنية على طريقة شغلها الحقيقية.</p>
+        <p>بدينا بتطبيق اشتراك مجاني. ومع الوقت العملاء طلبوا أكثر، فكبرنا لين صرنا نقدم حلول أعمال كاملة، وأولها المحاسبة.</p>
+        <p>وبعدها اكتشفنا شي مهم: وايد شركات صغيرة ما كانت تفشل بسبب ضعف التسويق أو المحاسبة. كانت تفشل لأن شغلها الداخلي مب منظم، وهذا كان يضيّع عليها مبيعات وعملاء. <strong>وتنظيم الشغل صار أساس كل تطبيق نسويه.</strong></p>
+      </div>
+    </div>
+  </section>
+  <section class="section section--muted">
+    <div class="wrap mv">
+      <div class="mv__card"><span class="eyebrow">رسالتنا</span><p>نساعد الشركات الصغيرة والمتوسطة في الإمارات تحل مشاكلها اليومية بتطبيقات تخلي كل يوم شغل أسهل وأكثر تنظيم وإنتاجية.</p></div>
+      <div class="mv__card"><span class="eyebrow">رؤيتنا</span><p>نوصل الحلول اللي سويناها للشركات الصغيرة إلى الشركات الكبيرة، ونتوسع على مراحل لين حلول المؤسسات المتقدمة.</p></div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head"><span class="eyebrow">مبادئنا</span><h2>قيمنا</h2></div>
+      <div class="vals">{values.map(([h, p], i) => <div class="val"><span>{String(i + 1).padStart(2, '0')}</span><h3>{h}</h3><p>{p}</p></div>)}</div>
+    </div>
+  </section>
+  <section class="stats" aria-label="ماركزون بالأرقام">
+    <div class="wrap stats__grid">{stats.map(([n, l]) => <div><span class="stats__n" dir="ltr">{n}</span><span class="stats__l">{l}</span></div>)}</div>
+  </section>
+  <section class="section">
+    <div class="wrap creds">
+      <div>
+        <span class="eyebrow">الترخيص</span>
+        <h2>مرخصين في دبي</h2>
+        <p class="creds__line" dir="ltr">{SITE.credentials}</p>
+        <p>مقرنا في دبي ونخدم الإمارات السبع. ومن عملائنا اللي ويانا من سنين، مجموعة تجزئة إماراتية كبرت لين صار عندها 6 فروع مع ماركزون.</p>
+      </div>
+      <div class="creds__box">
+        <h3>زورنا أو تواصل ويانا</h3>
+        <p>{SITE.address.street}, Dubai</p>
+        <p>يومياً من 10 الصبح لين 10 الليل · الأحد إجازة</p>
+        <p><a href={SITE.whatsapp} rel="noopener">واتساب <span dir="ltr">{SITE.phone}</span></a><br /><a href={`mailto:${SITE.email}`}>{SITE.email}</a></p>
+      </div>
+    </div>
+  </section>
+  <Cta lang="ar" />
+</Base>
+<style>
+  .story { display: grid; grid-template-columns: .9fr 1.1fr; gap: 56px; }
+  .story h2 { color: var(--primary); font-size: clamp(26px, 3vw, 36px); }
+  .story__text p { font-size: 18px; color: var(--ink-muted); }
+  .story__text strong { color: var(--ink); }
+  .mv { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .mv__card { background: #fff; border-radius: 20px; padding: 36px; box-shadow: var(--shadow); border-top: 5px solid var(--teal); }
+  .mv__card:last-child { border-top-color: var(--orange); }
+  .mv__card p { font: 700 21px/1.7 var(--f-ar-head); color: var(--ink); margin: 0; }
+  .vals { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .val { border: 1px solid var(--border); border-radius: 18px; padding: 26px; }
+  .val span { font: 700 13px/1 var(--f-head); color: var(--orange); }
+  .val h3 { font-size: 19px; margin: 14px 0 6px; }
+  .val p { margin: 0; color: var(--ink-muted); }
+  .stats { background: var(--teal-tint); padding-block: 48px; }
+  .stats__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .stats__n { display: block; font: 800 clamp(30px, 3.4vw, 42px)/1.1 var(--f-ar-head); color: var(--primary); margin-bottom: 6px; text-align: right; }
+  .stats__l { display: block; font-size: 15px; max-width: 230px; }
+  .creds { display: grid; grid-template-columns: 1.2fr .8fr; gap: 48px; align-items: start; }
+  .creds h2 { color: var(--primary); }
+  .creds__line { font-weight: 600; color: var(--ink); background: var(--surface-muted); border-left: 4px solid var(--navy); padding: 14px 18px; border-radius: 0 10px 10px 0; text-align: left; font-family: var(--f-body); }
+  .creds p { color: var(--ink-muted); }
+  .creds__box { background: var(--surface-muted); border-radius: 18px; padding: 28px; }
+  @media (max-width: 1020px) { .story, .mv, .creds { grid-template-columns: 1fr; gap: 32px; } .vals, .stats__grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .vals { grid-template-columns: 1fr; } }
+</style>

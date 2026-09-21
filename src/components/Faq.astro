@@ -1,6 +1,6 @@
 ---
-interface Props { items: [string, string][]; title?: string; eyebrow?: string }
-const { items, title = 'Questions owners ask us', eyebrow = 'FAQ' } = Astro.props;
+interface Props { items: [string, string][]; title?: string; eyebrow?: string; lang?: 'en' | 'ar' }
+const { items, lang = 'en', title = lang === 'ar' ? 'أسئلة يسألونا عنها أصحاب المحلات' : 'Questions owners ask us', eyebrow = lang === 'ar' ? 'أسئلة شائعة' : 'FAQ' } = Astro.props;
 ---
 <section class="section section--muted">
   <div class="wrap faq">

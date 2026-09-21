@@ -1,0 +1,41 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import ServiceBody from '../../components/ServiceBody.astro';
+import Faq from '../../components/Faq.astro';
+import Cta from '../../components/Cta.astro';
+import { SITE } from '../../data/site';
+const faq: [string, string][] = [
+  ['التطبيق الخاص ياخذ كم وقت؟', 'البرامج والتطبيقات حسب الطلب تتسلم كاملة من حوالي شهرين، حسب حجم المشروع.'],
+  ['بكم البرنامج الخاص؟', 'كل مشروع له عرض سعر حسب حجمه ومتطلباته. راسلنا على الواتساب ونرسل لك عرض سعر واضح بدون تكاليف مخفية.'],
+  ['تقدرون تنقلون بياناتنا من الإكسل؟', 'إيه. نقل البيانات من الإكسل مشمول إذا كانت موجودة.'],
+  ['تشتغلون مع الشركات الكبيرة؟', 'تركيزنا الحين على الشركات الصغيرة والمتوسطة، من المحل الواحد لين المجموعات اللي عندها فروع. وحلول المؤسسات والحوكمة على خطتنا، وبتنطلق على مراحل.'],
+];
+const schema = [
+  { '@context': 'https://schema.org', '@type': 'Service', name: 'تطوير البرامج والتطبيقات حسب الطلب', serviceType: 'Software development', provider: { '@id': `${SITE.url}/#business` }, areaServed: 'AE', url: `${SITE.url}/ar/custom-software`, inLanguage: 'ar-AE' },
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) },
+];
+---
+<Base lang="ar" title="برمجة برامج وتطبيقات حسب الطلب في دبي | ماركزون تكنولوجي" description="برامج وتطبيقات جوال حسب الطلب للشركات الصغيرة في الإمارات، مبنية على طريقة شغلك. تتسلم كاملة من حوالي شهرين، مع التجهيز ونقل بيانات الإكسل ودعم الواتساب." alternate={{ en: '/custom-software', ar: '/ar/custom-software' }} schema={schema}>
+  <PageHero lang="ar" eyebrow="برامج وتطبيقات حسب الطلب" title="برنامج مبني على طريقة شغلك بالضبط" lead="إذا التطبيق الجاهز ما يناسبك، نسوي لك واحد يناسبك. من أول كلمة لين التسليم الكامل، كل شي مصمم على طريقة شغلك." crumb={[{ href: '/ar/custom-software', label: 'برامج حسب الطلب' }]} />
+  <ServiceBody lang="ar" timelineLabel="التسليم الكامل" timeline="من حوالي شهرين" waText="مرحبا ماركزون، أبا أتكلم عن مشروع برنامج خاص" points={[
+    ['مبني على طريقة شغلك', 'نرتب النظام على نفس الطريقة اللي يشتغل فيها فريقك.'],
+    ['التجهيز والتركيب', 'نجهز النظام وندرّب فريقك.'],
+    ['نقل البيانات من الإكسل', 'جيب بياناتك وياك، إذا كانت موجودة.'],
+    ['دعم يبقى وياك', 'دعم على الواتساب يومياً وزيارات للموقع إذا احتاج الأمر.'],
+  ]}>
+    <span class="eyebrow">ليش برنامج خاص</span>
+    <h2>منظم من أول يوم</h2>
+    <p>أغلب الشركات الصغيرة ما تتعب بسبب التسويق. تتعب لأن شغلها الداخلي مب منظم. والنظام اللي مبني على طريقتك بالضبط يشيل الإكسل والدفاتر والتخمين.</p>
+    <p>مدة التسليم تعتمد على حجم المشروع، وتبدا من حوالي شهرين لنظام كامل.</p>
+  </ServiceBody>
+  <section class="section section--muted">
+    <div class="wrap" style="max-width:820px">
+      <span class="eyebrow">على خطتنا</span>
+      <h2 style="color:var(--primary)">حلول المؤسسات والحوكمة</h2>
+      <p style="font-size:18px;color:var(--ink-muted)">رؤيتنا إننا نوصل الحلول اللي سويناها للشركات الصغيرة إلى الشركات الكبيرة. وحلول المؤسسات والحوكمة بتنطلق على مراحل.</p>
+    </div>
+  </section>
+  <Faq lang="ar" items={faq} title="أسئلة عن البرامج الخاصة" />
+  <Cta lang="ar" title="قول لنا شو تبا نسوي لك" text="اشرح لنا طريقة شغلك على الواتساب ونرجع لك بخطة واضحة وعرض سعر." />
+</Base>

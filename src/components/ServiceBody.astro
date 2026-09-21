@@ -1,7 +1,10 @@
 ---
 import { SITE } from '../data/site';
-interface Props { points: [string, string][]; timeline: string; timelineLabel: string; waText: string }
-const { points, timeline, timelineLabel, waText } = Astro.props;
+interface Props { points: [string, string][]; timeline: string; timelineLabel: string; waText: string; lang?: 'en' | 'ar' }
+const { points, timeline, timelineLabel, waText, lang = 'en' } = Astro.props;
+const L = lang === 'ar'
+  ? { price: 'عرض الأسعار', cta: 'اطلب عرض سعر على الواتساب', inc: ['التجهيز والتركيب', 'دعم كامل على الواتساب يومياً من 10 الصبح لين 10 الليل (الأحد إجازة)', 'زيارات للموقع إذا احتاج الأمر'] }
+  : { price: 'Quote on request', cta: 'Get a quote on WhatsApp', inc: ['Onboarding and setup', 'Full WhatsApp support, daily 10 AM – 10 PM (Sunday off)', 'On-site visits when needed'] };
 ---
 <section class="section">
   <div class="wrap sb">
@@ -12,13 +15,9 @@ const { points, timeline, timelineLabel, waText } = Astro.props;
     <aside class="sb__side">
       <p class="sb__label">{timelineLabel}</p>
       <p class="sb__big">{timeline}</p>
-      <p class="sb__price">Quote on request</p>
-      <a class="btn btn--cta" href={`${SITE.whatsapp}?text=${encodeURIComponent(waText)}`} rel="noopener">Get a quote on WhatsApp</a>
-      <ul>
-        <li>Onboarding and setup</li>
-        <li>Full WhatsApp support, daily 10 AM – 10 PM (Sunday off)</li>
-        <li>On-site visits when needed</li>
-      </ul>
+      <p class="sb__price">{L.price}</p>
+      <a class="btn btn--cta" href={`${SITE.whatsapp}?text=${encodeURIComponent(waText)}`} rel="noopener">{L.cta}</a>
+      <ul>{L.inc.map((i) => <li>{i}</li>)}</ul>
     </aside>
   </div>
 </section>
@@ -38,4 +37,6 @@ const { points, timeline, timelineLabel, waText } = Astro.props;
   .sb__side ul { margin: 0; padding-inline-start: 18px; color: var(--ink-muted); font-size: 15px; display: grid; gap: 8px; }
   @media (max-width: 1020px) { .sb { grid-template-columns: 1fr; } .sb__side { position: static; } }
   @media (max-width: 600px) { .sb__points { grid-template-columns: 1fr; } }
+  :global([dir="rtl"]) .sb__label { letter-spacing: 0; text-transform: none; font-family: var(--f-ar-head); font-size: 15px; }
+  :global([dir="rtl"]) .sb__big, :global([dir="rtl"]) .sb__price { font-family: var(--f-ar-head); }
 </style>

@@ -1,0 +1,34 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import ServiceBody from '../../components/ServiceBody.astro';
+import Faq from '../../components/Faq.astro';
+import Cta from '../../components/Cta.astro';
+import { SITE } from '../../data/site';
+const faq: [string, string][] = [
+  ['الموقع ياخذ كم وقت؟', 'المواقع تتسلم خلال أسبوعين.'],
+  ['بكم الموقع؟', 'كل موقع له عرض سعر حسب احتياج شغلك. راسلنا على الواتساب ونرسل لك عرض سعر واضح بدون تكاليف مخفية.'],
+  ['تدعمون الموقع بعد التسليم؟', 'إيه. كل عميل ياخذ دعم كامل على الواتساب يومياً من 10 الصبح لين 10 الليل (الأحد إجازة)، وزيارات للموقع إذا احتاج الأمر.'],
+  ['أي إمارات تشتغلون فيها؟', 'مقرنا في دبي ونخدم الشركات في كل الإمارات السبع.'],
+];
+const schema = [
+  { '@context': 'https://schema.org', '@type': 'Service', name: 'تصميم وتطوير المواقع الإلكترونية', serviceType: 'Web design', provider: { '@id': `${SITE.url}/#business` }, areaServed: 'AE', url: `${SITE.url}/ar/websites`, inLanguage: 'ar-AE' },
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) },
+];
+---
+<Base lang="ar" title="تصميم مواقع في دبي يتسلم خلال أسبوعين | ماركزون تكنولوجي" description="تصميم مواقع احترافية للشركات في الإمارات من ماركزون تكنولوجي في دبي. يتسلم خلال أسبوعين، مع دعم محلي حقيقي على الواتساب. نخدم الإمارات السبع." alternate={{ en: '/websites', ar: '/ar/websites' }} schema={schema}>
+  <PageHero lang="ar" eyebrow="المواقع الإلكترونية" title="موقع احترافي.. جاهز خلال أسبوعين" lead="موقعك غالباً أول شي يشوفه الزبون عنك. نسويه بسرعة، ونخليه واضح، ونبقى وياك على الواتساب بعد التسليم." crumb={[{ href: '/ar/websites', label: 'المواقع' }]} />
+  <ServiceBody lang="ar" timelineLabel="التسليم" timeline="خلال أسبوعين" waText="مرحبا ماركزون، أبا عرض سعر لموقع" points={[
+    ['تسليم سريع', 'موقعك يتسلم خلال أسبوعين.'],
+    ['مبني على شغلك', 'نبدا من طريقة بيعك وشو يحتاج زبونك يعرف.'],
+    ['أسعار صادقة', 'عرض سعر واضح من البداية، بدون تكاليف مخفية.'],
+    ['دعم محلي حقيقي', 'ناس حقيقيين في الإمارات على الواتساب، وزيارات للموقع إذا احتاج الأمر.'],
+  ]}>
+    <span class="eyebrow">شو بتحصل</span>
+    <h2>موقع يسوي شغله</h2>
+    <p>نسوي مواقع للشركات في الإمارات اللي تبا تطلع بشكل احترافي، وتحوّل الزوار لمحادثات واتساب واتصالات.</p>
+    <p>تحتاج أكثر من موقع؟ نسوي بعد <a href="/ar/custom-software">برامج وتطبيقات حسب الطلب</a>، وتطبيقات جاهزة مثل <a href="/ar/oxpos">OxPOS</a> و<a href="/ar/zainaapp">ZainaApp</a> و<a href="/ar/texpos">TexPOS</a>.</p>
+  </ServiceBody>
+  <Faq lang="ar" items={faq} title="أسئلة عن المواقع" />
+  <Cta lang="ar" title="خلنا نتكلم عن موقعك" text="قول لنا عن شغلك على الواتساب ونرسل لك عرض سعر واضح." />
+</Base>

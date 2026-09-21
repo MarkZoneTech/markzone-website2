@@ -1,11 +1,11 @@
 ---
 import Base from '../layouts/Base.astro';
 import PageHero from './PageHero.astro';
-interface Props { title: string; h1: string; description: string; path: string; updated: string }
-const { title, h1, description, path, updated } = Astro.props;
+interface Props { title: string; h1: string; description: string; path: string; updated: string; lang?: 'en' | 'ar' }
+const { title, h1, description, path, updated, lang = 'en' } = Astro.props;
 ---
-<Base title={title} description={description} alternate={{ en: path, ar: `/ar${path}` }}>
-  <PageHero eyebrow="Legal" title={h1} lead={`Last updated: ${updated}`} />
+<Base title={title} description={description} lang={lang} alternate={{ en: path, ar: `/ar${path}` }}>
+  <PageHero lang={lang} eyebrow={lang === 'ar' ? 'قانوني' : 'Legal'} title={h1} lead={lang === 'ar' ? `آخر تحديث: ${updated}` : `Last updated: ${updated}`} />
   <section class="section"><div class="wrap legal"><slot /></div></section>
 </Base>
 <style>

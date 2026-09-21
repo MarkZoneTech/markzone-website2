@@ -1,0 +1,242 @@
+---
+import Base from '../layouts/Base.astro';
+import Cta from './Cta.astro';
+import Faq from './Faq.astro';
+import type { Product } from '../data/products';
+import { SITE } from '../data/site';
+
+interface Props { p: Product; all: Product[]; lang: 'en' | 'ar' }
+const { p, all, lang } = Astro.props;
+const pre = lang === 'ar' ? '/ar' : '';
+const others = all.filter((o) => o.slug !== p.slug);
+const url = `${SITE.url}${pre}/${p.slug}`;
+const L = lang === 'ar' ? {
+  home: 'الرئيسية', aed: 'درهم', ask: `اسأل عن ${p.name} على الواتساب`, see: 'شوف المميزات', whoE: 'لمين التطبيق؟', made: 'يناسب',
+  probE: 'المشكلة اللي يحلها', featE: 'المميزات', featH: `كل شي يسويه ${p.name} عنك`, scrE: 'الشاشات', scrH: `شوف ${p.name} وهو يشتغل`,
+  get: `احصل على ${p.name}`, hw: 'الأجهزة المتوافقة متوفرة.', priceE: 'أسعار واضحة وعادلة', priceH: 'سعر واحد.. وكل اللي تحتاجه عشان تبدا مشمول.',
+  incl: ['التجهيز والتركيب وتدريب فريقك', 'نقل البيانات من الإكسل إذا كانت موجودة', 'دعم كامل على الواتساب يومياً من 10 الصبح لين 10 الليل (الأحد إجازة)', 'زيارات للموقع إذا احتاج الأمر', 'بدون تكاليف مخفية'],
+  faqT: `أسئلة عن ${p.name}`, moreE: 'من ماركزون بعد', moreH: 'تطبيقاتنا الثانية', wa: `مرحبا ماركزون، أبا أعرف عن ${p.name}`,
+} : {
+  home: 'Home', aed: 'AED', ask: `Ask about ${p.name} on WhatsApp`, see: 'See features', whoE: 'Who it’s for', made: 'Made for',
+  probE: 'The problem it solves', featE: 'Features', featH: `Everything ${p.name} does for you`, scrE: 'Screens', scrH: `See ${p.name} in action`,
+  get: `Get ${p.name}`, hw: 'Compatible hardware available.', priceE: 'Fair, clear pricing', priceH: 'One price. Everything included to get you started.',
+  incl: ['Onboarding and setup, with your team trained', 'Data migration from Excel, where available', 'Full WhatsApp support daily, 10 AM – 10 PM (Sunday off)', 'On-site visits when the situation requires', 'No hidden costs'],
+  faqT: `${p.name} questions`, moreE: 'More from MarkZone', moreH: 'Our other apps', wa: `Hi MarkZone, I'm interested in ${p.name}`,
+};
+const waHref = `${SITE.whatsapp}?text=${encodeURIComponent(L.wa)}`;
+
+const schema = [
+  {
+    '@context': 'https://schema.org', '@type': 'SoftwareApplication', name: p.name, applicationCategory: 'BusinessApplication',
+    operatingSystem: p.slug === 'texpos' ? 'Mobile' : 'Windows, Web', description: p.seoDesc, url, inLanguage: lang === 'ar' ? 'ar-AE' : 'en-AE',
+    image: `${SITE.url}${(p.desktop[0] ?? p.mobile[0]).src}`,
+    offers: { '@type': 'Offer', price: p.price.replace(',', ''), priceCurrency: 'AED', description: `${p.priceNote}, ${p.renewal}` },
+    publisher: { '@id': `${SITE.url}/#business` },
+  },
+  { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+    { '@type': 'ListItem', position: 1, name: L.home, item: `${SITE.url}${pre || '/'}` },
+    { '@type': 'ListItem', position: 2, name: p.name, item: url } ] },
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: p.faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) },
+];
+const heroShot = p.desktop[0];
+const heroPhone = p.mobile[0];
+---
+<Base title={p.seoTitle} description={p.seoDesc} lang={lang} alternate={{ en: `/${p.slug}`, ar: `/ar/${p.slug}` }} schema={schema} ogImage={(p.desktop[0] ?? p.mobile[0]).src}>
+  <section class={`phero phero--${p.tone}`} style={`--accent:${p.accent}`}>
+    <div class="wrap phero__grid">
+      <div>
+        <nav class="crumb" aria-label="Breadcrumb"><a href={pre || '/'}>{L.home}</a><span>/</span><span aria-current="page">{p.name}</span></nav>
+        <img class="phero__logo" src={p.logo} alt={`${p.name} logo`} width="200" height="120" />
+        <p class="phero__kicker">{p.kicker}</p>
+        <h1>{p.h1}</h1>
+        <p class="phero__lead">{p.lead}</p>
+        <div class="phero__price">
+          <span class="phero__amount">{p.price} <small>{L.aed}</small></span>
+          <span class="phero__note">{p.priceNote}<br />{p.renewal}</span>
+        </div>
+        <div class="phero__ctas">
+          <a class="btn btn--cta" href={waHref} rel="noopener">{L.ask}</a>
+          <a class="btn btn--outline" href="#features">{L.see}</a>
+        </div>
+      </div>
+      <div class="phero__visual">
+        {heroShot && (
+          <figure class="browser"><div class="browser__bar"><span></span><span></span><span></span></div>
+            <img src={heroShot.src} alt={heroShot.alt} width="1200" height="540" fetchpriority="high" /></figure>
+        )}
+        {heroPhone && (
+          <figure class={`phone ${heroShot ? '' : 'phone--solo'}`}><img src={heroPhone.src} alt={heroPhone.alt} width="420" height="736" fetchpriority={heroShot ? 'auto' : 'high'} /></figure>
+        )}
+        {!heroShot && p.mobile[1] && (
+          <figure class="phone phone--second"><img src={p.mobile[1].src} alt={p.mobile[1].alt} width="420" height="736" /></figure>
+        )}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap fit">
+      <div>
+        <span class="eyebrow">{L.whoE}</span>
+        <h2>{L.made}</h2>
+        <ul class="chips">{p.forList.map((f) => <li>{f}</li>)}</ul>
+      </div>
+      <div class="fit__problem">
+        <span class="eyebrow">{L.probE}</span>
+        <p>{p.problem}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--muted" id="features">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">{L.featE}</span>
+        <h2>{L.featH}</h2>
+        <p>{p.platform}</p>
+      </div>
+      <div class="feats">
+        {p.features.map((f) => (
+          <div class="feat">
+            <span class="feat__tick" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" /></svg></span>
+            <h3>{f.h}</h3><p>{f.p}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {(p.desktop.length + p.mobile.length) > 1 && (
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head"><span class="eyebrow">{L.scrE}</span><h2>{L.scrH}</h2></div>
+        {p.desktop.length > 1 && <div class="gal gal--desk">{p.desktop.slice(1).map((s) => <figure class="browser"><div class="browser__bar"><span></span><span></span><span></span></div><img src={s.src} alt={s.alt} loading="lazy" width="1000" height="452" /><figcaption>{s.alt}</figcaption></figure>)}</div>}
+        {p.mobile.length > 1 && <div class="gal gal--mob">{p.mobile.slice(heroShot ? 0 : 1).map((s) => <figure><div class="phone phone--inline"><img src={s.src} alt={s.alt} loading="lazy" width="420" height="736" /></div><figcaption>{s.alt}</figcaption></figure>)}</div>}
+      </div>
+    </section>
+  )}
+
+  <section class="section pricing">
+    <div class="wrap pricing__grid">
+      <div class="pcard" style={`--accent:${p.accent}`}>
+        <img src={p.logo} alt="" width="160" height="100" loading="lazy" />
+        <p class="pcard__amount">{p.price} <small>{L.aed}</small></p>
+        <p class="pcard__note">{p.priceNote} · {p.renewal}</p>
+        <a class="btn btn--cta" href={waHref} rel="noopener">{L.get}</a>
+        {p.slug !== 'texpos' && <p class="pcard__hw">{L.hw}</p>}
+      </div>
+      <div>
+        <span class="eyebrow eyebrow--light">{L.priceE}</span>
+        <h2>{L.priceH}</h2>
+        <ul class="incl">{L.incl.map((i) => <li>{i}</li>)}</ul>
+      </div>
+    </div>
+  </section>
+
+  <Faq items={p.faq} title={L.faqT} lang={lang} />
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head"><span class="eyebrow">{L.moreE}</span><h2>{L.moreH}</h2></div>
+      <div class="others">
+        {others.map((o) => (
+          <a class="other" href={`${pre}/${o.slug}`} style={`--accent:${o.accent}`}>
+            <img src={o.logo} alt={`${o.name} logo`} width="120" height="80" loading="lazy" />
+            <span><strong>{o.name}</strong>{o.kicker}</span>
+            <span class="other__arrow" aria-hidden="true">{lang === 'ar' ? '←' : '→'}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Cta lang={lang} />
+</Base>
+
+<style>
+  .phero { background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 10%, white), #fff); padding-block: 40px 72px; border-bottom: 1px solid var(--border); overflow: hidden; }
+  .phero--zaina { background: linear-gradient(180deg, #f6efe2, #fff); }
+  .phero--tex { background: linear-gradient(180deg, #f3ecdc, #fff); }
+  .phero__grid { display: grid; grid-template-columns: 1fr 1.05fr; gap: 56px; align-items: center; }
+  .crumb { font-size: 14px; color: var(--ink-muted); display: flex; gap: 8px; margin-bottom: 28px; }
+  .crumb a { color: var(--primary); text-decoration: none; }
+  .phero__logo { height: 84px; width: auto; margin-bottom: 18px; }
+  .phero--tex .phero__logo { height: 56px; }
+  .phero__kicker { font: 600 13px/1 var(--f-head); letter-spacing: .08em; text-transform: uppercase; color: var(--ink); margin-bottom: 12px; }
+  .phero h1 { font-size: clamp(34px, 4.4vw, 52px); font-weight: 800; letter-spacing: -.02em; color: var(--primary); }
+  .phero__lead { font-size: 19px; color: var(--ink-muted); max-width: 560px; }
+  .phero__price { display: flex; align-items: center; gap: 16px; margin: 26px 0; }
+  .phero__amount { font: 800 42px/1 var(--f-head); color: var(--price); }
+  .phero__amount small { font-size: 18px; }
+  .phero__note { font-size: 14px; color: var(--ink-muted); line-height: 1.45; }
+  .phero__ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+  .phero__visual { position: relative; padding-bottom: 36px; min-height: 360px; }
+  .browser { margin: 0; background: #fff; border-radius: 14px; overflow: hidden; box-shadow: var(--shadow-lg); border: 1px solid var(--border); }
+  .browser__bar { display: flex; gap: 6px; padding: 9px 12px; background: #eef2f7; border-bottom: 1px solid var(--border); }
+  .browser__bar span { width: 9px; height: 9px; border-radius: 50%; background: #cbd3de; }
+  .browser img { width: 100%; }
+  .phone { margin: 0; border: 7px solid #10151f; border-radius: 26px; overflow: hidden; background: #fff; box-shadow: 0 24px 48px rgba(0,0,0,.25); }
+  .phone img { width: 100%; }
+  .phero__visual .phone { position: absolute; inset-inline-end: -10px; bottom: 0; width: 30%; }
+  .phero__visual .phone--solo { position: relative; inset: auto; width: 46%; margin-inline-start: 8%; }
+  .phero__visual .phone--second { position: absolute; width: 40%; inset-inline-end: 4%; top: 48px; bottom: auto; }
+
+  .fit { display: grid; grid-template-columns: 1fr 1.3fr; gap: 56px; align-items: start; }
+  .fit h2 { color: var(--primary); font-size: clamp(26px, 3vw, 34px); }
+  .chips { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+  .chips li { background: var(--teal-tint); color: var(--ink); padding: 10px 16px; border-radius: 999px; font-weight: 500; }
+  .fit__problem p { font-size: 20px; line-height: 1.6; color: var(--ink); border-inline-start: 4px solid var(--orange); padding-inline-start: 22px; margin: 0; }
+
+  .feats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .feat { position: relative; background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 22px 24px 22px 70px; }
+  :global([dir="rtl"]) .feat { padding: 22px 70px 22px 24px; }
+  .feat__tick { position: absolute; inset-inline-start: 22px; top: 22px; width: 32px; height: 32px; border-radius: 9px; background: var(--teal-tint); display: grid; place-items: center; }
+  .feat__tick svg { width: 18px; height: 18px; fill: none; stroke: var(--teal-text); stroke-width: 2.8; stroke-linecap: round; stroke-linejoin: round; }
+  .feat h3 { font-size: 18px; margin-bottom: 4px; }
+  .feat p { margin: 0; color: var(--ink-muted); }
+
+  .gal { display: grid; gap: 24px; }
+  .gal--desk { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); margin-bottom: 32px; }
+  .gal--mob { grid-template-columns: repeat(auto-fit, minmax(170px, 220px)); justify-content: center; }
+  .gal figure { margin: 0; }
+  .gal figcaption { font-size: 14px; color: var(--ink-muted); padding: 12px 4px 0; }
+  .gal .browser figcaption { padding: 12px 14px 14px; }
+  .phone--inline { box-shadow: var(--shadow); }
+
+  .pricing { background: var(--navy); color: #d6e3f5; }
+  .pricing__grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 56px; align-items: center; }
+  .pricing h2 { color: #fff; font-size: clamp(26px, 3vw, 36px); }
+  .eyebrow--light { color: #7fe0e1; }
+  .pcard { background: #fff; color: var(--ink); border-radius: 20px; padding: 32px; border-top: 6px solid var(--accent); text-align: center; box-shadow: var(--shadow-lg); }
+  .pcard img { height: 72px; width: auto; margin: 0 auto 12px; }
+  .pcard__amount { font: 800 52px/1 var(--f-head); color: var(--price); margin-bottom: 8px; }
+  .pcard__amount small { font-size: 20px; }
+  .pcard__note { color: var(--ink-muted); margin-bottom: 22px; }
+  .pcard .btn { width: 100%; }
+  .pcard__hw { font-size: 14px; color: var(--ink-muted); margin: 16px 0 0; }
+  .incl { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; font-size: 17px; }
+  .incl li { position: relative; padding-inline-start: 32px; }
+  .incl li::before { content: ""; position: absolute; inset-inline-start: 2px; top: 7px; width: 14px; height: 8px; border-inline-start: 3px solid #7fe0e1; border-bottom: 3px solid #7fe0e1; transform: rotate(-45deg); }
+
+  .others { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .other { display: flex; align-items: center; gap: 20px; padding: 22px 26px; border: 1px solid var(--border); border-radius: 18px; text-decoration: none; color: var(--ink-muted); border-inline-start: 5px solid var(--accent); transition: box-shadow .15s, transform .15s; }
+  .other:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+  .other img { height: 56px; width: 90px; object-fit: contain; }
+  .other strong { display: block; color: var(--ink); font: 700 19px/1.3 var(--f-head); }
+  .other__arrow { margin-inline-start: auto; font-size: 22px; color: var(--primary); }
+
+  @media (max-width: 1020px) {
+    .phero__grid, .fit, .pricing__grid { grid-template-columns: 1fr; gap: 40px; }
+    .feats, .others { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    .phero__ctas .btn { width: 100%; }
+    .phero__visual { min-height: 0; }
+    .phero__visual .phone--solo { width: 60%; margin-inline-start: 0; }
+    .phero__visual .phone--second { width: 50%; }
+  }
+  :global([dir="rtl"]) .phero__kicker { letter-spacing: 0; text-transform: none; font-family: var(--f-ar-head); font-size: 15px; }
+  :global([dir="rtl"]) .phero h1 { letter-spacing: 0; line-height: 1.35; }
+  :global([dir="rtl"]) .phero__amount, :global([dir="rtl"]) .pcard__amount { font-family: var(--f-ar-head); }
+  :global([dir="rtl"]) .incl li::before { transform: rotate(-45deg) scaleX(-1); }
+</style>
