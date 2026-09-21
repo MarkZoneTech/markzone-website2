@@ -5,14 +5,14 @@ import BlogList from '../../components/BlogList.astro';
 import Cta from '../../components/Cta.astro';
 import { getPosts } from '../../data/blog';
 import { SITE } from '../../data/site';
-const posts = await getPosts();
+const posts = await getPosts('en');
 const schema = [{
-  '@context': 'https://schema.org', '@type': 'Blog', name: 'MarkZone Technology Blog', url: `${SITE.url}/blog`,
+  '@context': 'https://schema.org', '@type': 'Blog', name: 'MarkZone Technology Blog', url: `${SITE.url}/blog`, inLanguage: 'en-AE',
   publisher: { '@id': `${SITE.url}/#business` },
   blogPost: posts.slice(0, 10).map((p) => ({ '@type': 'BlogPosting', headline: p.data.title, url: `${SITE.url}/blog/${p.id}`, datePublished: p.data.date.toISOString() })),
 }];
 ---
-<Base title="Blog: Guides for UAE Shops, Salons & SMEs | MarkZone Technology" description="Practical guides for UAE business owners on retail, inventory, salon management, staff, and getting organized. From MarkZone Technology in Dubai." schema={schema}>
+<Base title="Blog: Guides for UAE Shops, Salons & SMEs | MarkZone Technology" description="Practical guides for UAE business owners on retail, inventory, salon management, staff, and getting organized. From MarkZone Technology in Dubai." alternate={{ en: '/blog', ar: '/ar/blog' }} schema={schema}>
   <PageHero eyebrow="Blog" title="Practical guides for UAE business owners" lead="Straightforward advice on stock, staff, customers and getting your business organized." crumb={[{ href: '/blog', label: 'Blog' }]} />
   <BlogList posts={posts} />
   <Cta />

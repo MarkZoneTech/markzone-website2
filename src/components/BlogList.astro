@@ -1,17 +1,17 @@
 ---
 import PostCard from './PostCard.astro';
-import { CATEGORIES } from '../content.config';
-import type { Post } from '../data/blog';
-interface Props { posts: Post[]; active?: string }
-const { posts, active } = Astro.props;
+import { CAT_LABELS, blogBase, type Post, type Lang } from '../data/blog';
+interface Props { posts: Post[]; active?: string; lang?: Lang }
+const { posts, active, lang = 'en' } = Astro.props;
+const base = blogBase(lang);
 ---
 <section class="section">
   <div class="wrap">
-    <nav class="cats" aria-label="Blog categories">
-      <a href="/blog" class={!active ? 'on' : ''}>All</a>
-      {Object.entries(CATEGORIES).map(([k, v]) => <a href={`/blog/category/${k}`} class={active === k ? 'on' : ''}>{v}</a>)}
+    <nav class="cats" aria-label={lang === 'ar' ? 'أقسام المدونة' : 'Blog categories'}>
+      <a href={base} class={!active ? 'on' : ''}>{lang === 'ar' ? 'الكل' : 'All'}</a>
+      {Object.entries(CAT_LABELS[lang]).map(([k, v]) => <a href={`${base}/category/${k}`} class={active === k ? 'on' : ''}>{v}</a>)}
     </nav>
-    <div class="grid">{posts.map((p) => <PostCard post={p} />)}</div>
+    <div class="grid">{posts.map((p) => <PostCard post={p} lang={lang} />)}</div>
   </div>
 </section>
 <style>

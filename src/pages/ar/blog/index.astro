@@ -1,0 +1,19 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PageHero from '../../../components/PageHero.astro';
+import BlogList from '../../../components/BlogList.astro';
+import Cta from '../../../components/Cta.astro';
+import { getPosts } from '../../../data/blog';
+import { SITE } from '../../../data/site';
+const posts = await getPosts('ar');
+const schema = [{
+  '@context': 'https://schema.org', '@type': 'Blog', name: 'مدونة ماركزون تكنولوجي', url: `${SITE.url}/ar/blog`, inLanguage: 'ar-AE',
+  publisher: { '@id': `${SITE.url}/#business` },
+  blogPost: posts.slice(0, 10).map((p) => ({ '@type': 'BlogPosting', headline: p.data.title, url: `${SITE.url}/ar/blog/${p.id}`, datePublished: p.data.date.toISOString() })),
+}];
+---
+<Base lang="ar" title="المدونة: نصائح لأصحاب المحلات والصالونات في الإمارات | ماركزون تكنولوجي" description="نصائح عملية لأصحاب الشغل في الإمارات عن المحلات والمخزون وإدارة الصالونات والموظفين وتنظيم الشغل. من ماركزون تكنولوجي في دبي." alternate={{ en: '/blog', ar: '/ar/blog' }} schema={schema}>
+  <PageHero lang="ar" eyebrow="المدونة" title="نصائح عملية لأصحاب الشغل في الإمارات" lead="نصائح واضحة عن المخزون والموظفين والعملاء وتنظيم شغلك." crumb={[{ href: '/ar/blog', label: 'المدونة' }]} />
+  <BlogList posts={posts} lang="ar" />
+  <Cta lang="ar" />
+</Base>

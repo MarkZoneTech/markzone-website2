@@ -1,19 +1,20 @@
 ---
-import { CATEGORIES } from '../content.config';
-import { fmtDate, readingTime, coverFor, type Post } from '../data/blog';
-interface Props { post: Post }
-const { post } = Astro.props;
+import { fmtDate, readingTime, coverFor, blogBase, CAT_LABELS, type Post, type Lang } from '../data/blog';
+interface Props { post: Post; lang?: Lang }
+const { post, lang = 'en' } = Astro.props;
 const d = post.data;
+const base = blogBase(lang);
+const mins = readingTime(post.body);
 ---
 <article class="pc">
-  <a href={`/blog/${post.id}`} class="pc__img" tabindex="-1" aria-hidden="true">
-    <img src={coverFor(post)} alt="" width="1200" height="630" loading="lazy" />
+  <a href={`${base}/${post.id}`} class="pc__img" tabindex="-1" aria-hidden="true">
+    <img src={coverFor(post, lang)} alt="" width="1200" height="630" loading="lazy" />
   </a>
   <div class="pc__body">
-    <p class="pc__meta"><a href={`/blog/category/${d.category}`}>{CATEGORIES[d.category]}</a> · {readingTime(post.body)} min read</p>
-    <h3><a href={`/blog/${post.id}`}>{d.title}</a></h3>
+    <p class="pc__meta"><a href={`${base}/category/${d.category}`}>{CAT_LABELS[lang][d.category]}</a> · {lang === 'ar' ? `${mins} دقائق قراءة` : `${mins} min read`}</p>
+    <h3><a href={`${base}/${post.id}`}>{d.title}</a></h3>
     <p class="pc__desc">{d.description}</p>
-    <p class="pc__date"><time datetime={(d.updated ?? d.date).toISOString()}>{fmtDate(d.updated ?? d.date)}</time></p>
+    <p class="pc__date"><time datetime={(d.updated ?? d.date).toISOString()}>{fmtDate(d.updated ?? d.date, lang)}</time></p>
   </div>
 </article>
 <style>

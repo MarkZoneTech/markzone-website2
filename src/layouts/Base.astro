@@ -59,7 +59,7 @@ const org = {
   sameAs: [SITE.instagram],
 };
 const nav = lang === 'ar'
-  ? [['/ar#apps', 'تطبيقاتنا'], ['/ar/websites', 'المواقع'], ['/ar/custom-software', 'برامج حسب الطلب'], ['/ar/about', 'من نحن'], ['/blog', 'المدونة'], ['/ar/contact', 'تواصل']]
+  ? [['/ar#apps', 'تطبيقاتنا'], ['/ar/websites', 'المواقع'], ['/ar/custom-software', 'برامج حسب الطلب'], ['/ar/about', 'من نحن'], ['/ar/blog', 'المدونة'], ['/ar/contact', 'تواصل']]
   : [['/#apps', 'Apps'], ['/websites', 'Websites'], ['/custom-software', 'Custom Software'], ['/about', 'About'], ['/blog', 'Blog'], ['/contact', 'Contact']];
 const switchHref = lang === 'ar' ? (alternate?.en ?? '/') : (alternate?.ar ?? '/ar');
 const waLabel = lang === 'ar' ? 'كلمنا واتساب' : 'WhatsApp us';
@@ -142,7 +142,7 @@ const waLabel = lang === 'ar' ? 'كلمنا واتساب' : 'WhatsApp us';
           <li><a href={lang === 'ar' ? '/ar/websites' : '/websites'}>{lang === 'ar' ? 'تصميم المواقع' : 'Websites'}</a></li>
           <li><a href={lang === 'ar' ? '/ar/custom-software' : '/custom-software'}>{lang === 'ar' ? 'برامج حسب الطلب' : 'Custom Software'}</a></li>
           <li><a href={lang === 'ar' ? '/ar/growth-partner' : '/growth-partner'}>{lang === 'ar' ? 'شريك النمو' : 'Growth Partner'}</a></li>
-          <li><a href="/blog">{lang === 'ar' ? 'المدونة' : 'Blog'}</a></li>
+          <li><a href={lang === 'ar' ? '/ar/blog' : '/blog'}>{lang === 'ar' ? 'المدونة' : 'Blog'}</a></li>
         </ul>
       </div>
       <div>

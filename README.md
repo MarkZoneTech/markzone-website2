@@ -19,4 +19,4 @@ Saving commits a Markdown file to `src/content/blog/en/`; Cloudflare rebuilds th
 
 SEO is automatic for every post: title and meta description, canonical URL, BlogPosting,
 Breadcrumb and FAQ structured data, Open Graph image, sitemap entry, RSS feed and related posts.
-Posts without a cover use the default cover; run `python3 scripts/make-covers.py` to generate branded covers.
+Posts without a cover use the default cover; run `python3 scripts/make-covers.py` (English) and `python3 scripts/make-covers-ar.py` (Arabic) to generate branded covers.

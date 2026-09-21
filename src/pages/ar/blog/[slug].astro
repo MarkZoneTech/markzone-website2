@@ -1,0 +1,10 @@
+---
+import BlogPost from '../../../components/BlogPost.astro';
+import { getPosts, hasTwin } from '../../../data/blog';
+export async function getStaticPaths() {
+  const posts = await getPosts('ar');
+  return Promise.all(posts.map(async (post) => ({ params: { slug: post.id }, props: { post, posts, twin: await hasTwin(post.id, 'ar') } })));
+}
+const { post, posts, twin } = Astro.props;
+---
+<BlogPost post={post} posts={posts} lang="ar" twin={twin} />

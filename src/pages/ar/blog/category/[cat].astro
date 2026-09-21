@@ -1,0 +1,19 @@
+---
+import Base from '../../../../layouts/Base.astro';
+import PageHero from '../../../../components/PageHero.astro';
+import BlogList from '../../../../components/BlogList.astro';
+import Cta from '../../../../components/Cta.astro';
+import { getPosts, CAT_LABELS } from '../../../../data/blog';
+export async function getStaticPaths() {
+  const posts = await getPosts('ar');
+  return Object.keys(CAT_LABELS.ar).map((cat) => ({ params: { cat }, props: { posts: posts.filter((p) => p.data.category === cat) } })).filter((x) => x.props.posts.length);
+}
+const { cat } = Astro.params;
+const { posts } = Astro.props;
+const name = CAT_LABELS.ar[cat!];
+---
+<Base lang="ar" title={`${name} | مدونة ماركزون`} description={`مقالات ${name} لأصحاب الشغل في الإمارات من ماركزون تكنولوجي في دبي.`} alternate={{ en: `/blog/category/${cat}`, ar: `/ar/blog/category/${cat}` }}>
+  <PageHero lang="ar" eyebrow="المدونة" title={name} crumb={[{ href: '/ar/blog', label: 'المدونة' }, { href: `/ar/blog/category/${cat}`, label: name }]} />
+  <BlogList posts={posts} active={cat} lang="ar" />
+  <Cta lang="ar" />
+</Base>

@@ -1,0 +1,154 @@
+---
+import { render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import PostCard from './PostCard.astro';
+import Faq from './Faq.astro';
+import Cta from './Cta.astro';
+import { readingTime, fmtDate, coverFor, blogBase, CAT_LABELS, type Post, type Lang } from '../data/blog';
+import { SITE } from '../data/site';
+
+interface Props { post: Post; posts: Post[]; lang: Lang; twin: boolean }
+const { post, posts, lang, twin } = Astro.props;
+const d = post.data;
+const { Content } = await render(post);
+const base = blogBase(lang);
+const pre = lang === 'ar' ? '/ar' : '';
+const url = `${SITE.url}${base}/${post.id}`;
+const cover = coverFor(post, lang);
+const modified = d.updated ?? d.date;
+const related = posts.filter((p) => p.id !== post.id && p.data.category === d.category).slice(0, 3);
+const more = related.length < 3 ? posts.filter((p) => p.id !== post.id && !related.includes(p)).slice(0, 3 - related.length) : [];
+const cat = CAT_LABELS[lang][d.category];
+const L = lang === 'ar' ? {
+  home: 'الرئيسية', blog: 'المدونة', by: 'بقلم ماركزون تكنولوجي', upd: 'آخر تحديث', read: (n: number) => `${n} دقائق قراءة`,
+  k: 'نظّم شغلك مع', more: 'اعرف أكثر', q: 'عندك سؤال؟', qp: 'ناس حقيقيين في الإمارات على الواتساب، يومياً من 10 الصبح لين 10 الليل (الأحد إجازة).', wa: 'كلمنا واتساب',
+  share: 'شارك المقال على الواتساب', faq: 'أسئلة شائعة', keep: 'اقرأ بعد', rel: 'مقالات ذات صلة', inLang: 'ar-AE',
+} : {
+  home: 'Home', blog: 'Blog', by: 'By MarkZone Technology', upd: 'Updated', read: (n: number) => `${n} min read`,
+  k: 'Get organized with', more: 'Learn more', q: 'Questions?', qp: 'Real people in the UAE on WhatsApp, daily 10 AM – 10 PM (Sunday off).', wa: 'WhatsApp us',
+  share: 'Share this article on WhatsApp', faq: 'Common questions', keep: 'Keep reading', rel: 'Related articles', inLang: 'en-AE',
+};
+const BOX: Record<Lang, Record<string, { name: string; href: string; text: string }>> = {
+  en: {
+    oxpos: { name: 'OxPOS', href: '/oxpos', text: 'Sales, stock, purchases, expenses and salaries in one retail system. 1,500 AED including the first year, then 500 AED/year.' },
+    zainaapp: { name: 'ZainaApp', href: '/zainaapp', text: 'Appointments, online booking, WhatsApp notifications and staff commissions for salons and spas. 1,500 AED including the first year, then 500 AED/year.' },
+    texpos: { name: 'TexPOS', href: '/texpos', text: 'Measurements, job orders and deposits for tailoring shops, on your own phone. 1,000 AED first year, then 500 AED/year.' },
+    websites: { name: 'A MarkZone website', href: '/websites', text: 'A professional website for your business, delivered within 2 weeks.' },
+    'custom-software': { name: 'Custom software', href: '/custom-software', text: 'A system built around exactly how your business works, fully delivered from about 2 months.' },
+  },
+  ar: {
+    oxpos: { name: 'OxPOS', href: '/ar/oxpos', text: 'المبيعات والمخزون والمشتريات والمصاريف والرواتب في نظام واحد للمحلات. 1,500 درهم مع السنة الأولى، وبعدها 500 درهم بالسنة.' },
+    zainaapp: { name: 'ZainaApp', href: '/ar/zainaapp', text: 'مواعيد وحجز أونلاين وإشعارات واتساب وعمولات الموظفين للصالونات والسبا. 1,500 درهم مع السنة الأولى، وبعدها 500 درهم بالسنة.' },
+    texpos: { name: 'TexPOS', href: '/ar/texpos', text: 'المقاسات وأوامر الشغل والعربون لمحلات الخياطة، على تلفونك. 1,000 درهم للسنة الأولى، وبعدها 500 درهم بالسنة.' },
+    websites: { name: 'موقع من ماركزون', href: '/ar/websites', text: 'موقع احترافي لشغلك، يتسلم خلال أسبوعين.' },
+    'custom-software': { name: 'برنامج حسب الطلب', href: '/ar/custom-software', text: 'نظام مبني على طريقة شغلك بالضبط، يتسلم كامل من حوالي شهرين.' },
+  },
+};
+const box = BOX[lang][d.product];
+const schema: object[] = [
+  {
+    '@context': 'https://schema.org', '@type': 'BlogPosting',
+    headline: d.title, description: d.description, image: [`${SITE.url}${cover}`],
+    datePublished: d.date.toISOString(), dateModified: modified.toISOString(),
+    author: { '@type': 'Organization', name: SITE.name, url: SITE.url },
+    publisher: { '@id': `${SITE.url}/#business` },
+    mainEntityOfPage: url, inLanguage: L.inLang, articleSection: cat,
+    wordCount: (post.body ?? '').trim().split(/\s+/).length,
+  },
+  {
+    '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: L.home, item: `${SITE.url}${pre || '/'}` },
+      { '@type': 'ListItem', position: 2, name: L.blog, item: `${SITE.url}${base}` },
+      { '@type': 'ListItem', position: 3, name: d.title, item: url },
+    ],
+  },
+];
+if (d.faq.length) schema.push({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: d.faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) });
+const share = `https://wa.me/?text=${encodeURIComponent(`${d.title} ${url}`)}`;
+const alternate = twin ? { en: `/blog/${post.id}`, ar: `/ar/blog/${post.id}` } : undefined;
+---
+<Base title={lang === 'ar' ? `${d.title} | مدونة ماركزون` : `${d.title} | MarkZone Blog`} description={d.description} lang={lang} alternate={alternate} ogImage={cover} schema={schema} noindex={d.draft}>
+  <article>
+    <header class="ah">
+      <div class="wrap ah__in">
+        <nav class="crumb" aria-label="Breadcrumb"><a href={pre || '/'}>{L.home}</a><span>/</span><a href={base}>{L.blog}</a><span>/</span><a href={`${base}/category/${d.category}`}>{cat}</a></nav>
+        <h1>{d.title}</h1>
+        <p class="ah__lead">{d.description}</p>
+        <p class="ah__meta">
+          <span>{L.by}</span>
+          <span>{L.upd} <time datetime={modified.toISOString()}>{fmtDate(modified, lang)}</time></span>
+          <span>{L.read(readingTime(post.body))}</span>
+        </p>
+      </div>
+    </header>
+    <div class="wrap">
+      <img class="cover" src={cover} alt={d.coverAlt ?? d.title} width="1200" height="630" fetchpriority="high" />
+      <div class="body">
+        <div class="prose"><Content /></div>
+        <aside class="side">
+          {box && (
+            <div class="box">
+              <p class="box__k">{L.k}</p>
+              <p class="box__n">{box.name}</p>
+              <p>{box.text}</p>
+              <a class="btn btn--primary" href={box.href}>{L.more}</a>
+            </div>
+          )}
+          <div class="box box--wa">
+            <p class="box__n">{L.q}</p>
+            <p>{L.qp}</p>
+            <a class="btn btn--cta" href={SITE.whatsapp} rel="noopener">{L.wa}</a>
+          </div>
+          <a class="share" href={share} rel="noopener">{L.share}</a>
+        </aside>
+      </div>
+    </div>
+  </article>
+
+  {d.faq.length > 0 && <Faq lang={lang} items={d.faq.map((f) => [f.q, f.a] as [string, string])} title={L.faq} />}
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head"><span class="eyebrow">{L.keep}</span><h2>{L.rel}</h2></div>
+      <div class="rel">{[...related, ...more].map((p) => <PostCard post={p} lang={lang} />)}</div>
+    </div>
+  </section>
+  <Cta lang={lang} />
+</Base>
+<style>
+  .ah { background: var(--surface-muted); padding-block: 40px 120px; border-bottom: 1px solid var(--border); }
+  .ah__in { max-width: 860px; }
+  .crumb { font-size: 14px; display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; color: var(--ink-muted); }
+  .crumb a { color: var(--primary); text-decoration: none; }
+  .ah h1 { font-size: clamp(30px, 4vw, 46px); font-weight: 800; letter-spacing: -.02em; color: var(--primary); }
+  .ah__lead { font-size: 19px; color: var(--ink-muted); }
+  .ah__meta { display: flex; flex-wrap: wrap; gap: 6px 20px; font-size: 14px; color: var(--ink-muted); margin: 0; }
+  .cover { width: 100%; max-width: 900px; margin: -88px auto 48px; border-radius: 20px; box-shadow: var(--shadow-lg); aspect-ratio: 1200 / 630; object-fit: cover; }
+  .body { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 56px; max-width: 1040px; margin-inline: auto; padding-bottom: 64px; }
+  .prose { font-size: 18px; line-height: 1.8; color: var(--ink); max-width: 700px; }
+  .prose :global(h2) { font-size: 27px; color: var(--primary); margin: 44px 0 14px; }
+  .prose :global(h3) { font-size: 21px; margin: 32px 0 10px; }
+  .prose :global(p) { margin: 0 0 1.2em; }
+  .prose :global(ul), .prose :global(ol) { padding-inline-start: 24px; margin: 0 0 1.4em; }
+  .prose :global(li) { margin-bottom: .5em; }
+  .prose :global(strong) { color: var(--ink); }
+  .prose :global(a) { color: var(--primary); text-underline-offset: 3px; }
+  .prose :global(blockquote) { margin: 28px 0; padding: 18px 24px; background: var(--teal-tint); border-inline-start: 4px solid var(--teal); border-radius: 0 12px 12px 0; }
+  .prose :global(img) { border-radius: 14px; margin: 24px 0; }
+  .side { display: flex; flex-direction: column; gap: 18px; position: sticky; top: 100px; align-self: start; }
+  .box { border: 1px solid var(--border); border-radius: 18px; padding: 22px; border-top: 5px solid var(--navy); }
+  .box--wa { border-top-color: var(--orange); }
+  .box__k { font: 600 12px/1 var(--f-head); text-transform: uppercase; letter-spacing: .08em; color: var(--teal-text); margin-bottom: 6px; }
+  .box__n { font: 700 20px/1.3 var(--f-head); color: var(--ink); margin-bottom: 8px; }
+  .box p { font-size: 15px; color: var(--ink-muted); }
+  .box .btn { width: 100%; }
+  .share { font-size: 14px; color: var(--primary); }
+  .rel { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  @media (max-width: 1020px) { .body { grid-template-columns: 1fr; } .side { position: static; } .rel { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 620px) { .rel { grid-template-columns: 1fr; } .ah { padding-bottom: 88px; } .cover { margin-top: -64px; } .prose { font-size: 17px; } }
+  :global([dir="rtl"]) .ah h1 { letter-spacing: 0; line-height: 1.4; }
+  :global([dir="rtl"]) .prose { line-height: 1.95; }
+  :global([dir="rtl"]) .prose :global(blockquote) { border-radius: 12px 0 0 12px; }
+  :global([dir="rtl"]) .box__k { letter-spacing: 0; text-transform: none; font-family: var(--f-ar-head); font-size: 14px; }
+</style>
