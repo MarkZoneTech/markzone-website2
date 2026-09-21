@@ -1,0 +1,25 @@
+---
+import PostCard from './PostCard.astro';
+import { CATEGORIES } from '../content.config';
+import type { Post } from '../data/blog';
+interface Props { posts: Post[]; active?: string }
+const { posts, active } = Astro.props;
+---
+<section class="section">
+  <div class="wrap">
+    <nav class="cats" aria-label="Blog categories">
+      <a href="/blog" class={!active ? 'on' : ''}>All</a>
+      {Object.entries(CATEGORIES).map(([k, v]) => <a href={`/blog/category/${k}`} class={active === k ? 'on' : ''}>{v}</a>)}
+    </nav>
+    <div class="grid">{posts.map((p) => <PostCard post={p} />)}</div>
+  </div>
+</section>
+<style>
+  .cats { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; }
+  .cats a { padding: 9px 16px; border-radius: 999px; border: 1px solid var(--border); text-decoration: none; color: var(--ink); font-weight: 500; font-size: 15px; }
+  .cats a:hover { border-color: var(--teal); }
+  .cats a.on { background: var(--navy); border-color: var(--navy); color: #fff; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  @media (max-width: 1020px) { .grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 620px) { .grid { grid-template-columns: 1fr; } }
+</style>

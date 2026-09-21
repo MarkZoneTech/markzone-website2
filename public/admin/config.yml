@@ -1,0 +1,78 @@
+# MarkZone Blog Manager (Sveltia CMS). Open https://markzonetech.com/admin
+# Sign in with a GitHub token that can write to MarkZoneTech/markzone-website2.
+# Saving a post commits it to GitHub; Cloudflare rebuilds the site in about a minute.
+backend:
+  name: github
+  repo: MarkZoneTech/markzone-website2
+  branch: main
+  commit_messages:
+    create: "Blog: add {{slug}}"
+    update: "Blog: update {{slug}}"
+    delete: "Blog: delete {{slug}}"
+    uploadMedia: "Blog: upload {{path}}"
+site_url: https://markzonetech.com
+display_url: https://markzonetech.com/blog
+logo_url: /favicon.png
+media_folder: public/img/blog
+public_folder: /img/blog
+
+x-fields: &fields
+  - { label: "Title (put the main keyword near the start, max ~60 characters)", name: title, widget: string, pattern: ['^.{10,90}$', 'Use 10–90 characters'] }
+  - { label: "Meta description (shown on Google, 70–170 characters)", name: description, widget: text, pattern: ['^[\s\S]{70,170}$', 'Use 70–170 characters'] }
+  - { label: "Publish date", name: date, widget: datetime, format: "YYYY-MM-DD", time_format: false }
+  - { label: "Last updated (change this when you edit an old post)", name: updated, widget: datetime, format: "YYYY-MM-DD", time_format: false, required: false }
+  - label: Category
+    name: category
+    widget: select
+    options:
+      - { label: "Retail tips", value: retail-tips }
+      - { label: "Salon business", value: salon-business }
+      - { label: "Business growth", value: business-growth }
+      - { label: "Technology", value: technology }
+      - { label: "MarkZone news", value: markzone-news }
+  - label: "Product box shown beside the article"
+    name: product
+    widget: select
+    default: none
+    options:
+      - { label: "None", value: none }
+      - { label: "OxPOS", value: oxpos }
+      - { label: "ZainaApp", value: zainaapp }
+      - { label: "TexPOS", value: texpos }
+      - { label: "Websites", value: websites }
+      - { label: "Custom software", value: custom-software }
+  - { label: "Cover image (1200×630, optional — leave empty to use the default cover)", name: cover, widget: image, required: false }
+  - { label: "Cover image description (for Google and accessibility)", name: coverAlt, widget: string, required: false }
+  - label: "FAQ (optional — shows on Google as questions)"
+    name: faq
+    widget: list
+    required: false
+    fields:
+      - { label: Question, name: q, widget: string }
+      - { label: Answer, name: a, widget: text }
+  - { label: "Draft (hidden from the site and Google)", name: draft, widget: boolean, default: false }
+  - { label: "Article (use ## for section headings; link to /oxpos, /zainaapp, /texpos where relevant)", name: body, widget: markdown }
+
+collections:
+  - name: blog
+    label: "Blog — English"
+    label_singular: "English post"
+    folder: src/content/blog/en
+    create: true
+    slug: "{{slug}}"
+    extension: md
+    format: frontmatter
+    summary: "{{title}} — {{date}}"
+    sortable_fields: [date, title, category]
+    preview_path: "blog/{{slug}}"
+    fields: *fields
+  - name: blog_ar
+    label: "Blog — Arabic (Emirati dialect)"
+    label_singular: "Arabic post"
+    folder: src/content/blog/ar
+    create: true
+    slug: "{{slug}}"
+    extension: md
+    format: frontmatter
+    summary: "{{title}} — {{date}}"
+    fields: *fields

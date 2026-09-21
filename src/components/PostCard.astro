@@ -1,0 +1,31 @@
+---
+import { CATEGORIES } from '../content.config';
+import { fmtDate, readingTime, coverFor, type Post } from '../data/blog';
+interface Props { post: Post }
+const { post } = Astro.props;
+const d = post.data;
+---
+<article class="pc">
+  <a href={`/blog/${post.id}`} class="pc__img" tabindex="-1" aria-hidden="true">
+    <img src={coverFor(post)} alt="" width="1200" height="630" loading="lazy" />
+  </a>
+  <div class="pc__body">
+    <p class="pc__meta"><a href={`/blog/category/${d.category}`}>{CATEGORIES[d.category]}</a> · {readingTime(post.body)} min read</p>
+    <h3><a href={`/blog/${post.id}`}>{d.title}</a></h3>
+    <p class="pc__desc">{d.description}</p>
+    <p class="pc__date"><time datetime={(d.updated ?? d.date).toISOString()}>{fmtDate(d.updated ?? d.date)}</time></p>
+  </div>
+</article>
+<style>
+  .pc { display: flex; flex-direction: column; border: 1px solid var(--border); border-radius: 18px; overflow: hidden; background: #fff; transition: box-shadow .15s, transform .15s; }
+  .pc:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+  .pc__img img { width: 100%; aspect-ratio: 1200 / 630; object-fit: cover; }
+  .pc__body { padding: 20px 22px 22px; display: flex; flex-direction: column; flex: 1; }
+  .pc__meta { font-size: 13px; color: var(--ink-muted); margin-bottom: 8px; }
+  .pc__meta a { color: var(--teal-text); font-weight: 600; text-decoration: none; }
+  .pc h3 { font-size: 19px; margin-bottom: 8px; }
+  .pc h3 a { color: var(--ink); text-decoration: none; }
+  .pc h3 a:hover { color: var(--primary); }
+  .pc__desc { color: var(--ink-muted); font-size: 15px; flex: 1; }
+  .pc__date { font-size: 13px; color: var(--ink-muted); margin: 0; }
+</style>

@@ -2,16 +2,22 @@
 import Legal from '../components/Legal.astro';
 import { SITE } from '../data/site';
 ---
-<Legal title="Terms of Use | MarkZone Technology" h1="Terms of Use" description="Terms for using the MarkZone Technology website, including information about prices and content." path="/terms" updated="September 2026">
-  <p>By using markzonetech.com you agree to these terms.</p>
-  <h2>Website content</h2>
-  <p>The information on this website describes our products and services in general terms. The exact scope of any product or project is confirmed in your quotation.</p>
-  <h2>Prices</h2>
-  <p>Prices on this website are in UAE Dirhams (AED). Your quotation confirms the final price, payment terms and renewal terms before you buy.</p>
-  <h2>Intellectual property</h2>
-  <p>The MarkZone, OxPOS, ZainaApp and TexPOS names, logos and website content belong to MarkZone Technology and may not be copied without permission.</p>
-  <h2>Links</h2>
-  <p>Links to third-party services, such as WhatsApp, Instagram and Google Maps, are provided for convenience. Those services have their own terms.</p>
-  <h2>Contact</h2>
-  <p>Questions about these terms: <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.</p>
+<Legal title="Terms of Use | MarkZone Technology" h1="Terms of Use" description="Terms for using the MarkZone Technology website, including prices, content, intellectual property and governing law." path="/terms" updated="September 2026">
+  <p>These terms apply to your use of markzonetech.com, operated by MarkZone Technology, Dubai, UAE ({SITE.credentials}). By using the website you agree to them.</p>
+  <h2>1. Website content</h2>
+  <p>The website describes our products and services in general terms. We work to keep it accurate, but it is provided for information only. The exact scope, deliverables and timelines of any product or project are confirmed in your quotation or agreement.</p>
+  <h2>2. Prices</h2>
+  <p>Prices are shown in UAE Dirhams (AED). Your quotation confirms the final price, what is included, payment terms and renewal terms before you buy. We may change published prices at any time; changes do not affect quotations already accepted.</p>
+  <h2>3. Intellectual property</h2>
+  <p>The MarkZone, OxPOS, ZainaApp and TexPOS names, logos, screenshots and website content belong to MarkZone Technology. You may not copy or reuse them without our written permission.</p>
+  <h2>4. Acceptable use</h2>
+  <p>Do not misuse the website, attempt to access areas you are not authorized to use, or interfere with its operation. Use of the website must comply with UAE law.</p>
+  <h2>5. Third-party links</h2>
+  <p>Links to services such as WhatsApp, Instagram and Google Maps are provided for convenience. Those services have their own terms and privacy policies.</p>
+  <h2>6. Liability</h2>
+  <p>To the extent permitted by UAE law, MarkZone is not liable for losses arising from reliance on general website content. Our responsibilities for products and services you buy are set out in your agreement with us.</p>
+  <h2>7. Governing law</h2>
+  <p>These terms are governed by the laws of the United Arab Emirates as applied in the Emirate of Dubai, and the courts of Dubai have jurisdiction.</p>
+  <h2>8. Changes and contact</h2>
+  <p>We may update these terms; the “last updated” date shows the current version. Questions: <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.</p>
 </Legal>

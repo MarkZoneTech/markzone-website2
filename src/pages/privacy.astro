@@ -2,16 +2,43 @@
 import Legal from '../components/Legal.astro';
 import { SITE } from '../data/site';
 ---
-<Legal title="Privacy Policy | MarkZone Technology" h1="Privacy Policy" description="How MarkZone Technology handles the information you share when you contact us through our website, WhatsApp, phone or email." path="/privacy" updated="September 2026">
-  <p>This policy explains how MarkZone Technology (“we”) handles information when you visit markzonetech.com or contact us.</p>
-  <h2>Information we collect</h2>
-  <p>This website does not have accounts or sign-up forms. We only receive the information you choose to send us when you contact us by WhatsApp, phone, email or Instagram, such as your name, phone number, business name and details of your enquiry.</p>
-  <h2>How we use it</h2>
-  <p>We use your information to reply to your enquiry, prepare quotes, set up and support the software you buy from us, and keep records of our service to you. We do not sell your information.</p>
-  <h2>Website technology</h2>
-  <p>This website is a static site hosted on a secure cloud platform. It does not use advertising or tracking cookies. Fonts are loaded from Google Fonts, which may receive standard technical data such as your IP address.</p>
-  <h2>Your choices</h2>
-  <p>You can ask us to access, correct or delete the information you have shared with us by contacting us at <a href={`mailto:${SITE.email}`}>{SITE.email}</a> or on WhatsApp at {SITE.phone}.</p>
-  <h2>Contact</h2>
-  <p>MarkZone Technology, {SITE.address.street}, Dubai, UAE. {SITE.credentials}.</p>
+<Legal title="Privacy Policy | MarkZone Technology" h1="Privacy Policy" description="How MarkZone Technology collects, uses and protects personal data shared through our website, WhatsApp, phone and email, and your rights under UAE law." path="/privacy" updated="September 2026">
+  <p>This policy explains how MarkZone Technology (“MarkZone”, “we”) handles personal data when you visit markzonetech.com or contact us. We aim to follow the UAE Federal Decree-Law No. 45 of 2021 on the Protection of Personal Data (PDPL) and related UAE regulations.</p>
+
+  <h2>1. Who is responsible for your data</h2>
+  <p>MarkZone Technology, {SITE.address.street}, Dubai, UAE. {SITE.credentials}. Contact: <a href={`mailto:${SITE.email}`}>{SITE.email}</a> · WhatsApp {SITE.phone}.</p>
+
+  <h2>2. What we collect</h2>
+  <ul>
+    <li><strong>Information you send us</strong> by WhatsApp, phone, email or Instagram: for example your name, phone number, email, business name and the details of your enquiry.</li>
+    <li><strong>Basic technical data</strong> that any website receives when you visit, such as your IP address, browser type and the pages requested, processed by our hosting provider to deliver and secure the site.</li>
+  </ul>
+  <p>This website has no accounts, sign-up forms, advertising or tracking cookies, and it does not load third-party analytics.</p>
+
+  <h2>3. Why we use it</h2>
+  <ul>
+    <li>To reply to your enquiry and prepare quotes (at your request).</li>
+    <li>To set up, deliver and support the products and services you buy from us (to perform our agreement with you).</li>
+    <li>To keep business and tax records we are required to keep by law.</li>
+    <li>To keep this website secure and working.</li>
+  </ul>
+  <p>We do not sell your personal data, and we do not send you marketing messages unless you have agreed to receive them. You can ask us to stop at any time.</p>
+
+  <h2>4. Who we share it with</h2>
+  <p>Only service providers we need to run our business, such as our website hosting provider and the messaging and email services you choose to contact us through (for example WhatsApp). Some of these providers may process data outside the UAE; where that happens, we rely on the safeguards available under UAE law. We may also disclose data where required by law or by a competent UAE authority.</p>
+
+  <h2>5. How long we keep it</h2>
+  <p>We keep enquiry information for as long as needed to respond and follow up, and client records for the duration of our relationship plus any period required by UAE law, for example for tax purposes.</p>
+
+  <h2>6. Your rights</h2>
+  <p>Subject to UAE law, you can ask us to: access the personal data we hold about you; correct it; delete it; restrict or object to how we use it; and withdraw any consent you have given. Contact us at <a href={`mailto:${SITE.email}`}>{SITE.email}</a> or on WhatsApp at {SITE.phone}. We will respond within a reasonable time. You may also raise a complaint with the relevant UAE data protection authority.</p>
+
+  <h2>7. Security</h2>
+  <p>We use reasonable technical and organizational measures to protect personal data, including limiting access to people who need it.</p>
+
+  <h2>8. Data inside our apps</h2>
+  <p>When businesses use OxPOS, ZainaApp or TexPOS, the data they enter about their own customers and staff is handled under the agreement with that business. This policy covers our website and direct contact with us.</p>
+
+  <h2>9. Changes</h2>
+  <p>We may update this policy. The “last updated” date above shows the latest version.</p>
 </Legal>

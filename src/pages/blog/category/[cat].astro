@@ -1,0 +1,20 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PageHero from '../../../components/PageHero.astro';
+import BlogList from '../../../components/BlogList.astro';
+import Cta from '../../../components/Cta.astro';
+import { getPosts } from '../../../data/blog';
+import { CATEGORIES } from '../../../content.config';
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return Object.keys(CATEGORIES).map((cat) => ({ params: { cat }, props: { posts: posts.filter((p) => p.data.category === cat) } })).filter((x) => x.props.posts.length);
+}
+const { cat } = Astro.params;
+const { posts } = Astro.props;
+const name = CATEGORIES[cat as keyof typeof CATEGORIES];
+---
+<Base title={`${name} | MarkZone Blog`} description={`${name} articles for UAE business owners from MarkZone Technology in Dubai.`}>
+  <PageHero eyebrow="Blog" title={name} crumb={[{ href: '/blog', label: 'Blog' }, { href: `/blog/category/${cat}`, label: name }]} />
+  <BlogList posts={posts} active={cat} />
+  <Cta />
+</Base>

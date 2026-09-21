@@ -6,7 +6,6 @@ export default defineConfig({
   trailingSlash: 'never',
   build: { format: 'directory', inlineStylesheets: 'auto' },
   integrations: [sitemap({
-    filter: (page) => !page.endsWith('/blog/') && !page.endsWith('/blog'),
     i18n: { defaultLocale: 'en', locales: { en: 'en-AE', ar: 'ar-AE' } },
   })],
 });
