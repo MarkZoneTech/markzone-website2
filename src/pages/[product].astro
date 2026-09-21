@@ -18,7 +18,7 @@ const schema = [
     '@type': 'SoftwareApplication',
     name: p.name,
     applicationCategory: 'BusinessApplication',
-    operatingSystem: p.slug === 'texpos' ? 'Android, iOS, Web' : 'Windows, Web',
+    operatingSystem: p.slug === 'texpos' ? 'Mobile' : 'Windows, Web',
     description: p.seoDesc,
     url,
     image: `${SITE.url}${(p.desktop[0] ?? p.mobile[0]).src}`,
