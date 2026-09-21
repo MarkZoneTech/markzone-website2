@@ -18,7 +18,7 @@ export const SITE = {
 
 export const APPS = [
   {
-    slug: 'oxpos', name: 'OxPOS', logo: '/img/oxpos-logo.webp', icon: '/img/oxpos-logo.webp', accent: '#DF7F36', tone: 'ox',
+    slug: 'oxpos', name: 'OxPOS', logo: '/img/oxpos-logo.webp', icon: '/img/oxpos-logo.webp', shot: '/img/screens/oxpos-products.webp', shotAlt: 'OxPOS products screen with stock levels and prices', accent: '#DF7F36', tone: 'ox',
     for: 'Retail shops',
     who: 'Supermarkets, fashion & garment stores, cosmetics shops and consignment stores.',
     problem: 'Inventory, purchases, salaries and expenses scattered everywhere. OxPOS puts them in one place, with the reports to match.',
@@ -27,7 +27,7 @@ export const APPS = [
     price: '1,500', priceNote: 'Includes first-year maintenance', renewal: 'then 500 AED / year',
   },
   {
-    slug: 'zainaapp', name: 'ZainaApp', logo: '/img/zaina-logo.webp', icon: '/img/zaina-icon.webp', accent: '#B8862F', tone: 'zaina',
+    slug: 'zainaapp', name: 'ZainaApp', logo: '/img/zaina-logo.webp', icon: '/img/zaina-icon.webp', shot: '/img/screens/zaina-appointments.webp', shotAlt: 'ZainaApp appointments calendar', accent: '#B8862F', tone: 'zaina',
     for: 'Salons & spas',
     who: "Ladies' salons, barbershops, spas and beauty lounges.",
     problem: 'Messy appointment books and staff commissions nobody can track. ZainaApp organizes both.',
@@ -36,7 +36,7 @@ export const APPS = [
     price: '1,500', priceNote: 'Includes first-year maintenance', renewal: 'then 500 AED / year',
   },
   {
-    slug: 'texpos', name: 'TexPOS', logo: '/img/texpos-logo.webp', icon: '/img/texpos-icon.webp', accent: '#BF9B30', tone: 'tex',
+    slug: 'texpos', name: 'TexPOS', logo: '/img/texpos-logo.webp', icon: '/img/texpos-icon.webp', shot: '/img/screens/texpos-measurements-m.webp', shotAlt: 'TexPOS saved customer measurements on a phone', accent: '#BF9B30', tone: 'tex',
     for: 'Tailoring shops',
     who: 'Custom tailoring, ready-made items and alterations.',
     problem: 'Measurements and order details get lost between the counter and the tailor. TexPOS keeps every detail with the order.',
