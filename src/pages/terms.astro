@@ -1,0 +1,17 @@
+---
+import Legal from '../components/Legal.astro';
+import { SITE } from '../data/site';
+---
+<Legal title="Terms of Use | MarkZone Technology" h1="Terms of Use" description="Terms for using the MarkZone Technology website, including information about prices and content." path="/terms" updated="September 2026">
+  <p>By using markzonetech.com you agree to these terms.</p>
+  <h2>Website content</h2>
+  <p>The information on this website describes our products and services in general terms. The exact scope of any product or project is confirmed in your quotation.</p>
+  <h2>Prices</h2>
+  <p>Prices on this website are in UAE Dirhams (AED). Your quotation confirms the final price, payment terms and renewal terms before you buy.</p>
+  <h2>Intellectual property</h2>
+  <p>The MarkZone, OxPOS, ZainaApp and TexPOS names, logos and website content belong to MarkZone Technology and may not be copied without permission.</p>
+  <h2>Links</h2>
+  <p>Links to third-party services, such as WhatsApp, Instagram and Google Maps, are provided for convenience. Those services have their own terms.</p>
+  <h2>Contact</h2>
+  <p>Questions about these terms: <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.</p>
+</Legal>

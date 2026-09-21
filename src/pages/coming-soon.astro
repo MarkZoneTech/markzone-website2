@@ -1,0 +1,34 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import Cta from '../components/Cta.astro';
+import { SITE } from '../data/site';
+const items = [
+  { name: 'MadaPOS', for: 'Restaurants & cafés', slug: 'madapos' },
+  { name: 'AqarOS', for: 'Real estate agencies', slug: 'aqaros' },
+];
+---
+<Base title="Coming Soon: MadaPOS & AqarOS | MarkZone Technology" description="New MarkZone apps coming soon: MadaPOS for restaurants and cafés, and AqarOS for real estate agencies in the UAE. Register your interest on WhatsApp." alternate={{ en: '/coming-soon', ar: '/ar/coming-soon' }}>
+  <PageHero eyebrow="Coming Soon" title="New apps on the way" lead="We build one app per industry. These are next." crumb={[{ href: '/coming-soon', label: 'Coming Soon' }]} />
+  <section class="section">
+    <div class="wrap soon">
+      {items.map((i) => (
+        <article class="soon__card" id={i.slug}>
+          <span class="soon__badge">Coming Soon</span>
+          <h2>{i.name}</h2>
+          <p>{i.for}</p>
+          <a class="btn btn--outline" href={`${SITE.whatsapp}?text=${encodeURIComponent(`Hi MarkZone, please tell me when ${i.name} launches`)}`} rel="noopener">Tell me when it launches</a>
+        </article>
+      ))}
+    </div>
+  </section>
+  <Cta title="Running a shop, salon or tailoring business?" text="OxPOS, ZainaApp and TexPOS are live today. Ask us which one fits." />
+</Base>
+<style>
+  .soon { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .soon__card { border: 1px solid var(--border); border-radius: 20px; padding: 36px; border-top: 5px solid var(--teal); }
+  .soon__badge { display: inline-block; font: 700 12px/1 var(--f-head); letter-spacing: .06em; text-transform: uppercase; color: var(--teal-text); background: var(--teal-tint); padding: 8px 12px; border-radius: 999px; margin-bottom: 18px; }
+  .soon__card h2 { color: var(--primary); font-size: 32px; margin-bottom: 4px; }
+  .soon__card p { font-size: 18px; color: var(--ink-muted); margin-bottom: 24px; }
+  @media (max-width: 720px) { .soon { grid-template-columns: 1fr; } }
+</style>

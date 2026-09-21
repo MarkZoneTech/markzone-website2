@@ -1,0 +1,29 @@
+# Old site URLs -> new site (permanent)
+/software                                  /                 301
+/software/oxpos                            /oxpos            301
+/products/oxpos                            /oxpos            301
+/software/zainaapp                         /zainaapp         301
+/products/zainaapp                         /zainaapp         301
+/software/markzone-manager                 /                 301
+/products/markzone-manager                 /                 301
+/hardware                                  /                 301
+/products/hardware                         /                 301
+/products/bundle                           /                 301
+/products/madapos                          /coming-soon      301
+/services                                  /                 301
+/services/web-design                       /websites         301
+/services/software-design                  /custom-software  301
+/services/ecosystem-integration            /custom-software  301
+/strategic-solutions                       /custom-software  301
+/request-demo                              /contact          301
+/get-quote                                 /contact          301
+/privacy-policy                            /privacy          301
+# Retired blog posts
+/blog/uae-e-invoicing-mandate-2026          /blog             301
+/blog/success-story-al-amal-grocery         /oxpos            301
+/blog/sunmi-hardware-vs-traditional-pos     /oxpos            301
+/blog/sunmi-v3-features-review              /oxpos            301
+/blog/sunmi-v2-battery-tips                 /oxpos            301
+/blog/android-pos-vs-windows-retail         /oxpos            301
+/blog/corporate-tax-registration-mandatory  /blog             301
+/blog/welcome-to-markzone-growth-partner    /blog/markzone-referral-program-earn-cash 301

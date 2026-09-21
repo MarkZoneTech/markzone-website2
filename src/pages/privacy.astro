@@ -1,0 +1,17 @@
+---
+import Legal from '../components/Legal.astro';
+import { SITE } from '../data/site';
+---
+<Legal title="Privacy Policy | MarkZone Technology" h1="Privacy Policy" description="How MarkZone Technology handles the information you share when you contact us through our website, WhatsApp, phone or email." path="/privacy" updated="September 2026">
+  <p>This policy explains how MarkZone Technology (“we”) handles information when you visit markzonetech.com or contact us.</p>
+  <h2>Information we collect</h2>
+  <p>This website does not have accounts or sign-up forms. We only receive the information you choose to send us when you contact us by WhatsApp, phone, email or Instagram, such as your name, phone number, business name and details of your enquiry.</p>
+  <h2>How we use it</h2>
+  <p>We use your information to reply to your enquiry, prepare quotes, set up and support the software you buy from us, and keep records of our service to you. We do not sell your information.</p>
+  <h2>Website technology</h2>
+  <p>This website is a static site hosted on a secure cloud platform. It does not use advertising or tracking cookies. Fonts are loaded from Google Fonts, which may receive standard technical data such as your IP address.</p>
+  <h2>Your choices</h2>
+  <p>You can ask us to access, correct or delete the information you have shared with us by contacting us at <a href={`mailto:${SITE.email}`}>{SITE.email}</a> or on WhatsApp at {SITE.phone}.</p>
+  <h2>Contact</h2>
+  <p>MarkZone Technology, {SITE.address.street}, Dubai, UAE. {SITE.credentials}.</p>
+</Legal>

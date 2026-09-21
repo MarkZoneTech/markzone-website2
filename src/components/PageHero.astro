@@ -1,0 +1,21 @@
+---
+interface Props { eyebrow: string; title: string; lead?: string; crumb?: { href: string; label: string }[] }
+const { eyebrow, title, lead, crumb = [] } = Astro.props;
+---
+<section class="ph">
+  <div class="wrap">
+    {crumb.length > 0 && <nav class="ph__crumb" aria-label="Breadcrumb"><a href="/">Home</a>{crumb.map((c) => <><span>/</span><a href={c.href}>{c.label}</a></>)}</nav>}
+    <p class="ph__eyebrow">{eyebrow}</p>
+    <h1>{title}</h1>
+    {lead && <p class="ph__lead">{lead}</p>}
+    <slot />
+  </div>
+</section>
+<style>
+  .ph { background: radial-gradient(110% 120% at 90% 0%, #0a5aa8 0%, var(--navy) 50%, var(--navy-deep) 100%); color: #d6e3f5; padding-block: 64px 72px; }
+  .ph__crumb { font-size: 14px; margin-bottom: 22px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .ph__crumb a { color: #9fc1e8; text-decoration: none; } .ph__crumb span { color: #6f8fb8; }
+  .ph__eyebrow { font: 600 13px/1 var(--f-head); letter-spacing: .08em; text-transform: uppercase; color: #7fe0e1; margin-bottom: 14px; }
+  .ph h1 { color: #fff; font-size: clamp(34px, 4.6vw, 52px); font-weight: 800; letter-spacing: -.02em; max-width: 860px; }
+  .ph__lead { font-size: 19px; max-width: 700px; margin: 0; }
+</style>

@@ -1,0 +1,22 @@
+---
+import { SITE } from '../data/site';
+interface Props { title?: string; text?: string; lang?: 'en' | 'ar' }
+const { lang = 'en', title = lang === 'ar' ? 'جاهز ترتّب شغلك؟' : 'Ready to get your business organized?', text = lang === 'ar' ? 'قول لنا شو تبيع وكيف تشتغل، ونوريك التطبيق المناسب على الواتساب في نفس اليوم.' : 'Tell us what you sell and how you work. We’ll show you the right app on WhatsApp, same day.' } = Astro.props;
+---
+<section class="cta">
+  <div class="wrap cta__in">
+    <div><h2>{title}</h2><p>{text}</p></div>
+    <div class="cta__btns">
+      <a class="btn btn--cta" href={SITE.whatsapp} rel="noopener">{lang === 'ar' ? 'كلمنا واتساب' : `WhatsApp ${SITE.phone}`}</a>
+      <a class="btn btn--ghost" href={SITE.phoneHref}>{lang === 'ar' ? 'اتصل بنا' : 'Call us'}</a>
+    </div>
+  </div>
+</section>
+<style>
+  .cta { background: linear-gradient(120deg, var(--navy-deep), var(--navy)); color: #d6e3f5; padding-block: 72px; }
+  .cta__in { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 28px; }
+  .cta h2 { color: #fff; font-size: clamp(26px, 3vw, 36px); }
+  .cta p { margin: 0; font-size: 18px; max-width: 620px; }
+  .cta__btns { display: flex; flex-wrap: wrap; gap: 14px; }
+  @media (max-width: 600px) { .cta__btns .btn { width: 100%; } }
+</style>

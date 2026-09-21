@@ -1,0 +1,109 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import Cta from '../components/Cta.astro';
+import { SITE } from '../data/site';
+
+const values = [
+  ['Local support', 'Real people in the UAE who answer.'],
+  ['Honest pricing', 'Fair and clear, with no hidden costs.'],
+  ['Speed', 'Quick setup, quick fixes, quick delivery.'],
+  ['Built around your workflow', 'Software that fits how you already work, not the other way around.'],
+];
+const stats = [
+  ['400+', 'businesses have trusted MarkZone since 2019'],
+  ['15+', 'businesses on our new-generation apps within their first months'],
+  ['7', 'emirates served'],
+  ['4.4★', `Google rating from ${SITE.googleRating.count} reviews`],
+];
+const schema = [{
+  '@context': 'https://schema.org', '@type': 'AboutPage', name: 'About MarkZone Technology', url: `${SITE.url}/about`,
+  about: { '@id': `${SITE.url}/#business` },
+}];
+---
+<Base title="About MarkZone Technology | Dubai Software Company Since 2019" description="MarkZone Technology is a Dubai software company that builds affordable, organized business apps for UAE SMEs. Trusted by 400+ businesses since 2019, serving all 7 emirates." alternate={{ en: '/about', ar: '/ar/about' }} schema={schema}>
+  <PageHero eyebrow="About us" title="We help UAE businesses get organized" lead="MarkZone Technology is a Dubai software company. We create, deploy, sell and support software, including business apps, websites and custom systems, for SMEs across all 7 emirates." crumb={[{ href: '/about', label: 'About' }]} />
+
+  <section class="section">
+    <div class="wrap story">
+      <div>
+        <span class="eyebrow">Our story</span>
+        <h2>It started with a passion for programming and electronics</h2>
+      </div>
+      <div class="story__text">
+        <p>We kept seeing the same thing: UAE businesses paying excessive prices for software, then getting poor support afterwards. So we set out to offer solutions SMEs can actually afford, built around how they really work.</p>
+        <p>We began with a free subscription app. As customers asked for more, we grew into full business solutions, starting with accounting.</p>
+        <p>Then we discovered something important. Many SMEs weren’t failing because of weak marketing or accounting. They were failing because they weren’t organized internally, and that was quietly costing them sales and leads. <strong>Organizing the business became the core of what our apps do.</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--muted">
+    <div class="wrap mv">
+      <div class="mv__card">
+        <span class="eyebrow">Mission</span>
+        <p>To help UAE SMEs solve their daily problems with apps that make every working day easier, more organized, and more productive.</p>
+      </div>
+      <div class="mv__card">
+        <span class="eyebrow">Vision</span>
+        <p>To bring the solutions we built for SMEs to large-scale businesses, expanding in stages into high-end enterprise solutions.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head"><span class="eyebrow">What we stand for</span><h2>Our values</h2></div>
+      <div class="vals">{values.map(([h, p], i) => <div class="val"><span>{String(i + 1).padStart(2, '0')}</span><h3>{h}</h3><p>{p}</p></div>)}</div>
+    </div>
+  </section>
+
+  <section class="stats" aria-label="MarkZone in numbers">
+    <div class="wrap stats__grid">{stats.map(([n, l]) => <div><span class="stats__n">{n}</span><span class="stats__l">{l}</span></div>)}</div>
+  </section>
+
+  <section class="section">
+    <div class="wrap creds">
+      <div>
+        <span class="eyebrow">Credentials</span>
+        <h2>Licensed in Dubai</h2>
+        <p class="creds__line">{SITE.credentials}</p>
+        <p>Based in Dubai, serving all 7 emirates. Loyal long-term clients include a UAE retail group that has grown to 6 branches with MarkZone.</p>
+      </div>
+      <div class="creds__box">
+        <h3>Visit or reach us</h3>
+        <p>{SITE.address.street}, Dubai, UAE</p>
+        <p>{SITE.hours}</p>
+        <p><a href={SITE.whatsapp} rel="noopener">WhatsApp {SITE.phone}</a><br /><a href={`mailto:${SITE.email}`}>{SITE.email}</a></p>
+      </div>
+    </div>
+  </section>
+
+  <Cta />
+</Base>
+<style>
+  .story { display: grid; grid-template-columns: .9fr 1.1fr; gap: 56px; }
+  .story h2 { color: var(--primary); font-size: clamp(26px, 3vw, 36px); }
+  .story__text p { font-size: 18px; color: var(--ink-muted); }
+  .story__text strong { color: var(--ink); }
+  .mv { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .mv__card { background: #fff; border-radius: 20px; padding: 36px; box-shadow: var(--shadow); border-top: 5px solid var(--teal); }
+  .mv__card:last-child { border-top-color: var(--orange); }
+  .mv__card p { font: 600 21px/1.5 var(--f-head); color: var(--ink); margin: 0; }
+  .vals { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .val { border: 1px solid var(--border); border-radius: 18px; padding: 26px; }
+  .val span { font: 700 13px/1 var(--f-head); color: var(--orange); }
+  .val h3 { font-size: 19px; margin: 14px 0 6px; }
+  .val p { margin: 0; color: var(--ink-muted); }
+  .stats { background: var(--teal-tint); padding-block: 48px; }
+  .stats__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .stats__n { display: block; font: 800 clamp(30px, 3.4vw, 42px)/1.1 var(--f-head); color: var(--primary); margin-bottom: 6px; }
+  .stats__l { display: block; font-size: 15px; max-width: 230px; }
+  .creds { display: grid; grid-template-columns: 1.2fr .8fr; gap: 48px; align-items: start; }
+  .creds h2 { color: var(--primary); }
+  .creds__line { font-weight: 600; color: var(--ink); background: var(--surface-muted); border-inline-start: 4px solid var(--navy); padding: 14px 18px; border-radius: 0 10px 10px 0; }
+  .creds p { color: var(--ink-muted); }
+  .creds__box { background: var(--surface-muted); border-radius: 18px; padding: 28px; }
+  @media (max-width: 1020px) { .story, .mv, .creds { grid-template-columns: 1fr; gap: 32px; } .vals, .stats__grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .vals { grid-template-columns: 1fr; } }
+</style>

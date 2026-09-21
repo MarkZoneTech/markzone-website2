@@ -1,0 +1,34 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import ServiceBody from '../components/ServiceBody.astro';
+import Faq from '../components/Faq.astro';
+import Cta from '../components/Cta.astro';
+import { SITE } from '../data/site';
+const faq: [string, string][] = [
+  ['How long does a website take?', 'Websites are delivered within 2 weeks.'],
+  ['How much does a website cost?', 'Every website is quoted based on what your business needs. Message us on WhatsApp and we’ll send you a clear quote with no hidden costs.'],
+  ['Do you support the website after launch?', 'Yes. Every client gets full WhatsApp support daily from 10 AM to 10 PM (Sunday off), plus on-site visits when needed.'],
+  ['Which emirates do you work with?', 'We are based in Dubai and serve businesses in all 7 emirates.'],
+];
+const schema = [
+  { '@context': 'https://schema.org', '@type': 'Service', name: 'Website design & development', serviceType: 'Web design', provider: { '@id': `${SITE.url}/#business` }, areaServed: 'AE', url: `${SITE.url}/websites`, description: 'Professional websites for UAE businesses, delivered within 2 weeks.' },
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) },
+];
+---
+<Base title="Website Design in Dubai, Delivered in 2 Weeks | MarkZone Technology" description="Professional website design for UAE businesses by MarkZone Technology in Dubai. Delivered within 2 weeks, with real local WhatsApp support. Serving all 7 emirates." alternate={{ en: '/websites', ar: '/ar/websites' }} schema={schema}>
+  <PageHero eyebrow="Websites & web design" title="A professional website, live within 2 weeks" lead="Your website is often the first thing a customer sees. We build it quickly, keep it clear, and stay on WhatsApp for you after launch." crumb={[{ href: '/websites', label: 'Websites' }]} />
+  <ServiceBody timelineLabel="Delivery" timeline="Within 2 weeks" waText="Hi MarkZone, I'd like a quote for a website" points={[
+    ['Fast delivery', 'Your website is delivered within 2 weeks.'],
+    ['Built around your business', 'We start from how you sell and what your customers need to know.'],
+    ['Honest pricing', 'A clear quote up front, with no hidden costs.'],
+    ['Real local support', 'Real people in the UAE on WhatsApp, plus on-site visits when needed.'],
+  ]}>
+    <span class="eyebrow">What you get</span>
+    <h2>A website that does its job</h2>
+    <p>We build websites for UAE businesses that need to look professional and turn visitors into WhatsApp conversations and calls.</p>
+    <p>Need more than a website? We also build <a href="/custom-software">custom software and mobile apps</a>, and ready-made apps like <a href="/oxpos">OxPOS</a>, <a href="/zainaapp">ZainaApp</a> and <a href="/texpos">TexPOS</a>.</p>
+  </ServiceBody>
+  <Faq items={faq} title="Website questions" />
+  <Cta title="Let’s talk about your website" text="Tell us about your business on WhatsApp and we’ll send you a clear quote." />
+</Base>

@@ -9,8 +9,9 @@ interface Props {
   alternate?: { en?: string; ar?: string };
   ogImage?: string;
   schema?: object[];
+  noindex?: boolean;
 }
-const { title, description, lang = 'en', alternate, ogImage = '/img/og-default.jpg', schema = [] } = Astro.props;
+const { title, description, lang = 'en', alternate, ogImage = '/img/og-default.jpg', schema = [], noindex = false } = Astro.props;
 const dir = lang === 'ar' ? 'rtl' : 'ltr';
 const canonical = new URL(Astro.url.pathname, SITE.url).href.replace(/\/$/, '') || SITE.url;
 const ogUrl = new URL(ogImage, SITE.url).href;
@@ -56,6 +57,7 @@ const waLabel = lang === 'ar' ? 'كلمنا واتساب' : 'WhatsApp us';
   <title>{title}</title>
   <meta name="description" content={description} />
   <link rel="canonical" href={canonical} />
+  {noindex && <meta name="robots" content="noindex, follow" />}
   {alternate?.en && <link rel="alternate" hreflang="en-AE" href={new URL(alternate.en, SITE.url).href} />}
   {alternate?.ar && <link rel="alternate" hreflang="ar-AE" href={new URL(alternate.ar, SITE.url).href} />}
   {alternate?.en && <link rel="alternate" hreflang="x-default" href={new URL(alternate.en, SITE.url).href} />}

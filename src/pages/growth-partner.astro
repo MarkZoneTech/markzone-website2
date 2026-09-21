@@ -1,0 +1,27 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import Cta from '../components/Cta.astro';
+import { SITE } from '../data/site';
+---
+<Base title="Growth Partner Program | Refer a Business to MarkZone Technology" description="Know a UAE business that needs to get organized? Join the MarkZone Growth Partner program and refer shops, salons and tailors to MarkZone Technology." alternate={{ en: '/growth-partner', ar: '/ar/growth-partner' }}>
+  <PageHero eyebrow="Growth Partner" title="Know a business that needs to get organized?" lead="Refer shops, salons and tailoring businesses to MarkZone and become a Growth Partner." crumb={[{ href: '/growth-partner', label: 'Growth Partner' }]}>
+    <p style="margin-top:28px"><a class="btn btn--cta" href={`${SITE.whatsapp}?text=${encodeURIComponent('Hi MarkZone, I want to join the Growth Partner program')}`} rel="noopener">Join on WhatsApp</a></p>
+  </PageHero>
+  <section class="section">
+    <div class="wrap steps">
+      <div class="step"><span>1</span><h2>Join</h2><p>Message us on WhatsApp to become a Growth Partner. We’ll share the current partner terms.</p></div>
+      <div class="step"><span>2</span><h2>Refer</h2><p>Introduce a business owner who needs OxPOS, ZainaApp, TexPOS, a website or custom software.</p></div>
+      <div class="step"><span>3</span><h2>We take care of them</h2><p>We handle the demo, setup and support, with the same standard of service every client gets.</p></div>
+    </div>
+  </section>
+  <Cta />
+</Base>
+<style>
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .step { border: 1px solid var(--border); border-radius: 20px; padding: 30px; }
+  .step span { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 12px; background: var(--orange); color: var(--on-orange); font: 800 20px/1 var(--f-head); margin-bottom: 18px; }
+  .step h2 { font-size: 21px; color: var(--primary); }
+  .step p { color: var(--ink-muted); margin: 0; }
+  @media (max-width: 860px) { .steps { grid-template-columns: 1fr; } }
+</style>

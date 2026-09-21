@@ -1,0 +1,41 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import ServiceBody from '../components/ServiceBody.astro';
+import Faq from '../components/Faq.astro';
+import Cta from '../components/Cta.astro';
+import { SITE } from '../data/site';
+const faq: [string, string][] = [
+  ['How long does a custom app take?', 'Custom software and mobile apps are fully delivered from about 2 months, depending on the size of the project.'],
+  ['How much does custom software cost?', 'Every project is quoted based on its size and requirements. Message us on WhatsApp and we’ll send you a clear quote with no hidden costs.'],
+  ['Can you move our data from Excel?', 'Yes. Data migration from Excel is included where available.'],
+  ['Do you work with larger companies?', 'Our focus today is SMEs, from single shops to multi-branch groups. Enterprise and governance solutions are on our roadmap and will be rolled out in stages.'],
+];
+const schema = [
+  { '@context': 'https://schema.org', '@type': 'Service', name: 'Custom software & mobile app development', serviceType: 'Software development', provider: { '@id': `${SITE.url}/#business` }, areaServed: 'AE', url: `${SITE.url}/custom-software`, description: 'Custom business software and mobile apps for UAE SMEs, fully delivered from about 2 months depending on size.' },
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) },
+];
+---
+<Base title="Custom Software & Mobile App Development in Dubai | MarkZone Technology" description="Custom business software and mobile apps for UAE SMEs, built around how you work. Fully delivered from about 2 months, with onboarding, Excel migration and local WhatsApp support." alternate={{ en: '/custom-software', ar: '/ar/custom-software' }} schema={schema}>
+  <PageHero eyebrow="Custom software & mobile apps" title="Software built around exactly how you work" lead="When a ready-made app doesn’t fit, we build one that does. From the first conversation to full delivery, it’s designed around your workflow." crumb={[{ href: '/custom-software', label: 'Custom Software' }]} />
+  <ServiceBody timelineLabel="Full delivery" timeline="From ~2 months" waText="Hi MarkZone, I'd like to discuss a custom software project" points={[
+    ['Built around your workflow', 'We organize the system around how your team already works.'],
+    ['Onboarding & setup', 'We set it up and train your team.'],
+    ['Data migration from Excel', 'Bring your existing data with you, where available.'],
+    ['Support that stays', 'WhatsApp support daily and on-site visits when the situation requires.'],
+  ]}>
+    <span class="eyebrow">Why custom</span>
+    <h2>Organized from day one</h2>
+    <p>Most SMEs don’t struggle because of marketing. They struggle because the business isn’t organized internally. A system built for your exact process removes the spreadsheets, the notebooks and the guesswork.</p>
+    <p>Delivery depends on the size of the project, starting from about 2 months for a fully delivered system.</p>
+  </ServiceBody>
+  <section class="section section--muted">
+    <div class="wrap" style="max-width:820px">
+      <span class="eyebrow">On our roadmap</span>
+      <h2 style="color:var(--primary)">Enterprise & governance solutions</h2>
+      <p style="font-size:18px;color:var(--ink-muted)">Our vision is to bring the solutions we built for SMEs to large-scale businesses. Enterprise and governance solutions will be rolled out in stages.</p>
+    </div>
+  </section>
+  <Faq items={faq} title="Custom software questions" />
+  <Cta title="Tell us what you need built" text="Describe your process on WhatsApp and we’ll come back with a clear plan and quote." />
+</Base>
