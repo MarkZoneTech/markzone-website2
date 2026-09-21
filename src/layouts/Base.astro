@@ -1,0 +1,207 @@
+---
+import '../styles/global.css';
+import { SITE } from '../data/site';
+
+interface Props {
+  title: string;
+  description: string;
+  lang?: 'en' | 'ar';
+  alternate?: { en?: string; ar?: string };
+  ogImage?: string;
+  schema?: object[];
+}
+const { title, description, lang = 'en', alternate, ogImage = '/img/og-default.jpg', schema = [] } = Astro.props;
+const dir = lang === 'ar' ? 'rtl' : 'ltr';
+const canonical = new URL(Astro.url.pathname, SITE.url).href.replace(/\/$/, '') || SITE.url;
+const ogUrl = new URL(ogImage, SITE.url).href;
+
+const org = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  '@id': `${SITE.url}/#business`,
+  name: SITE.name,
+  url: SITE.url,
+  logo: `${SITE.url}/img/mz-logo.png`,
+  image: `${SITE.url}/img/mz-logo.png`,
+  description: 'Dubai software company building business management apps, websites and custom software for UAE SMEs.',
+  telephone: '+971506552181',
+  email: SITE.email,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: SITE.address.street,
+    addressLocality: 'Dubai',
+    addressRegion: 'Dubai',
+    addressCountry: 'AE',
+  },
+  areaServed: ['Dubai', 'Abu Dhabi', 'Sharjah', 'Ajman', 'Umm Al Quwain', 'Ras Al Khaimah', 'Fujairah'].map((n) => ({ '@type': 'AdministrativeArea', name: n })),
+  openingHoursSpecification: [{
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+    opens: '10:00', closes: '22:00',
+  }],
+  foundingDate: '2019',
+  sameAs: [SITE.instagram],
+};
+const nav = lang === 'ar'
+  ? [['/ar#apps', 'تطبيقاتنا'], ['/ar/websites', 'المواقع'], ['/ar/custom-software', 'برامج حسب الطلب'], ['/ar/about', 'من نحن'], ['/ar/blog', 'المدونة'], ['/ar/contact', 'تواصل']]
+  : [['/#apps', 'Apps'], ['/websites', 'Websites'], ['/custom-software', 'Custom Software'], ['/about', 'About'], ['/blog', 'Blog'], ['/contact', 'Contact']];
+const switchHref = lang === 'ar' ? (alternate?.en ?? '/') : (alternate?.ar ?? '/ar');
+const waLabel = lang === 'ar' ? 'كلمنا واتساب' : 'WhatsApp us';
+---
+<!doctype html>
+<html lang={lang === 'ar' ? 'ar-AE' : 'en-AE'} dir={dir}>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+  {alternate?.en && <link rel="alternate" hreflang="en-AE" href={new URL(alternate.en, SITE.url).href} />}
+  {alternate?.ar && <link rel="alternate" hreflang="ar-AE" href={new URL(alternate.ar, SITE.url).href} />}
+  {alternate?.en && <link rel="alternate" hreflang="x-default" href={new URL(alternate.en, SITE.url).href} />}
+  <meta name="theme-color" content="#04478b" />
+  <link rel="icon" href="/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content={SITE.name} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:image" content={ogUrl} />
+  <meta property="og:locale" content={lang === 'ar' ? 'ar_AE' : 'en_AE'} />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href={lang === 'ar'
+    ? 'https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800&family=Tajawal:wght@400;500;700&family=Poppins:wght@600;700&display=swap'
+    : 'https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap'} />
+
+  <script type="application/ld+json" set:html={JSON.stringify(org)} />
+  {schema.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s)} />)}
+</head>
+<body>
+  <a class="skip" href="#main">{lang === 'ar' ? 'انتقل للمحتوى' : 'Skip to content'}</a>
+  <header class="hdr">
+    <div class="wrap hdr__in">
+      <a href={lang === 'ar' ? '/ar' : '/'} class="hdr__logo" aria-label="MarkZone Technology home">
+        <img src="/img/mz-logo.webp" alt="MarkZone Technology" width="520" height="153" />
+      </a>
+      <nav class="hdr__nav" aria-label={lang === 'ar' ? 'القائمة الرئيسية' : 'Main'}>
+        <ul>{nav.map(([href, label]) => <li><a href={href}>{label}</a></li>)}</ul>
+      </nav>
+      <div class="hdr__actions">
+        <a class="hdr__lang" href={switchHref} hreflang={lang === 'ar' ? 'en' : 'ar'} lang={lang === 'ar' ? 'en' : 'ar'}>{lang === 'ar' ? 'English' : 'عربي'}</a>
+        <a class="btn btn--cta hdr__cta" href={SITE.whatsapp} rel="noopener">{waLabel}</a>
+        <details class="hdr__menu">
+          <summary aria-label="Menu"><span></span><span></span><span></span></summary>
+          <ul>{nav.map(([href, label]) => <li><a href={href}>{label}</a></li>)}
+            <li><a href={switchHref}>{lang === 'ar' ? 'English' : 'عربي'}</a></li></ul>
+        </details>
+      </div>
+    </div>
+  </header>
+
+  <main id="main"><slot /></main>
+
+  <footer class="ftr">
+    <div class="wrap ftr__grid">
+      <div class="ftr__brand">
+        <img src="/img/mz-logo-rev.webp" alt="MarkZone Technology" width="260" height="77" loading="lazy" />
+        <p>{lang === 'ar' ? SITE.taglineAr : SITE.tagline}</p>
+        <p class="ftr__small">{lang === 'ar' ? 'مقرنا دبي · نخدم الإمارات السبع' : 'Based in Dubai · Serving all 7 emirates'}</p>
+        <p class="ftr__small">Emirati Management 🇦🇪</p>
+      </div>
+      <div>
+        <h2 class="ftr__h">{lang === 'ar' ? 'تطبيقاتنا' : 'Apps'}</h2>
+        <ul>
+          <li><a href={lang === 'ar' ? '/ar/oxpos' : '/oxpos'}>OxPOS</a></li>
+          <li><a href={lang === 'ar' ? '/ar/zainaapp' : '/zainaapp'}>ZainaApp</a></li>
+          <li><a href={lang === 'ar' ? '/ar/texpos' : '/texpos'}>TexPOS</a></li>
+          <li><a href={lang === 'ar' ? '/ar/coming-soon' : '/coming-soon'}>{lang === 'ar' ? 'قريباً' : 'Coming Soon'}</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="ftr__h">{lang === 'ar' ? 'الشركة' : 'Company'}</h2>
+        <ul>
+          <li><a href={lang === 'ar' ? '/ar/about' : '/about'}>{lang === 'ar' ? 'من نحن' : 'About'}</a></li>
+          <li><a href={lang === 'ar' ? '/ar/websites' : '/websites'}>{lang === 'ar' ? 'تصميم المواقع' : 'Websites'}</a></li>
+          <li><a href={lang === 'ar' ? '/ar/custom-software' : '/custom-software'}>{lang === 'ar' ? 'برامج حسب الطلب' : 'Custom Software'}</a></li>
+          <li><a href={lang === 'ar' ? '/ar/growth-partner' : '/growth-partner'}>{lang === 'ar' ? 'شريك النمو' : 'Growth Partner'}</a></li>
+          <li><a href={lang === 'ar' ? '/ar/blog' : '/blog'}>{lang === 'ar' ? 'المدونة' : 'Blog'}</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="ftr__h">{lang === 'ar' ? 'تواصل معنا' : 'Contact'}</h2>
+        <ul class="ftr__contact">
+          <li><a href={SITE.whatsapp} rel="noopener">WhatsApp {SITE.phone}</a></li>
+          <li><a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
+          <li><a href={SITE.instagram} rel="noopener">{SITE.instagramHandle}</a></li>
+          <li>{SITE.address.street}, Dubai</li>
+          <li>{lang === 'ar' ? 'يومياً ١٠ الصبح – ١٠ الليل · الأحد إجازة' : SITE.hours}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="wrap ftr__legal">
+      <p>{SITE.credentials}</p>
+      <p>© {new Date().getFullYear()} MarkZone Technology · <a href={lang === 'ar' ? '/ar/privacy' : '/privacy'}>{lang === 'ar' ? 'الخصوصية' : 'Privacy'}</a> · <a href={lang === 'ar' ? '/ar/terms' : '/terms'}>{lang === 'ar' ? 'الشروط' : 'Terms'}</a></p>
+    </div>
+  </footer>
+
+  <a class="wa-float" href={SITE.whatsapp} rel="noopener" aria-label={waLabel}>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2a9.9 9.9 0 0 0-8.5 15l-1.4 5 5.1-1.3A9.9 9.9 0 1 0 12.04 2Zm0 18.1a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3a8.2 8.2 0 1 1 6.9 3.7Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.5-.3Z"/></svg>
+  </a>
+</body>
+</html>
+
+<style>
+  .skip { position: absolute; inset-inline-start: 12px; top: -60px; background: var(--primary); color: #fff; padding: 10px 16px; border-radius: 8px; z-index: 100; }
+  .skip:focus { top: 12px; }
+
+  .hdr { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.92); backdrop-filter: saturate(160%) blur(12px); border-bottom: 1px solid var(--border); padding-top: env(safe-area-inset-top, 0px); }
+  .hdr__in { display: flex; align-items: center; gap: 24px; height: 76px; }
+  .hdr__logo img { width: 168px; height: auto; }
+  .hdr__nav { margin-inline-start: auto; }
+  .hdr__nav ul, .hdr__menu ul { list-style: none; margin: 0; padding: 0; }
+  .hdr__nav ul { display: flex; gap: 4px; }
+  .hdr__nav a { display: block; padding: 8px 12px; border-radius: 8px; color: var(--ink); text-decoration: none; font: 500 15px/1.2 var(--f-head); }
+  :global([dir="rtl"]) .hdr__nav a { font-family: var(--f-ar-head); font-weight: 600; }
+  .hdr__nav a:hover { background: var(--surface-muted); color: var(--primary); }
+  .hdr__actions { display: flex; align-items: center; gap: 12px; }
+  .hdr__lang { font: 600 15px/1 var(--f-ar-head); color: var(--primary); text-decoration: none; padding: 8px 10px; }
+  .hdr__cta { min-height: 44px; padding: 10px 18px; font-size: 15px; }
+  .hdr__menu { display: none; position: relative; }
+  .hdr__menu summary { list-style: none; cursor: pointer; width: 44px; height: 44px; display: grid; place-content: center; gap: 5px; border-radius: 10px; }
+  .hdr__menu summary::-webkit-details-marker { display: none; }
+  .hdr__menu summary span { display: block; width: 22px; height: 2px; background: var(--ink); border-radius: 2px; }
+  .hdr__menu ul { position: absolute; inset-inline-end: 0; top: 54px; background: #fff; border: 1px solid var(--border); border-radius: 14px; box-shadow: var(--shadow-lg); padding: 8px; min-width: 220px; }
+  .hdr__menu a { display: block; padding: 12px 14px; color: var(--ink); text-decoration: none; font-weight: 500; border-radius: 8px; }
+  .hdr__menu a:hover { background: var(--surface-muted); }
+  @media (max-width: 1020px) {
+    .hdr__nav, .hdr__lang { display: none; }
+    .hdr__menu { display: block; }
+    .hdr__actions { margin-inline-start: auto; }
+  }
+  @media (max-width: 480px) { .hdr__logo img { width: 136px; } .hdr__cta { padding: 10px 14px; font-size: 14px; } }
+
+  .ftr { background: var(--navy-deep); color: #c9d6ea; padding-top: 72px; padding-bottom: env(safe-area-inset-bottom, 0px); }
+  .ftr a { color: #fff; text-decoration: none; }
+  .ftr a:hover { text-decoration: underline; }
+  .ftr__grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.4fr; gap: 40px; }
+  .ftr__brand img { width: 200px; margin-bottom: 18px; }
+  .ftr__brand p { color: #fff; font: 600 17px/1.4 var(--f-head); }
+  :global([dir="rtl"]) .ftr__brand p { font-family: var(--f-ar-head); }
+  .ftr .ftr__small { color: #c9d6ea; font: 400 14px/1.5 var(--f-body); margin: 0 0 6px; }
+  .ftr__h { color: #fff; font-size: 15px; margin-bottom: 14px; }
+  .ftr ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; font-size: 15px; }
+  .ftr__contact li { overflow-wrap: anywhere; }
+  .ftr__legal { border-top: 1px solid rgba(255,255,255,.14); margin-top: 56px; padding-block: 24px 96px; font-size: 13px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; }
+  .ftr__legal p { margin: 0; }
+  @media (max-width: 860px) { .ftr__grid { grid-template-columns: 1fr 1fr; } .ftr__brand { grid-column: 1 / -1; } }
+  @media (max-width: 520px) { .ftr__grid { grid-template-columns: 1fr; } }
+
+  .wa-float { position: fixed; inset-inline-end: 20px; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); z-index: 60; width: 58px; height: 58px; border-radius: 50%; background: #25d366; color: #fff; display: grid; place-items: center; box-shadow: 0 8px 24px rgba(0,0,0,.2); transition: transform .15s ease; }
+  .wa-float:hover { transform: scale(1.06); }
+  .wa-float svg { width: 32px; height: 32px; }
+</style>

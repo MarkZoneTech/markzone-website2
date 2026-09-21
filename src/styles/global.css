@@ -1,0 +1,84 @@
+/* MarkZone Branding tokens — logo artwork is the master for colour */
+:root {
+  --navy: #04478b;
+  --navy-deep: #032f5e;
+  --teal: #06abae;
+  --orange: #fa8606;
+  --teal-tint: #d9f2f2;
+  --surface: #ffffff;
+  --surface-muted: #f5f7fa;
+  --border: #e5e7eb;
+  --ink: #1a1a2e;
+  --ink-muted: #5f6675;
+  --primary: #04478b;
+  --teal-text: #00757a;
+  --on-orange: #1a1a2e;
+  --price: #b35600;
+  --focus: #04478b;
+
+  --f-head: "Poppins", "Montserrat", Arial, sans-serif;
+  --f-body: "Inter", "Open Sans", system-ui, sans-serif;
+  --f-ar-head: "Cairo", "Noto Sans Arabic", Arial, sans-serif;
+  --f-ar-body: "Tajawal", "Noto Sans Arabic", sans-serif;
+
+  --r-card: 16px;
+  --r-sm: 10px;
+  --shadow: 0 1px 2px rgba(4, 71, 139, .06), 0 8px 24px rgba(4, 71, 139, .08);
+  --shadow-lg: 0 2px 4px rgba(3, 47, 94, .08), 0 24px 48px rgba(3, 47, 94, .16);
+  --wrap: 1180px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: 88px; }
+body {
+  margin: 0; font-family: var(--f-body); font-size: 16px; line-height: 1.65;
+  color: var(--ink); background: var(--surface);
+  text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased;
+}
+[dir="rtl"] body { font-family: var(--f-ar-body); line-height: 1.8; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--primary); }
+h1, h2, h3, h4 { font-family: var(--f-head); color: var(--ink); margin: 0 0 .5em; line-height: 1.2; letter-spacing: -.01em; }
+[dir="rtl"] :is(h1, h2, h3, h4) { font-family: var(--f-ar-head); letter-spacing: 0; line-height: 1.45; }
+p { margin: 0 0 1em; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+.wrap { width: 100%; max-width: var(--wrap); margin-inline: auto; padding-inline: 20px; }
+.section { padding-block: 88px; }
+.section--muted { background: var(--surface-muted); }
+.eyebrow {
+  display: inline-block; font: 600 13px/1 var(--f-head); letter-spacing: .08em; text-transform: uppercase;
+  color: var(--teal-text); margin-bottom: 14px;
+}
+[dir="rtl"] .eyebrow { letter-spacing: 0; font-family: var(--f-ar-head); text-transform: none; font-size: 15px; }
+.section-head { max-width: 680px; margin-bottom: 48px; }
+.section-head h2 { font-size: clamp(28px, 3.4vw, 38px); color: var(--primary); }
+.section-head p { color: var(--ink-muted); font-size: 18px; }
+
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 50px; padding: 12px 24px; border-radius: 12px; border: 2px solid transparent;
+  font: 600 16px/1.2 var(--f-head); text-decoration: none; cursor: pointer;
+  transition: transform .15s ease, background-color .15s ease, box-shadow .15s ease;
+}
+[dir="rtl"] .btn { font-family: var(--f-ar-head); }
+.btn:hover { transform: translateY(-1px); }
+.btn svg { width: 20px; height: 20px; flex: none; }
+.btn--cta { background: var(--orange); color: var(--on-orange); box-shadow: 0 6px 18px rgba(250, 134, 6, .35); }
+.btn--cta:hover { background: #ff9524; }
+.btn--primary { background: var(--primary); color: #fff; }
+.btn--primary:hover { background: var(--navy-deep); }
+.btn--ghost { border-color: rgba(255, 255, 255, .45); color: #fff; }
+.btn--ghost:hover { background: rgba(255, 255, 255, .1); border-color: #fff; }
+.btn--outline { border-color: var(--primary); color: var(--primary); }
+.btn--outline:hover { background: var(--primary); color: #fff; }
+
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+@media (max-width: 720px) {
+  .section { padding-block: 64px; }
+  .section-head { margin-bottom: 36px; }
+  .section-head p { font-size: 17px; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
