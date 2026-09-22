@@ -1,4 +1,5 @@
 # Old site URLs -> new site (permanent)
+/sitemap.xml                               /sitemap-index.xml 301
 /software                                  /                 301
 /software/oxpos                            /oxpos            301
 /products/oxpos                            /oxpos            301
