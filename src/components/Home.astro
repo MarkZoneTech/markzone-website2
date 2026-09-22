@@ -31,7 +31,7 @@ const tick = '<svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" /></svg>
         </div>
         <ul class="hero__trust">
           {t.trust.map(([b, s]) => <li><strong dir={nd(b)}>{b}</strong> {s}</li>)}
-          <li><strong dir="ltr">{SITE.googleRating.value}★</strong> {t.ratingLabel.replace('{n}', String(SITE.googleRating.count))}</li>
+          <li><a class="hero__rating" href={SITE.googleMaps} rel="noopener"><strong dir="ltr">{SITE.googleRating.value}★</strong> {t.ratingLabel.replace('{n}', String(SITE.googleRating.count))}</a></li>
         </ul>
       </div>
       <div class="hero__visual">
@@ -289,4 +289,6 @@ const tick = '<svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" /></svg>
   :global([dir="rtl"]) .app__shot--phone img { object-position: top; }
   :global([dir="rtl"]) .faq__list summary { font-family: var(--f-ar-head); }
   :global([dir="rtl"]) .problem__list li { border-radius: var(--r-sm) 0 0 var(--r-sm); }
+  .hero__rating { color: inherit; text-decoration: none; border-bottom: 1px dashed rgba(255,255,255,.35); }
+  .hero__rating:hover { color: #fff; }
 </style>

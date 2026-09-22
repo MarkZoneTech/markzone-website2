@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
 import { SITE } from '../data/site';
-const maps = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('MarkZone Technology, Naif, Deira, Dubai');
+const maps = SITE.googleMaps;
 const cards = [
   { h: 'WhatsApp', v: SITE.phone, href: SITE.whatsapp, note: 'Fastest way to reach us', cta: true },
   { h: 'Call', v: SITE.phone, href: SITE.phoneHref, note: SITE.hours },

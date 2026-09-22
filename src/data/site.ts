@@ -14,6 +14,7 @@ export const SITE = {
   hours: 'Daily 10 AM – 10 PM · Sunday off',
   credentials: 'DED Licence No. 1574303 · Mohammed Bin Rashid Establishment for SME Development — Member',
   googleRating: { value: '4.4', count: 21 },
+  googleMaps: 'https://maps.app.goo.gl/su4aQJoSjxrueqig9',
 };
 
 export const APPS = [
