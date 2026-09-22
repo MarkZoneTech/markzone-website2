@@ -1,6 +1,6 @@
 ---
 title: "Connecting Your Website and Your Shop: What SMEs Should Know"
-description: "Selling online and in store from the same stock? What UAE SMEs should consider before connecting their website to their shop, and when custom software makes sense."
+description: "Selling online and in store from the same stock? What UAE SMEs should consider before connecting their website to their shop systems."
 date: 2026-01-09
 updated: 2026-09-21
 category: technology

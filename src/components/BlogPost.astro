@@ -68,7 +68,7 @@ if (d.faq.length) schema.push({ '@context': 'https://schema.org', '@type': 'FAQP
 const share = `https://wa.me/?text=${encodeURIComponent(`${d.title} ${url}`)}`;
 const alternate = twin ? { en: `/blog/${post.id}`, ar: `/ar/blog/${post.id}` } : undefined;
 ---
-<Base title={lang === 'ar' ? `${d.title} | مدونة ماركزون` : `${d.title} | MarkZone Blog`} description={d.description} lang={lang} alternate={alternate} ogImage={cover} schema={schema} noindex={d.draft}>
+<Base title={(() => { const sfx = lang === 'ar' ? ' | ماركزون' : ' | MarkZone'; return (d.title + sfx).length <= 62 ? d.title + sfx : d.title; })()} description={d.description} lang={lang} alternate={alternate} ogImage={cover} schema={schema} noindex={d.draft}>
   <article>
     <header class="ah">
       <div class="wrap ah__in">

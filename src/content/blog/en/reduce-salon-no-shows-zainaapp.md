@@ -1,6 +1,6 @@
 ---
 title: "How to Reduce No-Shows at Your Salon"
-description: "Missed appointments cost salons time and money that cannot be recovered. Practical steps UAE salons and spas can take to reduce no-shows, and how ZainaApp helps."
+description: "Missed appointments cost salons time and money. Practical steps UAE salons and spas can take to reduce no-shows, and how ZainaApp helps."
 date: 2026-01-09
 updated: 2026-09-21
 category: salon-business

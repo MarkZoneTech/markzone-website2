@@ -20,7 +20,7 @@ export interface HomeCopy {
 
 export const EN: HomeCopy = {
   title: 'MarkZone Technology | Business Apps, POS & Websites in Dubai, UAE',
-  description: 'Dubai software company helping UAE SMEs get organized: OxPOS for retail, ZainaApp for salons, TexPOS for tailors, plus websites in 2 weeks. Trusted by 400+ businesses since 2019.',
+  description: 'Dubai software company helping UAE SMEs get organized: OxPOS for retail, ZainaApp for salons, TexPOS for tailors, and websites in 2 weeks.',
   kicker: 'Business software for UAE SMEs · Since 2019',
   h1a: 'Organize your business.', h1b: 'Grow your sales.',
   lead: 'Apps made for how UAE shops, salons and tailors actually work. Sales, stock, staff and reports in one place, set up the same day, with real local support on WhatsApp.',
@@ -86,7 +86,7 @@ export const EN: HomeCopy = {
 };
 
 export const AR: HomeCopy = {
-  title: 'ماركزون تكنولوجي | برامج إدارة المحلات ونقاط البيع وتصميم المواقع في دبي',
+  title: 'ماركزون تكنولوجي | برامج المحلات ونقاط البيع في دبي',
   description: 'شركة برمجيات في دبي تساعد الشركات الصغيرة في الإمارات تنظم شغلها: OxPOS للمحلات، ZainaApp للصالونات، TexPOS للخياطين، ومواقع تتسلم خلال أسبوعين.',
   kicker: 'برامج للشركات الصغيرة والمتوسطة في الإمارات · من 2019',
   h1a: 'نظّم شغلك..', h1b: 'وكبّر مبيعاتك',

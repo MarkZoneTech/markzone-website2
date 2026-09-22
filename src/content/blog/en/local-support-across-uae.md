@@ -1,6 +1,6 @@
 ---
 title: "How MarkZone Support Works Across the UAE"
-description: "What happens after you buy from MarkZone: onboarding, Excel data migration, WhatsApp support daily from 10 AM to 10 PM, and on-site visits across all 7 emirates."
+description: "What happens after you buy from MarkZone: onboarding, Excel data migration, WhatsApp support daily 10 AM–10 PM, and on-site visits across the UAE."
 date: 2026-01-09
 updated: 2026-09-21
 category: markzone-news

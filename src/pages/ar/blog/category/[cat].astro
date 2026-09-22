@@ -12,7 +12,7 @@ const { cat } = Astro.params;
 const { posts } = Astro.props;
 const name = CAT_LABELS.ar[cat!];
 ---
-<Base lang="ar" title={`${name} | مدونة ماركزون`} description={`مقالات ${name} لأصحاب الشغل في الإمارات من ماركزون تكنولوجي في دبي.`} alternate={{ en: `/blog/category/${cat}`, ar: `/ar/blog/category/${cat}` }}>
+<Base lang="ar" title={`${name} | مدونة ماركزون`} description={`مقالات ${name}: نصائح عملية لأصحاب المحلات والصالونات والشركات الصغيرة في الإمارات من ماركزون تكنولوجي في دبي.`} alternate={{ en: `/blog/category/${cat}`, ar: `/ar/blog/category/${cat}` }}>
   <PageHero lang="ar" eyebrow="المدونة" title={name} crumb={[{ href: '/ar/blog', label: 'المدونة' }, { href: `/ar/blog/category/${cat}`, label: name }]} />
   <BlogList posts={posts} active={cat} lang="ar" />
   <Cta lang="ar" />

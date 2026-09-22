@@ -17,7 +17,7 @@ export const PRODUCTS: Product[] = [
   {
     slug: 'oxpos', name: 'OxPOS', accent: '#DF7F36', tone: 'ox', logo: '/img/oxpos-logo.webp',
     seoTitle: 'OxPOS | Retail POS & Inventory Software in Dubai, UAE | MarkZone',
-    seoDesc: 'OxPOS is retail management software for UAE shops: fast POS, inventory, purchases, expenses, salaries, consignment and VAT reports. 1,500 AED with the first year included.',
+    seoDesc: 'OxPOS retail software for UAE shops: fast POS, inventory, purchases, expenses, salaries, consignment and VAT reports. 1,500 AED with year one included.',
     kicker: 'Retail management',
     h1: 'Run your whole shop from one system',
     lead: 'OxPOS brings your sales, stock, purchases, expenses and salaries into one place, with the reports to see exactly where your money goes.',
@@ -60,8 +60,8 @@ export const PRODUCTS: Product[] = [
   },
   {
     slug: 'zainaapp', name: 'ZainaApp', accent: '#B8862F', tone: 'zaina', logo: '/img/zaina-logo.webp',
-    seoTitle: 'ZainaApp | Salon & Spa Management Software in Dubai, UAE | MarkZone',
-    seoDesc: 'ZainaApp is salon and spa software for the UAE: appointments, online booking, WhatsApp notifications, staff commissions, POS and reports. 1,500 AED with the first year included.',
+    seoTitle: 'ZainaApp | Salon & Spa Software in Dubai, UAE | MarkZone',
+    seoDesc: 'ZainaApp salon and spa software for the UAE: appointments, online booking, WhatsApp notifications, staff commissions and reports. 1,500 AED, year one included.',
     kicker: 'Salon & spa management',
     h1: 'A calmer salon, from booking to commission',
     lead: 'ZainaApp organizes your appointments, clients and staff, and works out every commission for you, so the day runs smoothly and month end is simple.',
@@ -99,7 +99,7 @@ export const PRODUCTS: Product[] = [
   {
     slug: 'texpos', name: 'TexPOS', accent: '#BF9B30', tone: 'tex', logo: '/img/texpos-logo.webp',
     seoTitle: 'TexPOS | Tailoring Shop Management App in the UAE | MarkZone',
-    seoDesc: 'TexPOS is a tailoring shop app for the UAE: saved measurements including shaila and ghutra, job orders to the tailor on WhatsApp, deposits and fabric stock. 1,000 AED first year.',
+    seoDesc: 'TexPOS tailoring app for the UAE: saved measurements incl. shaila and ghutra, job orders to the tailor on WhatsApp, deposits and fabric stock. 1,000 AED.',
     kicker: 'Bespoke tailoring management',
     h1: 'Every measurement, every order, in one place',
     lead: 'TexPOS keeps measurements and order details together from the counter to the tailor, so mistakes and remakes stop costing you.',

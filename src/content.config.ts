@@ -11,7 +11,7 @@ export const CATEGORIES = {
 
 const post = z.object({
   title: z.string(),
-  description: z.string().max(170),
+  description: z.string().max(160),
   date: z.coerce.date(),
   updated: z.coerce.date().optional(),
   category: z.enum(Object.keys(CATEGORIES) as [keyof typeof CATEGORIES, ...(keyof typeof CATEGORIES)[]]),

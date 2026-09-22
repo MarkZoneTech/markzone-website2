@@ -18,7 +18,7 @@ public_folder: /img/blog
 
 x-fields: &fields
   - { label: "Title (put the main keyword near the start, max ~60 characters)", name: title, widget: string, pattern: ['^.{10,90}$', 'Use 10–90 characters'] }
-  - { label: "Meta description (shown on Google, 70–170 characters)", name: description, widget: text, pattern: ['^[\s\S]{70,170}$', 'Use 70–170 characters'] }
+  - { label: "Meta description (shown on Google, 70–160 characters)", name: description, widget: text, pattern: ['^[\s\S]{70,160}$', 'Use 70–160 characters'] }
   - { label: "Publish date", name: date, widget: datetime, format: "YYYY-MM-DD", time_format: false }
   - { label: "Last updated (change this when you edit an old post)", name: updated, widget: datetime, format: "YYYY-MM-DD", time_format: false, required: false }
   - label: Category

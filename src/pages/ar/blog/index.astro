@@ -12,7 +12,7 @@ const schema = [{
   blogPost: posts.slice(0, 10).map((p) => ({ '@type': 'BlogPosting', headline: p.data.title, url: `${SITE.url}/ar/blog/${p.id}`, datePublished: p.data.date.toISOString() })),
 }];
 ---
-<Base lang="ar" title="المدونة: نصائح لأصحاب المحلات والصالونات في الإمارات | ماركزون تكنولوجي" description="نصائح عملية لأصحاب الشغل في الإمارات عن المحلات والمخزون وإدارة الصالونات والموظفين وتنظيم الشغل. من ماركزون تكنولوجي في دبي." alternate={{ en: '/blog', ar: '/ar/blog' }} schema={schema}>
+<Base lang="ar" title="المدونة: نصائح لأصحاب المحلات والصالونات | ماركزون" description="نصائح عملية لأصحاب الشغل في الإمارات عن المحلات والمخزون وإدارة الصالونات والموظفين وتنظيم الشغل. من ماركزون تكنولوجي في دبي." alternate={{ en: '/blog', ar: '/ar/blog' }} schema={schema}>
   <PageHero lang="ar" eyebrow="المدونة" title="نصائح عملية لأصحاب الشغل في الإمارات" lead="نصائح واضحة عن المخزون والموظفين والعملاء وتنظيم شغلك." crumb={[{ href: '/ar/blog', label: 'المدونة' }]} />
   <BlogList posts={posts} lang="ar" />
   <Cta lang="ar" />

@@ -1,6 +1,6 @@
 ---
 title: "Going Cashless: Keeping Your Shop’s Payment Records Organized"
-description: "UAE customers increasingly pay by card and phone. How shops and salons can keep mixed cash and digital payments organized, from the till to the end-of-day report."
+description: "UAE customers increasingly pay by card and phone. How shops and salons can keep mixed cash and digital payments organized, from till to end of day."
 date: 2026-01-09
 updated: 2026-09-21
 category: business-growth

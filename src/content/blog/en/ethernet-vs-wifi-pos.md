@@ -1,5 +1,5 @@
 ---
-title: "Wired or WiFi? Getting a Reliable Connection for Your Shop Counter"
+title: "Wired or WiFi? A Reliable Connection for Your Shop Counter"
 description: "A dropped connection at the counter means delays and frustrated customers. When to use a wired connection, when WiFi is fine, and how to keep your shop online."
 date: 2026-01-09
 updated: 2026-09-21

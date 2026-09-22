@@ -1,6 +1,6 @@
 ---
 title: "5 Signs It’s Time to Upgrade Your Old Cash Register"
-description: "Still running your shop on an old cash register? Here are five clear signs it is costing you sales, stock and time, and what to look for in a modern retail system."
+description: "Still running your shop on an old cash register? Five clear signs it is costing you sales, stock and time, and what to look for in a modern system."
 date: 2026-01-09
 updated: 2026-09-21
 category: retail-tips
