@@ -141,6 +141,15 @@ Create `src/pages/<service>.astro` and `src/pages/ar/<service>.astro` from the W
 - **Automatic for every post:** RSS (`/rss.xml`), category pages, related posts, and BlogPosting/FAQ schema.
 - **Retired old posts** redirect in `public/_redirects`. Never reuse a retired slug.
 
+## 8b. Video tutorials
+
+- **Where:** hub at `/blog/tutorials` and `/ar/blog/tutorials` (`src/components/TutorialsHub.astro`); series, learning paths and playlist links in `src/data/tutorials.ts`.
+- **One video = one post** in the `tutorials` category, EN and AR with the same slug. Front matter adds `video`: `id` (YouTube ID), `duration` (seconds), `uploaded`, `series` (oxpos / texpos / zainaapp), `lesson` (order), `group` (learning path) and optional `chapters` (copied from the YouTube description timestamps). The Blog Manager has these fields.
+- **Body:** intro with the main keyword, step-by-step list, tips, next-lesson link, 2 FAQs, WhatsApp CTA. Write only what the video and the Master File support. Arabic in Emirati dialect.
+- **Automatic:** lite player (YouTube loads only on click, privacy-enhanced domain), chapter list, previous/next lesson, VideoObject schema with key moments, hub ItemList schema, product-page "Learn step by step" section.
+- **Covers:** `python3 scripts/make-tutorial-covers.py` (EN + AR; `--force` to redo). Add a screenshot for a new slug in its `SHOTS` map.
+- **After publishing,** paste the page link into the YouTube video description (links both ways).
+
 ## 9. Before every release
 
 - `npm run build` passes.
