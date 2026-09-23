@@ -30,6 +30,7 @@ x-fields: &fields
       - { label: "Business growth", value: business-growth }
       - { label: "Technology", value: technology }
       - { label: "MarkZone news", value: markzone-news }
+      - { label: "Video tutorials (fill in the Video section below)", value: tutorials }
   - label: "Product box shown beside the article"
     name: product
     widget: select
@@ -50,6 +51,37 @@ x-fields: &fields
     fields:
       - { label: Question, name: q, widget: string }
       - { label: Answer, name: a, widget: text }
+  - label: "Video (only for the Video tutorials category)"
+    name: video
+    widget: object
+    required: false
+    collapsed: true
+    fields:
+      - { label: "YouTube video ID (the part after watch?v=)", name: id, widget: string }
+      - { label: "Length in seconds (e.g. 4:05 = 245)", name: duration, widget: number, value_type: int }
+      - { label: "YouTube upload date", name: uploaded, widget: datetime, format: "YYYY-MM-DD", time_format: false }
+      - label: "App"
+        name: series
+        widget: select
+        options: [{ label: OxPOS, value: oxpos }, { label: TexPOS, value: texpos }, { label: ZainaApp, value: zainaapp }]
+      - { label: "Lesson number (order in the series)", name: lesson, widget: number, value_type: int }
+      - label: "Learning path"
+        name: group
+        widget: select
+        options:
+          - { label: "Getting started", value: start }
+          - { label: "Selling at the counter", value: selling }
+          - { label: "Products & stock", value: products }
+          - { label: "Staff & users", value: staff }
+          - { label: "Expenses, branches & reports", value: money }
+          - { label: "Orders & customers", value: orders }
+      - label: "Chapters (copy the timestamps from the YouTube description)"
+        name: chapters
+        widget: list
+        required: false
+        fields:
+          - { label: "Time (m:ss)", name: t, widget: string }
+          - { label: "Chapter title", name: label, widget: string }
   - { label: "Draft (hidden from the site and Google)", name: draft, widget: boolean, default: false }
   - { label: "Article (use ## for section headings; link to /oxpos, /zainaapp, /texpos where relevant)", name: body, widget: markdown }
 

@@ -5,8 +5,8 @@ export type Post = CollectionEntry<'blog'> | CollectionEntry<'blogAr'>;
 export type Lang = 'en' | 'ar';
 
 export const CAT_LABELS: Record<Lang, Record<string, string>> = {
-  en: { 'retail-tips': 'Retail tips', 'salon-business': 'Salon business', 'business-growth': 'Business growth', technology: 'Technology', 'markzone-news': 'MarkZone news' },
-  ar: { 'retail-tips': 'نصائح للمحلات', 'salon-business': 'شغل الصالونات', 'business-growth': 'نمو الشغل', technology: 'التقنية', 'markzone-news': 'أخبار ماركزون' },
+  en: { 'retail-tips': 'Retail tips', 'salon-business': 'Salon business', 'business-growth': 'Business growth', technology: 'Technology', 'markzone-news': 'MarkZone news', tutorials: 'Video tutorials' },
+  ar: { 'retail-tips': 'نصائح للمحلات', 'salon-business': 'شغل الصالونات', 'business-growth': 'نمو الشغل', technology: 'التقنية', 'markzone-news': 'أخبار ماركزون', tutorials: 'شروحات فيديو' },
 };
 
 export async function getPosts(lang: Lang = 'en'): Promise<Post[]> {

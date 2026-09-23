@@ -7,6 +7,7 @@ export const CATEGORIES = {
   'business-growth': 'Business growth',
   'technology': 'Technology',
   'markzone-news': 'MarkZone news',
+  'tutorials': 'Video tutorials',
 } as const;
 
 const post = z.object({
@@ -20,6 +21,16 @@ const post = z.object({
   product: z.enum(['oxpos', 'zainaapp', 'texpos', 'websites', 'custom-software', 'none']).default('none'),
   faq: z.array(z.object({ q: z.string(), a: z.string() })).default([]),
   draft: z.boolean().default(false),
+  /** Video tutorial fields (category: tutorials). */
+  video: z.object({
+    id: z.string(),                       // YouTube video id
+    duration: z.number().int(),           // seconds
+    uploaded: z.string(),                 // ISO date-time of the YouTube upload
+    series: z.enum(['oxpos', 'texpos', 'zainaapp']),
+    lesson: z.number().int(),             // order inside the series
+    group: z.string(),                    // learning-path key (see src/data/tutorials.ts)
+    chapters: z.array(z.object({ t: z.string(), label: z.string() })).default([]),
+  }).optional(),
 });
 
 export const collections = {

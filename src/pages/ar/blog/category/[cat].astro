@@ -6,7 +6,7 @@ import Cta from '../../../../components/Cta.astro';
 import { getPosts, CAT_LABELS } from '../../../../data/blog';
 export async function getStaticPaths() {
   const posts = await getPosts('ar');
-  return Object.keys(CAT_LABELS.ar).map((cat) => ({ params: { cat }, props: { posts: posts.filter((p) => p.data.category === cat) } })).filter((x) => x.props.posts.length);
+  return Object.keys(CAT_LABELS.ar).filter((cat) => cat !== 'tutorials').map((cat) => ({ params: { cat }, props: { posts: posts.filter((p) => p.data.category === cat) } })).filter((x) => x.props.posts.length);
 }
 const { cat } = Astro.params;
 const { posts } = Astro.props;

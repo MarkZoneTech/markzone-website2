@@ -4,6 +4,8 @@ import Cta from './Cta.astro';
 import Faq from './Faq.astro';
 import type { Product } from '../data/products';
 import { SITE } from '../data/site';
+import { getTutorials, mmss } from '../data/tutorials';
+import { coverFor } from '../data/blog';
 
 interface Props { p: Product; all: Product[]; lang: 'en' | 'ar' }
 const { p, all, lang } = Astro.props;
@@ -23,6 +25,10 @@ const L = lang === 'ar' ? {
   incl: ['Onboarding and setup, with your team trained', 'Data migration from Excel, where available', 'Full WhatsApp support daily, 10 AM – 10 PM (Sunday off)', 'On-site visits when the situation requires', 'No hidden costs'],
   faqT: `${p.name} questions`, moreE: 'More from MarkZone', moreH: 'Our other apps', wa: `Hi MarkZone, I'm interested in ${p.name}`,
 };
+const tuts = (p.slug === 'oxpos' || p.slug === 'texpos' || p.slug === 'zainaapp') ? await getTutorials(lang, p.slug) : [];
+const TT = lang === 'ar'
+  ? { e: 'شروحات فيديو', h: `تعلّم ${p.name} خطوة بخطوة`, all: (n: number) => `شوف كل الشروحات (${n})` }
+  : { e: 'Video tutorials', h: `Learn ${p.name} step by step`, all: (n: number) => `See all ${n} tutorials` };
 const waHref = `${SITE.whatsapp}?text=${encodeURIComponent(L.wa)}`;
 
 const schema = [
@@ -116,6 +122,23 @@ const heroPhone = p.mobile[0];
     </section>
   )}
 
+  {tuts.length > 0 && (
+    <section class="section section--muted">
+      <div class="wrap">
+        <div class="section-head"><span class="eyebrow">{TT.e}</span><h2>{TT.h}</h2></div>
+        <div class="tut">
+          {tuts.slice(0, 3).map((t) => (
+            <a class="tut__c" href={`${pre}/blog/${t.id}`}>
+              <span class="tut__img"><img src={coverFor(t, lang)} alt="" width="1200" height="630" loading="lazy" /><span class="tut__d">▶ {mmss(t.data.video!.duration)}</span></span>
+              <span class="tut__t">{t.data.title}</span>
+            </a>
+          ))}
+        </div>
+        <p class="tut__all"><a class="btn btn--outline" href={`${pre}/blog/tutorials#${p.slug}`}>{TT.all(tuts.length)}</a></p>
+      </div>
+    </section>
+  )}
+
   <section class="section pricing">
     <div class="wrap pricing__grid">
       <div class="pcard" style={`--accent:${p.accent}`}>
@@ -154,6 +177,15 @@ const heroPhone = p.mobile[0];
 </Base>
 
 <style>
+  .tut { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .tut__c { display: flex; flex-direction: column; background: #fff; border: 1px solid var(--border); border-radius: 18px; overflow: hidden; text-decoration: none; color: var(--ink); transition: box-shadow .15s, transform .15s; }
+  .tut__c:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+  .tut__img { position: relative; display: block; }
+  .tut__img img { width: 100%; aspect-ratio: 1200 / 630; object-fit: cover; display: block; }
+  .tut__d { position: absolute; bottom: 10px; inset-inline-end: 10px; background: rgba(0,0,0,.78); color: #fff; font-size: 13px; font-weight: 600; padding: 3px 8px; border-radius: 6px; direction: ltr; }
+  .tut__t { padding: 16px 18px 20px; font: 600 17px/1.4 var(--f-head); }
+  .tut__all { text-align: center; margin: 32px 0 0; }
+  @media (max-width: 900px) { .tut { grid-template-columns: 1fr; } }
   .phero { background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 10%, white), #fff); padding-block: 40px 72px; border-bottom: 1px solid var(--border); overflow: hidden; }
   .phero--zaina { background: linear-gradient(180deg, #f6efe2, #fff); }
   .phero--tex { background: linear-gradient(180deg, #f3ecdc, #fff); }

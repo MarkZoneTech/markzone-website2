@@ -11,7 +11,7 @@ const mins = readingTime(post.body);
     <img src={coverFor(post, lang)} alt="" width="1200" height="630" loading="lazy" />
   </a>
   <div class="pc__body">
-    <p class="pc__meta"><a href={`${base}/category/${d.category}`}>{CAT_LABELS[lang][d.category]}</a> · {lang === 'ar' ? `${mins} دقائق قراءة` : `${mins} min read`}</p>
+    <p class="pc__meta"><a href={d.category === 'tutorials' ? `${base}/tutorials` : `${base}/category/${d.category}`}>{CAT_LABELS[lang][d.category]}</a> · {d.video ? (lang === 'ar' ? `فيديو ${Math.round(d.video.duration / 60)} دقائق` : `${Math.round(d.video.duration / 60)} min video`) : lang === 'ar' ? `${mins} دقائق قراءة` : `${mins} min read`}</p>
     <h3><a href={`${base}/${post.id}`}>{d.title}</a></h3>
     <p class="pc__desc">{d.description}</p>
     <p class="pc__date"><time datetime={(d.updated ?? d.date).toISOString()}>{fmtDate(d.updated ?? d.date, lang)}</time></p>

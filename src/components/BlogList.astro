@@ -4,21 +4,43 @@ import { CAT_LABELS, blogBase, type Post, type Lang } from '../data/blog';
 interface Props { posts: Post[]; active?: string; lang?: Lang }
 const { posts, active, lang = 'en' } = Astro.props;
 const base = blogBase(lang);
+const tuts = !active ? posts.filter((p) => p.data.category === 'tutorials') : [];
+const list = !active ? posts.filter((p) => p.data.category !== 'tutorials') : posts;
+const T = lang === 'ar'
+  ? { k: 'جديد: شروحات فيديو', h: 'تعلّم OxPOS و TexPOS خطوة بخطوة', p: (n: number) => `${n} شرح بالعربي، كل واحد مع خطوات مكتوبة.`, b: 'شوف كل الشروحات' }
+  : { k: 'New: video tutorials', h: 'Learn OxPOS and TexPOS step by step', p: (n: number) => `${n} tutorials narrated in Arabic, each with written steps.`, b: 'Browse all tutorials' };
 ---
 <section class="section">
   <div class="wrap">
     <nav class="cats" aria-label={lang === 'ar' ? 'أقسام المدونة' : 'Blog categories'}>
       <a href={base} class={!active ? 'on' : ''}>{lang === 'ar' ? 'الكل' : 'All'}</a>
-      {Object.entries(CAT_LABELS[lang]).map(([k, v]) => <a href={`${base}/category/${k}`} class={active === k ? 'on' : ''}>{v}</a>)}
+      {Object.entries(CAT_LABELS[lang]).map(([k, v]) => <a href={k === 'tutorials' ? `${base}/tutorials` : `${base}/category/${k}`} class={active === k ? 'on' : k === 'tutorials' ? 'vid' : ''}>{k === 'tutorials' ? '▶ ' : ''}{v}</a>)}
     </nav>
-    <div class="grid">{posts.map((p) => <PostCard post={p} lang={lang} />)}</div>
+    {tuts.length > 0 && (
+      <a class="tb" href={`${base}/tutorials`}>
+        <span class="tb__play" aria-hidden="true">▶</span>
+        <span class="tb__t"><small>{T.k}</small><strong>{T.h}</strong><span>{T.p(tuts.length)}</span></span>
+        <span class="btn btn--primary">{T.b}</span>
+      </a>
+    )}
+    <div class="grid">{list.map((p) => <PostCard post={p} lang={lang} />)}</div>
   </div>
 </section>
 <style>
   .cats { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; }
   .cats a { padding: 9px 16px; border-radius: 999px; border: 1px solid var(--border); text-decoration: none; color: var(--ink); font-weight: 500; font-size: 15px; }
   .cats a:hover { border-color: var(--teal); }
+  .cats a.vid { border-color: var(--orange); color: var(--ink); font-weight: 600; }
   .cats a.on { background: var(--navy); border-color: var(--navy); color: #fff; }
+  .tb { display: flex; align-items: center; gap: 22px; padding: 22px 26px; margin-bottom: 36px; border-radius: 20px; text-decoration: none; color: #d6e3f5; background: radial-gradient(110% 140% at 90% 0%, #0a5aa8 0%, var(--navy) 55%, var(--navy-deep) 100%); }
+  .tb__play { flex: none; width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; background: var(--orange); color: var(--on-orange); font-size: 22px; }
+  .tb__t { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+  .tb__t small { font: 600 12px/1.4 var(--f-head); text-transform: uppercase; letter-spacing: .08em; color: #7fe0e1; }
+  .tb__t strong { font: 700 21px/1.3 var(--f-head); color: #fff; }
+  .tb .btn { flex: none; }
+  :global([dir="rtl"]) .tb__t small { letter-spacing: 0; text-transform: none; font-family: var(--f-ar-head); font-size: 14px; }
+  :global([dir="rtl"]) .tb__t strong { font-family: var(--f-ar-head); }
+  @media (max-width: 620px) { .tb { flex-wrap: wrap; } .tb .btn { width: 100%; } }
   .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
   @media (max-width: 1020px) { .grid { grid-template-columns: 1fr 1fr; } }
   @media (max-width: 620px) { .grid { grid-template-columns: 1fr; } }
