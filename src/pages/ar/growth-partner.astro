@@ -3,6 +3,7 @@ import Base from '../../layouts/Base.astro';
 import PageHero from '../../components/PageHero.astro';
 import Cta from '../../components/Cta.astro';
 import { SITE } from '../../data/site';
+import PartnerPortal from '../../components/partner/PartnerPortal.tsx';
 ---
 <Base lang="ar" title="برنامج شريك النمو | رشّح شركة لماركزون تكنولوجي" description="تعرف شركة في الإمارات تحتاج تنظم شغلها؟ انضم لبرنامج شريك النمو من ماركزون ورشّح المحلات والصالونات ومحلات الخياطة." alternate={{ en: '/growth-partner', ar: '/ar/growth-partner' }}>
   <PageHero lang="ar" eyebrow="شريك النمو" title="تعرف شركة تحتاج تنظم شغلها؟" lead="رشّح المحلات والصالونات ومحلات الخياطة لماركزون، وصير شريك نمو ويانا." crumb={[{ href: '/ar/growth-partner', label: 'شريك النمو' }]}>
@@ -13,6 +14,12 @@ import { SITE } from '../../data/site';
       <div class="step"><span>1</span><h2>انضم</h2><p>راسلنا على الواتساب عشان تصير شريك نمو، ونرسل لك شروط الشراكة الحالية.</p></div>
       <div class="step"><span>2</span><h2>رشّح</h2><p>عرّفنا على صاحب شغل يحتاج OxPOS أو ZainaApp أو TexPOS أو موقع أو برنامج خاص.</p></div>
       <div class="step"><span>3</span><h2>نحن نتكفل فيه</h2><p>نتولى العرض والتجهيز والدعم، بنفس مستوى الخدمة اللي ياخذه كل عميل.</p></div>
+    </div>
+  </section>
+  <section class="section section--muted" id="portal">
+    <div class="wrap">
+      <div class="section-head"><span class="eyebrow">بوابة الشركاء</span><h2>سجّل دخولك أو سوّ حساب شريك</h2></div>
+      <PartnerPortal client:only="react" lang="ar" />
     </div>
   </section>
   <Cta lang="ar" />

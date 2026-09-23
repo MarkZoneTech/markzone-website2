@@ -1,0 +1,33 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+<Base title="Redirecting… | MarkZone Technology" description="Following a MarkZone Growth Partner referral link to the right page on markzonetech.com." noindex>
+  <section class="section"><div class="wrap" style="text-align:center">
+    <p class="eyebrow">MarkZone</p>
+    <h1 style="color:var(--primary)">One moment…</h1>
+    <p id="fallback" style="color:var(--ink-muted)">Taking you to the page. <a href="/">Continue to the homepage</a>.</p>
+  </div></section>
+</Base>
+<script>
+  import { supabase, storeRef } from '../../lib/portal';
+  const code = decodeURIComponent(location.pathname.replace(/^\/r\//, '').replace(/\/$/, ''));
+  const go = (url: string) => location.replace(url);
+  (async () => {
+    if (!code) return go('/');
+    try {
+      const { data } = await supabase.rpc('resolve_referral', { _code: code });
+      const row = Array.isArray(data) ? data[0] : data;
+      if (!row) return go('/');
+      storeRef({ code: row.referral_code, partnerId: row.partner_id });
+      supabase.from('referral_clicks').insert({
+        partner_id: row.partner_id,
+        referral_code: row.referral_code,
+        ip_hash: btoa(navigator.userAgent + new Date().toDateString()).slice(0, 32),
+        user_agent: navigator.userAgent.slice(0, 300),
+        landing_page: row.landing_page,
+      }).then(() => {}, () => {});
+      const target = row.landing_page && row.landing_page.startsWith('/') ? row.landing_page : '/';
+      go(`${target}${target.includes('?') ? '&' : '?'}ref=${encodeURIComponent(row.referral_code)}`);
+    } catch { go('/'); }
+  })();
+</script>

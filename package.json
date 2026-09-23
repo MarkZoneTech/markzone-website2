@@ -7,13 +7,20 @@
     "preview": "astro preview"
   },
   "dependencies": {
+    "@astrojs/react": "^7.0.0",
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.4",
     "@fontsource/cairo": "^5.3.0",
     "@fontsource/inter": "^5.3.0",
     "@fontsource/poppins": "^5.3.0",
     "@fontsource/tajawal": "^5.3.0",
+    "@supabase/supabase-js": "^2.117.0",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
     "astro": "^5.18.2",
+    "qrcode": "^1.5.4",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
     "sharp": "^0.35.4"
   },
   "private": true,

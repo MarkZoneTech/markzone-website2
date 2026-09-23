@@ -1,0 +1,9 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import AdminPortal from '../../components/partner/AdminPortal.tsx';
+---
+<Base title="Growth Partner admin | MarkZone Technology" description="Internal MarkZone tool for approving Growth Partners, tracking referrals, referred leads and partner payouts." noindex>
+  <PageHero eyebrow="Internal" title="Growth Partner admin" lead="Approve partners, manage referrals, referred leads and payouts." />
+  <section class="section"><div class="wrap"><AdminPortal client:only="react" lang="en" /></div></section>
+</Base>

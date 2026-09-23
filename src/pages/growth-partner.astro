@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
 import Cta from '../components/Cta.astro';
 import { SITE } from '../data/site';
+import PartnerPortal from '../components/partner/PartnerPortal.tsx';
 ---
 <Base title="Growth Partner Program | Refer a Business to MarkZone Technology" description="Know a UAE business that needs to get organized? Join the MarkZone Growth Partner program and refer shops, salons and tailors to MarkZone Technology." alternate={{ en: '/growth-partner', ar: '/ar/growth-partner' }}>
   <PageHero eyebrow="Growth Partner" title="Know a business that needs to get organized?" lead="Refer shops, salons and tailoring businesses to MarkZone and become a Growth Partner." crumb={[{ href: '/growth-partner', label: 'Growth Partner' }]}>
@@ -13,6 +14,12 @@ import { SITE } from '../data/site';
       <div class="step"><span>1</span><h2>Join</h2><p>Message us on WhatsApp to become a Growth Partner. We’ll share the current partner terms.</p></div>
       <div class="step"><span>2</span><h2>Refer</h2><p>Introduce a business owner who needs OxPOS, ZainaApp, TexPOS, a website or custom software.</p></div>
       <div class="step"><span>3</span><h2>We take care of them</h2><p>We handle the demo, setup and support, with the same standard of service every client gets.</p></div>
+    </div>
+  </section>
+  <section class="section section--muted" id="portal">
+    <div class="wrap">
+      <div class="section-head"><span class="eyebrow">Partner portal</span><h2>Sign in or create your partner account</h2></div>
+      <PartnerPortal client:only="react" lang="en" />
     </div>
   </section>
   <Cta />

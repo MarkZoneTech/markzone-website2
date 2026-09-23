@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
 import { SITE } from '../data/site';
+import CallbackForm from '../components/partner/CallbackForm.tsx';
 const maps = SITE.googleMaps;
 const cards = [
   { h: 'WhatsApp', v: SITE.phone, href: SITE.whatsapp, note: 'Fastest way to reach us', cta: true },
@@ -24,6 +25,7 @@ const schema = [{ '@context': 'https://schema.org', '@type': 'ContactPage', name
           </a>
         ))}
       </div>
+      <div class="callback"><CallbackForm client:visible lang="en" /></div>
       <div class="visit">
         <div>
           <h2>Our office</h2>
@@ -52,6 +54,7 @@ const schema = [{ '@context': 'https://schema.org', '@type': 'ContactPage', name
   .card--cta .card__v { color: #fff; }
   .card__n { font-size: 14px; color: var(--ink-muted); }
   .card--cta .card__n { color: #c3d4ec; }
+  .callback { max-width: 620px; margin: 0 auto 48px; }
   .visit { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; background: var(--surface-muted); border-radius: 20px; padding: 36px; }
   .visit h2 { font-size: 20px; color: var(--primary); }
   .visit p { color: var(--ink-muted); }
