@@ -16,6 +16,7 @@ import '@fontsource/tajawal/latin-400.css';
 import '@fontsource/tajawal/latin-700.css';
 import '../styles/global.css';
 import { SITE } from '../data/site';
+import Img from '../components/Img.astro';
 
 interface Props {
   title: string;
@@ -100,7 +101,7 @@ const waLabel = lang === 'ar' ? 'كلمنا واتساب' : 'WhatsApp us';
   <header class="hdr">
     <div class="wrap hdr__in">
       <a href={lang === 'ar' ? '/ar' : '/'} class="hdr__logo" aria-label="MarkZone Technology home">
-        <img src="/img/mz-logo.webp" alt="MarkZone Technology" width="520" height="153" />
+        <Img src="/img/mz-logo.webp" alt="MarkZone Technology" sizes="(max-width: 480px) 136px, 168px" loading="eager" />
       </a>
       <nav class="hdr__nav" aria-label={lang === 'ar' ? 'القائمة الرئيسية' : 'Main'}>
         <ul>{nav.map(([href, label]) => <li><a href={href}>{label}</a></li>)}</ul>
@@ -122,7 +123,7 @@ const waLabel = lang === 'ar' ? 'كلمنا واتساب' : 'WhatsApp us';
   <footer class="ftr">
     <div class="wrap ftr__grid">
       <div class="ftr__brand">
-        <img src="/img/mz-logo-rev.webp" alt="MarkZone Technology" width="260" height="77" loading="lazy" />
+        <Img src="/img/mz-logo-rev.webp" alt="MarkZone Technology" sizes="200px" />
         <p>{lang === 'ar' ? SITE.taglineAr : SITE.tagline}</p>
         <p class="ftr__small">{lang === 'ar' ? 'مقرنا دبي · نخدم الإمارات السبع' : 'Based in Dubai · Serving all 7 emirates'}</p>
         <p class="ftr__small">Emirati Management 🇦🇪</p>
@@ -184,6 +185,7 @@ const waLabel = lang === 'ar' ? 'كلمنا واتساب' : 'WhatsApp us';
   :global([dir="rtl"]) .hdr__nav a { font-family: var(--f-ar-head); font-weight: 600; }
   .hdr__nav a:hover { background: var(--surface-muted); color: var(--primary); }
   .hdr__actions { display: flex; align-items: center; gap: 12px; }
+  .hdr__lang:lang(ar) { font-family: "Noto Sans Arabic", Tahoma, Arial, sans-serif; }
   .hdr__lang { font: 600 15px/1 var(--f-ar-head); color: var(--primary); text-decoration: none; padding: 8px 10px; }
   .hdr__cta { min-height: 44px; padding: 10px 18px; font-size: 15px; }
   .hdr__menu { display: none; position: relative; }

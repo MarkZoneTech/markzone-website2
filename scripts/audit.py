@@ -20,7 +20,7 @@ for f in sorted(glob.glob(f'{D}/**/*.html', recursive=True)):
     for s in re.findall(r'<script type="application/ld\+json">(.*?)</script>', h, re.S):
         try: json.loads(s)
         except Exception: issues.append(f'{p}: invalid JSON-LD')
-    if any('alt=' not in i for i in re.findall(r'<img [^>]*>', h)): issues.append(f'{p}: image without alt')
+    if any(not re.search(r'\salt(=|[\s>])', i) for i in re.findall(r'<img [^>]*>', h)): issues.append(f'{p}: image without alt')
     for l in re.findall(r'href="(/[^"#?]*)', h):
         l = l.rstrip('/') or '/'
         if l.startswith(('/_astro', '/img', '/favicon', '/apple', '/rss', '/admin', '/sitemap')): continue

@@ -1,0 +1,355 @@
+{
+ "/img/blog-default.webp": {
+  "w": 1200,
+  "h": 630,
+  "stem": "img-blog-default",
+  "variants": [
+   80,
+   120,
+   160,
+   240,
+   320,
+   400,
+   480,
+   640,
+   800,
+   1000,
+   1200
+  ]
+ },
+ "/img/mz-logo-rev.webp": {
+  "w": 520,
+  "h": 153,
+  "stem": "img-mz-logo-rev",
+  "variants": [
+   80,
+   120,
+   160,
+   240,
+   320,
+   400,
+   480,
+   520
+  ]
+ },
+ "/img/mz-logo.webp": {
+  "w": 520,
+  "h": 153,
+  "stem": "img-mz-logo",
+  "variants": [
+   80,
+   120,
+   160,
+   240,
+   320,
+   400,
+   480,
+   520
+  ]
+ },
+ "/img/mz-symbol-rev.webp": {
+  "w": 256,
+  "h": 222,
+  "stem": "img-mz-symbol-rev",
+  "variants": [
+   80,
+   120,
+   160,
+   240,
+   256
+  ]
+ },
+ "/img/oxpos-logo.webp": {
+  "w": 300,
+  "h": 326,
+  "stem": "img-oxpos-logo",
+  "variants": [
+   80,
+   120,
+   160,
+   240,
+   300
+  ]
+ },
+ "/img/texpos-icon.webp": {
+  "w": 160,
+  "h": 160,
+  "stem": "img-texpos-icon",
+  "variants": [
+   80,
+   120,
+   160
+  ]
+ },
+ "/img/texpos-logo.webp": {
+  "w": 520,
+  "h": 158,
+  "stem": "img-texpos-logo",
+  "variants": [
+   80,
+   120,
+   160,
+   240,
+   320,
+   400,
+   480,
+   520
+  ]
+ },
+ "/img/zaina-icon.webp": {
+  "w": 160,
+  "h": 160,
+  "stem": "img-zaina-icon",
+  "variants": [
+   80,
+   120,
+   160
+  ]
+ },
+ "/img/zaina-logo.webp": {
+  "w": 240,
+  "h": 266,
+  "stem": "img-zaina-logo",
+  "variants": [
+   80,
+   120,
+   160,
+   240
+  ]
+ },
+ "/img/screens/oxpos-consignment-m.webp": {
+  "w": 420,
+  "h": 736,
+  "stem": "img-screens-oxpos-consignment-m",
+  "variants": [
+   80,
+   120,
+   160,
+   240,
+   320,
+   400,
+   420
+  ]
+ },
+ "/img/screens/oxpos-employees.webp": {
+  "w": 1000,
+  "h": 452,
+  "stem": "img-screens-oxpos-employees",
+  "variants": [
+   80,
+   120,
+   160,
+   240,
+   320,
+   400,
+   480,
+   640,
+   800,
+   1000
+  ]
+ },
+ "/img/screens/oxpos-inventory-m.webp": {
+  "w": 420,
+  "h": 736,
+  "stem": "img-screens-oxpos-inventory-m",
+  "variants": [
+   80,
+   120,
+   160,
+   240,
+   320,
+   400,
+   420
+  ]
+ },
+ "/img/screens/oxpos-inventory.webp": {
+  "w": 1200,
+  "h": 539,
+  "stem": "img-screens-oxpos-inventory",
+  "variants": [
+   80,
+   120,
+   160,
+   240,
+   320,
+   400,
+   480,
+   640,
+   800,
+   1000,
+   1200
+  ]
+ },
+ "/img/screens/oxpos-products.webp": {
+  "w": 1000,
+  "h": 452,
+  "stem": "img-screens-oxpos-products",
+  "variants": [
+   80,
+   120,
+   160,
+   240,
+   320,
+   400,
+   480,
+   640,
+   800,
+   1000
+  ]
+ },
+ "/img/screens/oxpos-purchases.webp": {
+  "w": 1000,
+  "h": 451,
+  "stem": "img-screens-oxpos-purchases",
+  "variants": [
+   80,
+   120,
+   160,
+   240,
+   320,
+   400,
+   480,
+   640,
+   800,
+   1000
+  ]
+ },
+ "/img/screens/oxpos-reorder-m.webp": {
+  "w": 420,
+  "h": 736,
+  "stem": "img-screens-oxpos-reorder-m",
+  "variants": [
+   80,
+   120,
+   160,
+   240,
+   320,
+   400,
+   420
+  ]
+ },
+ "/img/screens/oxpos-reorder.webp": {
+  "w": 1000,
+  "h": 451,
+  "stem": "img-screens-oxpos-reorder",
+  "variants": [
+   80,
+   120,
+   160,
+   240,
+   320,
+   400,
+   480,
+   640,
+   800,
+   1000
+  ]
+ },
+ "/img/screens/texpos-inventory-m.webp": {
+  "w": 420,
+  "h": 746,
+  "stem": "img-screens-texpos-inventory-m",
+  "variants": [
+   80,
+   120,
+   160,
+   240,
+   320,
+   400,
+   420
+  ]
+ },
+ "/img/screens/texpos-measurements-m.webp": {
+  "w": 420,
+  "h": 799,
+  "stem": "img-screens-texpos-measurements-m",
+  "variants": [
+   80,
+   120,
+   160,
+   240,
+   320,
+   400,
+   420
+  ]
+ },
+ "/img/screens/texpos-menu-m.webp": {
+  "w": 420,
+  "h": 736,
+  "stem": "img-screens-texpos-menu-m",
+  "variants": [
+   80,
+   120,
+   160,
+   240,
+   320,
+   400,
+   420
+  ]
+ },
+ "/img/screens/texpos-reports-m.webp": {
+  "w": 420,
+  "h": 736,
+  "stem": "img-screens-texpos-reports-m",
+  "variants": [
+   80,
+   120,
+   160,
+   240,
+   320,
+   400,
+   420
+  ]
+ },
+ "/img/screens/zaina-appointments.webp": {
+  "w": 1000,
+  "h": 516,
+  "stem": "img-screens-zaina-appointments",
+  "variants": [
+   80,
+   120,
+   160,
+   240,
+   320,
+   400,
+   480,
+   640,
+   800,
+   1000
+  ]
+ },
+ "/img/screens/zaina-eod-report.webp": {
+  "w": 1000,
+  "h": 516,
+  "stem": "img-screens-zaina-eod-report",
+  "variants": [
+   80,
+   120,
+   160,
+   240,
+   320,
+   400,
+   480,
+   640,
+   800,
+   1000
+  ]
+ },
+ "/img/screens/zaina-services.webp": {
+  "w": 1000,
+  "h": 516,
+  "stem": "img-screens-zaina-services",
+  "variants": [
+   80,
+   120,
+   160,
+   240,
+   320,
+   400,
+   480,
+   640,
+   800,
+   1000
+  ]
+ }
+}

@@ -1,0 +1,35 @@
+---
+// Responsive <img>: real width/height (no layout shift) + srcset of compressed
+// variants made by scripts/responsive-images.mjs. Falls back to a plain <img>
+// for images not in the manifest.
+import manifest from '../data/img-manifest.json';
+
+interface Props {
+  src: string;
+  alt: string;
+  sizes: string;                  // how wide the image shows, e.g. "(max-width: 600px) 90vw, 560px"
+  class?: string;
+  loading?: 'lazy' | 'eager';
+  fetchpriority?: 'high' | 'low' | 'auto';
+  width?: number;                 // only used when the image is not in the manifest
+  height?: number;
+}
+const { src, alt, sizes, class: cls, loading = 'lazy', fetchpriority, width, height, ...rest } = Astro.props;
+const m = (manifest as Record<string, { w: number; h: number; stem: string; variants: number[] }>)[src];
+const url = (w: number) => `/img/r/${m!.stem}-${w}.webp`;
+const fallback = m ? url(m.variants.find((v) => v >= 480) ?? m.w) : src;
+const srcset = m ? m.variants.map((w) => `${url(w)} ${w}w`).join(', ') : undefined;
+---
+<img
+  src={fallback}
+  srcset={srcset}
+  sizes={m ? sizes : undefined}
+  alt={alt}
+  width={m ? m.w : width}
+  height={m ? m.h : height}
+  class={cls}
+  loading={loading}
+  decoding={loading === 'lazy' ? 'async' : undefined}
+  fetchpriority={fetchpriority}
+  {...rest}
+/>

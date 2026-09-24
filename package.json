@@ -2,6 +2,7 @@
   "name": "markzone-website2",
   "version": "1.0.0",
   "scripts": {
+    "prebuild": "node scripts/responsive-images.mjs",
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview"

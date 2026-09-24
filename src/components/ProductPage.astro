@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import Cta from './Cta.astro';
 import Faq from './Faq.astro';
+import Img from './Img.astro';
 import type { Product } from '../data/products';
 import { SITE } from '../data/site';
 import { getTutorials, mmss } from '../data/tutorials';
@@ -52,7 +53,7 @@ const heroPhone = p.mobile[0];
     <div class="wrap phero__grid">
       <div>
         <nav class="crumb" aria-label="Breadcrumb"><a href={pre || '/'}>{L.home}</a><span>/</span><span aria-current="page">{p.name}</span></nav>
-        <img class="phero__logo" src={p.logo} alt={`${p.name} logo`} width="200" height="120" />
+        <Img class="phero__logo" src={p.logo} alt={`${p.name} logo`} sizes={p.slug === 'texpos' ? '190px' : '80px'} loading="eager" />
         <p class="phero__kicker">{p.kicker}</p>
         <h1>{p.h1}</h1>
         <p class="phero__lead">{p.lead}</p>
@@ -68,13 +69,13 @@ const heroPhone = p.mobile[0];
       <div class="phero__visual">
         {heroShot && (
           <figure class="browser"><div class="browser__bar"><span></span><span></span><span></span></div>
-            <img src={heroShot.src} alt={heroShot.alt} width="1200" height="540" fetchpriority="high" /></figure>
+            <Img src={heroShot.src} alt={heroShot.alt} sizes="(max-width: 600px) calc(100vw - 40px), (max-width: 1020px) calc(100vw - 40px), 580px" loading="eager" fetchpriority="high" /></figure>
         )}
         {heroPhone && (
-          <figure class={`phone ${heroShot ? '' : 'phone--solo'}`}><img src={heroPhone.src} alt={heroPhone.alt} width="420" height="736" fetchpriority={heroShot ? 'auto' : 'high'} /></figure>
+          <figure class={`phone ${heroShot ? '' : 'phone--solo'}`}><Img src={heroPhone.src} alt={heroPhone.alt} sizes={heroShot ? '(max-width: 1020px) 30vw, 175px' : '(max-width: 600px) 60vw, (max-width: 1020px) 46vw, 270px'} loading="eager" fetchpriority={heroShot ? 'auto' : 'high'} /></figure>
         )}
         {!heroShot && p.mobile[1] && (
-          <figure class="phone phone--second"><img src={p.mobile[1].src} alt={p.mobile[1].alt} width="420" height="736" /></figure>
+          <figure class="phone phone--second"><Img src={p.mobile[1].src} alt={p.mobile[1].alt} sizes="(max-width: 600px) 50vw, (max-width: 1020px) 40vw, 235px" loading="eager" /></figure>
         )}
       </div>
     </div>
@@ -116,8 +117,8 @@ const heroPhone = p.mobile[0];
     <section class="section">
       <div class="wrap">
         <div class="section-head"><span class="eyebrow">{L.scrE}</span><h2>{L.scrH}</h2></div>
-        {p.desktop.length > 1 && <div class="gal gal--desk">{p.desktop.slice(1).map((s) => <figure class="browser"><div class="browser__bar"><span></span><span></span><span></span></div><img src={s.src} alt={s.alt} loading="lazy" width="1000" height="452" /><figcaption>{s.alt}</figcaption></figure>)}</div>}
-        {p.mobile.length > 1 && <div class="gal gal--mob">{p.mobile.slice(heroShot ? 0 : 1).map((s) => <figure><div class="phone phone--inline"><img src={s.src} alt={s.alt} loading="lazy" width="420" height="736" /></div><figcaption>{s.alt}</figcaption></figure>)}</div>}
+        {p.desktop.length > 1 && <div class="gal gal--desk">{p.desktop.slice(1).map((s) => <figure class="browser"><div class="browser__bar"><span></span><span></span><span></span></div><Img src={s.src} alt={s.alt} sizes="(max-width: 1020px) calc(100vw - 40px), 580px" /><figcaption>{s.alt}</figcaption></figure>)}</div>}
+        {p.mobile.length > 1 && <div class="gal gal--mob">{p.mobile.slice(heroShot ? 0 : 1).map((s) => <figure><div class="phone phone--inline"><Img src={s.src} alt={s.alt} sizes="220px" /></div><figcaption>{s.alt}</figcaption></figure>)}</div>}
       </div>
     </section>
   )}
@@ -142,7 +143,7 @@ const heroPhone = p.mobile[0];
   <section class="section pricing">
     <div class="wrap pricing__grid">
       <div class="pcard" style={`--accent:${p.accent}`}>
-        <img src={p.logo} alt="" width="160" height="100" loading="lazy" />
+        <Img src={p.logo} alt="" sizes={p.slug === 'texpos' ? '240px' : '70px'} />
         <p class="pcard__amount">{p.price} <small>{L.aed}</small></p>
         <p class="pcard__note">{p.priceNote} · {p.renewal}</p>
         <a class="btn btn--cta" href={waHref} rel="noopener">{L.get}</a>
@@ -164,7 +165,7 @@ const heroPhone = p.mobile[0];
       <div class="others">
         {others.map((o) => (
           <a class="other" href={`${pre}/${o.slug}`} style={`--accent:${o.accent}`}>
-            <img src={o.logo} alt={`${o.name} logo`} width="120" height="80" loading="lazy" />
+            <Img src={o.logo} alt={`${o.name} logo`} sizes="90px" />
             <span><strong>{o.name}</strong>{o.kicker}</span>
             <span class="other__arrow" aria-hidden="true">{lang === 'ar' ? '←' : '→'}</span>
           </a>

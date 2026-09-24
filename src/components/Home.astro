@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import { SITE, APPS } from '../data/site';
+import Img from './Img.astro';
 import type { HomeCopy } from '../i18n/home';
 interface Props { t: HomeCopy; lang: 'en' | 'ar' }
 const { t, lang } = Astro.props;
@@ -37,12 +38,12 @@ const tick = '<svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" /></svg>
       <div class="hero__visual">
         <figure class="browser">
           <div class="browser__bar" dir="ltr"><span></span><span></span><span></span><em>{t.browserLabel}</em></div>
-          <img src="/img/screens/oxpos-inventory.webp" alt={t.apps.oxpos.shotAlt} width="1200" height="539" loading="eager" fetchpriority="high" />
+          <Img src="/img/screens/oxpos-inventory.webp" alt={t.apps.oxpos.shotAlt} sizes="(max-width: 600px) calc(100vw - 40px), (max-width: 1020px) 520px, 590px" loading="eager" fetchpriority="high" />
         </figure>
         <figure class="phone">
-          <img src="/img/screens/texpos-measurements-m.webp" alt={t.apps.texpos.shotAlt} width="420" height="800" loading="eager" />
+          <Img src="/img/screens/texpos-measurements-m.webp" alt={t.apps.texpos.shotAlt} sizes="(max-width: 1020px) 160px, 180px" loading="eager" />
         </figure>
-        <div class="hero__chip"><img src="/img/zaina-icon.webp" alt="" width="40" height="40" /><span><strong>ZainaApp</strong> {t.chipSub}</span></div>
+        <div class="hero__chip"><Img src="/img/zaina-icon.webp" alt="" sizes="40px" loading="eager" /><span><strong>ZainaApp</strong> {t.chipSub}</span></div>
       </div>
     </div>
   </section>
@@ -64,9 +65,9 @@ const tick = '<svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" /></svg>
       <div class="apps">
         {APPS.map((a) => { const c = t.apps[a.slug]; return (
           <article class={`app app--${a.tone}`} style={`--accent:${a.accent}`}>
-            <div class={`app__shot ${a.slug === 'texpos' ? 'app__shot--phone' : ''}`}><img src={a.shot} alt={c.shotAlt} loading="lazy" /></div>
+            <div class={`app__shot ${a.slug === 'texpos' ? 'app__shot--phone' : ''}`}><Img src={a.shot} alt={c.shotAlt} sizes={a.slug === 'texpos' ? "(max-width: 1020px) 46vw, 170px" : "(max-width: 600px) calc(100vw - 40px), (max-width: 1020px) 560px, 380px"} /></div>
             <div class="app__top">
-              <img class="app__logo" src={a.logo} alt={`${a.name} logo`} width="160" height="120" loading="lazy" />
+              <Img class="app__logo" src={a.logo} alt={`${a.name} logo`} sizes={a.slug === 'texpos' ? '150px' : '64px'} />
               <span class="app__for">{c.for}</span>
             </div>
             <h3 class="visually-hidden">{a.name}</h3>
