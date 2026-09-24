@@ -21,6 +21,7 @@ let made = 0;
 for (const dir of DIRS) {
   for (const file of readdirSync(join(PUB, dir))) {
     if (extname(file) !== '.webp') continue;
+    if (/^img-.+-\d+\.webp$/.test(file)) continue; // a generated variant in the wrong folder, not a source
     const srcPath = join(PUB, dir, file);
     const url = `/${dir}/${file}`;
     const meta = await sharp(srcPath).metadata();
