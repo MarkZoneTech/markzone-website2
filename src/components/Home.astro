@@ -32,7 +32,7 @@ const tick = '<svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" /></svg>
         </div>
         <ul class="hero__trust">
           {t.trust.map(([b, s]) => <li><strong dir={nd(b)}>{b}</strong> {s}</li>)}
-          <li><a class="hero__rating" href={SITE.googleMaps} rel="noopener"><strong dir="ltr">{SITE.googleRating.value}★</strong> {t.ratingLabel.replace('{n}', String(SITE.googleRating.count))}</a></li>
+          <li><a class="hero__rating" href={SITE.googleMaps} rel="noopener"><strong dir="ltr"><span data-rating-value>{SITE.googleRating.value}</span>★</strong> <Fragment set:html={t.ratingLabel.replace('{n}', `<span data-rating-count>${SITE.googleRating.count}</span>`)} /></a></li>
         </ul>
       </div>
       <div class="hero__visual">

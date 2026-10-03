@@ -13,7 +13,7 @@ export const SITE = {
   address: { street: 'Office 188-101, Naif, Deira', city: 'Dubai', country: 'AE' },
   hours: 'Daily 10 AM – 10 PM · Sunday off',
   credentials: 'DED Licence No. 1574303 · Mohammed Bin Rashid Establishment for SME Development — Member',
-  googleRating: { value: '4.4', count: 21 },
+  googleRating: { value: '4.5', count: 27 },
   googleMaps: 'https://maps.app.goo.gl/su4aQJoSjxrueqig9',
 };
 

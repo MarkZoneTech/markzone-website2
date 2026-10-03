@@ -14,7 +14,7 @@ const stats = [
   ['400+', 'businesses have trusted MarkZone since 2019'],
   ['15+', 'businesses on our new-generation apps within their first months'],
   ['7', 'emirates served'],
-  ['4.4★', `Google rating from ${SITE.googleRating.count} reviews`],
+  [`<span data-rating-value>${SITE.googleRating.value}</span>★`, `Google rating from <span data-rating-count>${SITE.googleRating.count}</span> reviews`],
 ];
 const schema = [{
   '@context': 'https://schema.org', '@type': 'AboutPage', name: 'About MarkZone Technology', url: `${SITE.url}/about`,
@@ -59,7 +59,7 @@ const schema = [{
   </section>
 
   <section class="stats" aria-label="MarkZone in numbers">
-    <div class="wrap stats__grid">{stats.map(([n, l]) => <div><span class="stats__n">{n}</span><span class="stats__l">{l}</span></div>)}</div>
+    <div class="wrap stats__grid">{stats.map(([n, l]) => <div><span class="stats__n" set:html={n}></span><span class="stats__l" set:html={l}></span></div>)}</div>
   </section>
 
   <section class="section">

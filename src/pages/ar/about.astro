@@ -13,7 +13,7 @@ const stats = [
   ['+400', 'شركة وثقت في ماركزون من 2019'],
   ['+15', 'شركة على تطبيقاتنا الجديدة من أول شهورها'],
   ['7', 'إمارات نخدمها'],
-  ['4.4★', `تقييمنا على جوجل من ${SITE.googleRating.count} تقييم`],
+  [`<span data-rating-value>${SITE.googleRating.value}</span>★`, `تقييمنا على جوجل من <span data-rating-count>${SITE.googleRating.count}</span> تقييم`],
 ];
 const schema = [{ '@context': 'https://schema.org', '@type': 'AboutPage', name: 'عن ماركزون تكنولوجي', url: `${SITE.url}/ar/about`, inLanguage: 'ar-AE', about: { '@id': `${SITE.url}/#business` } }];
 ---
@@ -42,7 +42,7 @@ const schema = [{ '@context': 'https://schema.org', '@type': 'AboutPage', name: 
     </div>
   </section>
   <section class="stats" aria-label="ماركزون بالأرقام">
-    <div class="wrap stats__grid">{stats.map(([n, l]) => <div><span class="stats__n" dir="ltr">{n}</span><span class="stats__l">{l}</span></div>)}</div>
+    <div class="wrap stats__grid">{stats.map(([n, l]) => <div><span class="stats__n" dir="ltr" set:html={n}></span><span class="stats__l" set:html={l}></span></div>)}</div>
   </section>
   <section class="section">
     <div class="wrap creds">
