@@ -46,7 +46,7 @@ export const EN: HomeCopy = {
   svcP: 'We create, deploy, sell and support software, from ready-made apps to websites and fully custom systems.',
   services: [
     { h: 'Business management apps', p: 'Ready-made apps for each industry, set up and running the same day.', t: 'From 1,000 AED', href: '#apps' },
-    { h: 'Websites & web design', p: 'A professional website for your business, delivered within 2 weeks.', t: 'Quote on request', href: '/websites' },
+    { h: 'Websites & web design', p: 'A professional website for your business, delivered within 2 weeks.', t: 'From 1,500 AED', href: '/websites' },
     { h: 'Custom software & mobile apps', p: 'Systems built around exactly how you work, fully delivered from about 2 months depending on size.', t: 'Quote on request', href: '/custom-software' },
   ],
   inclEyebrow: 'Included with every app', inclH2: 'Outstanding service is the standard. Never an upgrade.',
@@ -113,7 +113,7 @@ export const AR: HomeCopy = {
   svcP: 'نصمم ونركّب ونبيع وندعم البرامج، من التطبيقات الجاهزة لين المواقع والأنظمة الخاصة.',
   services: [
     { h: 'تطبيقات إدارة الأعمال', p: 'تطبيقات جاهزة لكل مجال، تتركب وتشتغل من نفس اليوم.', t: 'من 1,000 درهم', href: '#apps' },
-    { h: 'المواقع الإلكترونية', p: 'موقع احترافي لشغلك، يتسلم خلال أسبوعين.', t: 'عرض الأسعار', href: '/ar/websites' },
+    { h: 'المواقع الإلكترونية', p: 'موقع احترافي لشغلك، يتسلم خلال أسبوعين.', t: 'من 1,500 درهم', href: '/ar/websites' },
     { h: 'برامج وتطبيقات حسب الطلب', p: 'أنظمة مبنية على طريقة شغلك بالضبط، تتسلم كاملة من حوالي شهرين حسب حجم المشروع.', t: 'عرض الأسعار', href: '/ar/custom-software' },
   ],
   inclEyebrow: 'مشمول مع كل تطبيق', inclH2: 'الخدمة الممتازة هي الأساس.. مب إضافة بفلوس.',

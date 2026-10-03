@@ -7,18 +7,18 @@ import Cta from '../../components/Cta.astro';
 import { SITE } from '../../data/site';
 const faq: [string, string][] = [
   ['الموقع ياخذ كم وقت؟', 'المواقع تتسلم خلال أسبوعين.'],
-  ['بكم الموقع؟', 'كل موقع له عرض سعر حسب احتياج شغلك. راسلنا على الواتساب ونرسل لك عرض سعر واضح بدون تكاليف مخفية.'],
+  ['بكم الموقع؟', 'المواقع تبدأ من 1,500 درهم، والسعر النهائي حسب اللي يحتاجه شغلك. نرسل لك عرض سعر واضح على الواتساب قبل ما نبدأ، بدون تكاليف مخفية.'],
   ['تدعمون الموقع بعد التسليم؟', 'إيه. كل عميل ياخذ دعم كامل على الواتساب يومياً من 10 الصبح لين 10 الليل (الأحد إجازة)، وزيارات للموقع إذا احتاج الأمر.'],
   ['أي إمارات تشتغلون فيها؟', 'مقرنا في دبي ونخدم الشركات في كل الإمارات السبع.'],
 ];
 const schema = [
-  { '@context': 'https://schema.org', '@type': 'Service', name: 'تصميم وتطوير المواقع الإلكترونية', serviceType: 'Web design', provider: { '@id': `${SITE.url}/#business` }, areaServed: 'AE', url: `${SITE.url}/ar/websites`, inLanguage: 'ar-AE' },
+  { '@context': 'https://schema.org', '@type': 'Service', name: 'تصميم وتطوير المواقع الإلكترونية', serviceType: 'Web design', provider: { '@id': `${SITE.url}/#business` }, areaServed: 'AE', url: `${SITE.url}/ar/websites`, inLanguage: 'ar-AE', offers: { '@type': 'Offer', priceCurrency: 'AED', priceSpecification: { '@type': 'PriceSpecification', minPrice: 1500, priceCurrency: 'AED' }, description: 'السعر يبدأ من 1,500 درهم والسعر النهائي حسب الطلب.' } },
   { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) },
 ];
 ---
 <Base lang="ar" title="تصميم مواقع في دبي يتسلم خلال أسبوعين | ماركزون تكنولوجي" description="تصميم مواقع احترافية للشركات في الإمارات من ماركزون تكنولوجي في دبي. يتسلم خلال أسبوعين، مع دعم محلي حقيقي على الواتساب. نخدم الإمارات السبع." alternate={{ en: '/websites', ar: '/ar/websites' }} schema={schema}>
   <PageHero lang="ar" eyebrow="المواقع الإلكترونية" title="موقع احترافي.. جاهز خلال أسبوعين" lead="موقعك غالباً أول شي يشوفه الزبون عنك. نسويه بسرعة، ونخليه واضح، ونبقى وياك على الواتساب بعد التسليم." crumb={[{ href: '/ar/websites', label: 'المواقع' }]} />
-  <ServiceBody lang="ar" timelineLabel="التسليم" timeline="خلال أسبوعين" waText="مرحبا ماركزون، أبا عرض سعر لموقع" points={[
+  <ServiceBody lang="ar" timelineLabel="التسليم" timeline="خلال أسبوعين" price="من 1,500 درهم" waText="مرحبا ماركزون، أبا عرض سعر لموقع" points={[
     ['تسليم سريع', 'موقعك يتسلم خلال أسبوعين.'],
     ['مبني على شغلك', 'نبدا من طريقة بيعك وشو يحتاج زبونك يعرف.'],
     ['أسعار صادقة', 'عرض سعر واضح من البداية، بدون تكاليف مخفية.'],
