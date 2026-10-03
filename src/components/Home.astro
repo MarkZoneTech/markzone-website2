@@ -13,6 +13,7 @@ const schema = [{
 const wa = `<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2a9.9 9.9 0 0 0-8.5 15l-1.4 5 5.1-1.3A9.9 9.9 0 1 0 12.04 2Zm4.5 12c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.5-.3Z"/></svg>`;
 const nd = (x: string) => (/^[\d+<]/.test(x) ? 'ltr' : undefined);
 const tick = '<svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" /></svg>';
+import RatingSync from './RatingSync.astro';
 ---
 <Base title={t.title} description={t.description} lang={lang} alternate={{ en: '/', ar: '/ar' }} schema={schema}>
   <section class="hero">
@@ -32,7 +33,7 @@ const tick = '<svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" /></svg>
         </div>
         <ul class="hero__trust">
           {t.trust.map(([b, s]) => <li><strong dir={nd(b)}>{b}</strong> {s}</li>)}
-          <li><a class="hero__rating" href={SITE.googleMaps} rel="noopener"><strong dir="ltr">{SITE.googleRating.value}★</strong> {t.ratingLabel.replace('{n}', String(SITE.googleRating.count))}</a></li>
+          <li><a class="hero__rating" href={SITE.googleMaps} rel="noopener"><strong dir="ltr"><span data-rating-value>{SITE.googleRating.value}</span>★</strong> <Fragment set:html={t.ratingLabel.replace('{n}', `<span data-rating-count>${SITE.googleRating.count}</span>`)} /></a></li>
         </ul>
       </div>
       <div class="hero__visual">
@@ -153,6 +154,7 @@ const tick = '<svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" /></svg>
   </section>
 </Base>
 
+<RatingSync />
 <style>
   .tq { max-width: 760px; margin: 0 auto; background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-card); box-shadow: var(--shadow); padding: 32px 28px; text-align: center; }
   .tq blockquote { margin: 0 0 18px; font-size: 1.2rem; line-height: 1.7; color: var(--ink); }

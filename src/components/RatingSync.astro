@@ -1,0 +1,11 @@
+---
+// Refreshes the Google rating shown on the page from /api/rating (live data, cached by the Worker).
+// The values rendered at build time stay in place if the request fails.
+---
+<script is:inline>
+  fetch('/api/rating').then(function (r) { return r.ok ? r.json() : null; }).then(function (d) {
+    if (!d || !d.value || !d.count) return;
+    document.querySelectorAll('[data-rating-value]').forEach(function (el) { el.textContent = d.value; });
+    document.querySelectorAll('[data-rating-count]').forEach(function (el) { el.textContent = d.count; });
+  }).catch(function () {});
+</script>

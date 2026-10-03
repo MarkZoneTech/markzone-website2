@@ -13,9 +13,10 @@ const stats = [
   ['+400', 'شركة وثقت في ماركزون من 2019'],
   ['+15', 'شركة على تطبيقاتنا الجديدة من أول شهورها'],
   ['7', 'إمارات نخدمها'],
-  ['4.4★', `تقييمنا على جوجل من ${SITE.googleRating.count} تقييم`],
+  [`<span data-rating-value>${SITE.googleRating.value}</span>★`, `تقييمنا على جوجل من <span data-rating-count>${SITE.googleRating.count}</span> تقييم`],
 ];
 const schema = [{ '@context': 'https://schema.org', '@type': 'AboutPage', name: 'عن ماركزون تكنولوجي', url: `${SITE.url}/ar/about`, inLanguage: 'ar-AE', about: { '@id': `${SITE.url}/#business` } }];
+import RatingSync from '../../components/RatingSync.astro';
 ---
 <Base lang="ar" title="عن ماركزون تكنولوجي | شركة برمجيات في دبي من 2019" description="ماركزون تكنولوجي شركة برمجيات في دبي تسوي تطبيقات منظمة وفي المتناول للشركات الصغيرة في الإمارات. أكثر من 400 شركة وثقت فينا من 2019، ونخدم الإمارات السبع." alternate={{ en: '/about', ar: '/ar/about' }} schema={schema}>
   <PageHero lang="ar" eyebrow="من نحن" title="نساعد الشركات في الإمارات تنظم شغلها" lead="ماركزون تكنولوجي شركة برمجيات في دبي. نصمم ونركّب ونبيع وندعم البرامج، من تطبيقات إدارة الأعمال لين المواقع والأنظمة الخاصة، للشركات الصغيرة والمتوسطة في كل الإمارات السبع." crumb={[{ href: '/ar/about', label: 'من نحن' }]} />
@@ -42,8 +43,9 @@ const schema = [{ '@context': 'https://schema.org', '@type': 'AboutPage', name: 
     </div>
   </section>
   <section class="stats" aria-label="ماركزون بالأرقام">
-    <div class="wrap stats__grid">{stats.map(([n, l]) => <div><span class="stats__n" dir="ltr">{n}</span><span class="stats__l">{l}</span></div>)}</div>
+    <div class="wrap stats__grid">{stats.map(([n, l]) => <div><span class="stats__n" dir="ltr" set:html={n}></span><span class="stats__l" set:html={l}></span></div>)}</div>
   </section>
+  <RatingSync />
   <section class="section">
     <div class="wrap creds">
       <div>
