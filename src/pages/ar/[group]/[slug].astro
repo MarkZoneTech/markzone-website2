@@ -1,0 +1,12 @@
+---
+import LandingPage from '../../../components/LandingPage.astro';
+import { LANDINGS } from '../../../data/landing';
+export function getStaticPaths() {
+  return LANDINGS.filter((l) => l.path.includes('/')).map((page) => {
+    const [group, slug] = page.path.split('/');
+    return { params: { group, slug }, props: { page } };
+  });
+}
+const { page } = Astro.props;
+---
+<LandingPage page={page} lang="ar" />

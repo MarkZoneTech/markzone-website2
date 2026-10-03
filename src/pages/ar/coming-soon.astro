@@ -15,7 +15,7 @@ const items = [
       {items.map((i) => (
         <article class="soon__card" id={i.slug}>
           <span class="soon__badge">قريباً</span>
-          <h2>{i.name}</h2>
+          <h2>{i.slug === 'madapos' ? <a href="/ar/madapos">{i.name}</a> : i.name}</h2>
           <p>{i.for}</p>
           <a class="btn btn--outline" href={`${SITE.whatsapp}?text=${encodeURIComponent(`مرحبا ماركزون، خبروني لما ينطلق ${i.name}`)}`} rel="noopener">خبروني لما ينطلق</a>
         </article>

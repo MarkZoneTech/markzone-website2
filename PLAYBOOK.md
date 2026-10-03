@@ -121,6 +121,10 @@ The single reference for updating markzonetech.com: adding a product or service,
 6. If it was "Coming Soon", remove it from `coming-soon.astro` (EN and AR) and redirect `/coming-soon#slug` visitors via the new page links.
 7. Build, run `python3 scripts/audit.py`, check the pages on the test URL, then get Fadi's approval.
 
+## 6b. Landing pages (business-type and city pages)
+
+Copy for these lives in `src/data/landing.ts` (EN + AR side by side), rendered by `src/components/LandingPage.astro`. Routes: `src/pages/[group]/[slug].astro` (and `ar/`), plus `madapos.astro`. To add one, add an entry to `LANDINGS` using only Master File facts (reuse the shared answers at the top), then build and run the audit. Current pages: OxPOS for supermarkets, garment & fashion stores, cosmetics shops, consignment stores; ZainaApp for salons & barbershops; MadaPOS Coming Soon (no price or date announced); Websites for Dubai, Sharjah & Ras Al Khaimah. Product-page audience chips link to them.
+
 ## 7. Adding a new service
 
 Create `src/pages/<service>.astro` and `src/pages/ar/<service>.astro` from the Websites page pattern (`PageHero`, then `ServiceBody`, then `Faq`, then `Cta`), with `Service` and `FAQPage` schema. Then add it to the nav and footer in `Base.astro`, and to the homepage `services` in `src/i18n/home.ts`.

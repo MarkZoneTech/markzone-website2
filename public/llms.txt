@@ -9,13 +9,17 @@
 - [TexPOS](https://markzonetech.com/texpos): Tailoring shop management for custom tailoring, ready-made items and alterations. Saved measurements including shaila and ghutra, job orders sent to the tailor on WhatsApp, deposits, fabric stock. Runs on the shop's own phone. 1,000 AED for the first year, then 500 AED per year.
 - Coming Soon: MadaPOS (restaurants and cafes) and AqarOS (real estate agencies). See [Coming Soon](https://markzonetech.com/coming-soon).
 
+- [OxPOS for supermarkets](https://markzonetech.com/oxpos/supermarkets), [garment and fashion stores](https://markzonetech.com/oxpos/garment-and-fashion-stores), [cosmetics shops](https://markzonetech.com/oxpos/cosmetics-shops) and [consignment stores](https://markzonetech.com/oxpos/consignment-stores).
+- [ZainaApp for salons and barbershops](https://markzonetech.com/zainaapp/salons-and-barbershops).
+- [MadaPOS](https://markzonetech.com/madapos): restaurant and cafe app, Coming Soon. No launch date or price announced.
+
 OxPOS, ZainaApp and TexPOS are compatible with UAE VAT requirements.
 
 Free trial: a free 1-hour trial of any app on a Zoom call.
 
 ## Services
 
-- [Websites and web design](https://markzonetech.com/websites): Delivered within 2 weeks. Starting from 1,500 AED; the final price depends on requirements.
+- [Websites and web design](https://markzonetech.com/websites) (also for [Dubai, Sharjah and Ras Al Khaimah](https://markzonetech.com/websites/dubai-sharjah-ras-al-khaimah)): Delivered within 2 weeks. Starting from 1,500 AED; the final price depends on requirements.
 - [Custom software and mobile apps](https://markzonetech.com/custom-software): Built around how the business works, fully delivered from about 2 months depending on size. Quote on request.
 
 ## Support

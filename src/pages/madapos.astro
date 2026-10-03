@@ -1,0 +1,6 @@
+---
+import LandingPage from '../components/LandingPage.astro';
+import { LANDINGS } from '../data/landing';
+const page = LANDINGS.find((l) => l.path === 'madapos')!;
+---
+<LandingPage page={page} lang="en" />

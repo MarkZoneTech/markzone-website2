@@ -1,7 +1,7 @@
 ---
 import { SITE } from '../data/site';
-interface Props { points: [string, string][]; timeline: string; timelineLabel: string; waText: string; lang?: 'en' | 'ar'; price?: string }
-const { points, timeline, timelineLabel, waText, lang = 'en', price } = Astro.props;
+interface Props { points: [string, string][]; timeline: string; timelineLabel: string; waText: string; lang?: 'en' | 'ar'; price?: string; ctaLabel?: string }
+const { points, timeline, timelineLabel, waText, lang = 'en', price, ctaLabel } = Astro.props;
 const L = lang === 'ar'
   ? { price: 'عرض الأسعار', cta: 'اطلب عرض سعر على الواتساب', inc: ['التجهيز والتركيب', 'دعم كامل على الواتساب يومياً من 10 الصبح لين 10 الليل (الأحد إجازة)', 'زيارات للموقع إذا احتاج الأمر'] }
   : { price: 'Quote on request', cta: 'Get a quote on WhatsApp', inc: ['Onboarding and setup', 'Full WhatsApp support, daily 10 AM – 10 PM (Sunday off)', 'On-site visits when needed'] };
@@ -16,7 +16,7 @@ const L = lang === 'ar'
       <p class="sb__label">{timelineLabel}</p>
       <p class="sb__big">{timeline}</p>
       <p class="sb__price">{price ?? L.price}</p>
-      <a class="btn btn--cta" href={`${SITE.whatsapp}?text=${encodeURIComponent(waText)}`} rel="noopener">{L.cta}</a>
+      <a class="btn btn--cta" href={`${SITE.whatsapp}?text=${encodeURIComponent(waText)}`} rel="noopener">{ctaLabel ?? L.cta}</a>
       <ul>{L.inc.map((i) => <li>{i}</li>)}</ul>
     </aside>
   </div>

@@ -1,0 +1,77 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from './PageHero.astro';
+import ServiceBody from './ServiceBody.astro';
+import Faq from './Faq.astro';
+import Cta from './Cta.astro';
+import { SITE } from '../data/site';
+import type { Landing } from '../data/landing';
+interface Props { page: Landing; lang: 'en' | 'ar' }
+const { page, lang } = Astro.props;
+const c = page[lang];
+const pre = lang === 'ar' ? '/ar' : '';
+const url = `${SITE.url}${pre}/${page.path}`;
+const home = lang === 'ar' ? 'الرئيسية' : 'Home';
+const inLanguage = lang === 'ar' ? 'ar-AE' : 'en-AE';
+const crumbs = [
+  { name: home, item: `${SITE.url}${pre || '/'}` },
+  ...(c.parent ? [{ name: c.parent.label, item: `${SITE.url}${c.parent.href}` }] : []),
+  { name: c.crumb, item: url },
+];
+const main: object[] = [];
+if (page.kind === 'app') {
+  const isOx = page.app === 'oxpos';
+  main.push({
+    '@context': 'https://schema.org', '@type': 'SoftwareApplication', name: isOx ? 'OxPOS' : 'ZainaApp', applicationCategory: 'BusinessApplication',
+    operatingSystem: 'Windows, Web', description: c.desc, url, inLanguage,
+    offers: { '@type': 'Offer', price: '1500', priceCurrency: 'AED', description: lang === 'ar' ? '1,500 درهم تشمل صيانة السنة الأولى، ثم 500 درهم بالسنة' : '1,500 AED including first-year maintenance, then 500 AED per year' },
+    publisher: { '@id': `${SITE.url}/#business` },
+  });
+} else if (page.kind === 'service') {
+  main.push({
+    '@context': 'https://schema.org', '@type': 'Service', name: c.schemaName, serviceType: 'Web design', provider: { '@id': `${SITE.url}/#business` },
+    areaServed: ['Dubai', 'Sharjah', 'Ras Al Khaimah'].map((n) => ({ '@type': 'AdministrativeArea', name: n })), url, description: c.desc, inLanguage,
+    offers: { '@type': 'Offer', priceCurrency: 'AED', priceSpecification: { '@type': 'PriceSpecification', minPrice: 1500, priceCurrency: 'AED' }, description: lang === 'ar' ? 'سعر البداية. السعر النهائي حسب المتطلبات.' : 'Starting price. The final price depends on requirements.' },
+  });
+}
+const schema = [
+  ...main,
+  { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: crumbs.map((x, i) => ({ '@type': 'ListItem', position: i + 1, name: x.name, item: x.item })) },
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: c.faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) },
+];
+const crumb = [...(c.parent ? [{ href: c.parent.href, label: c.parent.label }] : []), { href: `${pre}/${page.path}`, label: c.crumb }];
+const wa = `${SITE.whatsapp}?text=${encodeURIComponent(c.waText)}`;
+---
+<Base title={c.title} description={c.desc} lang={lang} alternate={{ en: `/${page.path}`, ar: `/ar/${page.path}` }} schema={schema}>
+  <PageHero lang={lang} eyebrow={c.eyebrow} title={c.h1} lead={c.lead} crumb={crumb} />
+  {page.kind === 'soon' ? (
+    <section class="section">
+      <div class="wrap soon">
+        <span class="eyebrow">{c.eyebrow}</span>
+        <h2>{c.h2}</h2>
+        {c.body.map((p) => <p>{p}</p>)}
+        <a class="btn btn--cta" href={wa} rel="noopener">{lang === 'ar' ? 'خبروني أول ما ينزل' : 'Tell me when it launches'}</a>
+      </div>
+    </section>
+  ) : (
+    <ServiceBody lang={lang} ctaLabel={page.kind === 'app' ? (lang === 'ar' ? 'اسأل على الواتساب' : 'Ask on WhatsApp') : undefined} timelineLabel={c.timelineLabel} timeline={c.timeline} price={c.price} waText={c.waText} points={c.points}>
+      <span class="eyebrow">{lang === 'ar' ? 'شو بتحصل' : 'What you get'}</span>
+      <h2>{c.h2}</h2>
+      {c.body.map((p) => <p>{p}</p>)}
+      {page.app && <p>{lang === 'ar'
+        ? <>تعرّف على التطبيق كامل في <a href={`/ar/${page.app}`}>{page.app === 'oxpos' ? 'OxPOS' : 'ZainaApp'}</a>، أو شوف <a href="/ar/websites">المواقع</a> و<a href="/ar/custom-software">البرامج حسب الطلب</a>.</>
+        : <>See the full app on the <a href={`/${page.app}`}>{page.app === 'oxpos' ? 'OxPOS' : 'ZainaApp'}</a> page, or explore our <a href="/websites">websites</a> and <a href="/custom-software">custom software</a>.</>}</p>}
+      {page.kind === 'service' && <p>{lang === 'ar'
+        ? <>تحتاج أكثر من موقع؟ نسوي بعد <a href="/ar/custom-software">برامج وتطبيقات حسب الطلب</a>، وتطبيقات جاهزة مثل <a href="/ar/oxpos">OxPOS</a> و<a href="/ar/zainaapp">ZainaApp</a> و<a href="/ar/texpos">TexPOS</a>.</>
+        : <>Need more than a website? We also build <a href="/custom-software">custom software and mobile apps</a>, and ready-made apps like <a href="/oxpos">OxPOS</a>, <a href="/zainaapp">ZainaApp</a> and <a href="/texpos">TexPOS</a>.</>}</p>}
+    </ServiceBody>
+  )}
+  <Faq lang={lang} items={c.faq} title={c.faqTitle} />
+  <Cta lang={lang} title={c.ctaTitle} text={c.ctaText} />
+</Base>
+<style>
+  .soon { max-width: 760px; }
+  .soon h2 { color: var(--primary); font-size: clamp(26px, 3vw, 34px); }
+  .soon p { font-size: 18px; color: var(--ink-muted); }
+  .soon .btn { margin-top: 12px; }
+</style>
