@@ -12,6 +12,7 @@ export interface HomeCopy {
   svcEyebrow: string; svcH2: string; svcP: string; services: { h: string; p: string; t: string; href: string }[];
   inclEyebrow: string; inclH2: string; inclP: string; inclCta: string; included: [string, string][];
   valEyebrow: string; valH2: string; valP: string; why: [string, string][];
+  quoteEyebrow: string; quoteH2: string; quote: string; quoteBy: string; quoteRole: string;
   faqTitle: string; faq: [string, string][];
   ctaTitle: string; ctaText: string; ctaCall: string;
   apps: Record<string, { for: string; problem: string; features: string[]; platform: string; priceNote: string; renewal: string; shotAlt: string }>;
@@ -67,6 +68,9 @@ export const EN: HomeCopy = {
     ['Real local support', 'WhatsApp support every day except Sunday, plus on-site visits when needed.'],
     ['Everything in one place', 'Sales, stock, purchases, expenses, staff and reports together.'],
   ],
+  quoteEyebrow: 'Customer story', quoteH2: 'What our customers say',
+  quote: 'This is the cashier for my fifth shop, and it has been almost four years. I have no complaints. Thank you for the well-organized work and the good service.',
+  quoteBy: 'Hamad Al Qamzi', quoteRole: 'Owner, Hashi Al Dar',
   faqTitle: 'Questions owners ask us',
   faq: [
     ['How much does OxPOS cost?', 'OxPOS is 1,500 AED including the first year of maintenance, then 500 AED per year. ZainaApp is priced the same. TexPOS is 1,000 AED for the first year, then 500 AED per year.'],
@@ -134,6 +138,9 @@ export const AR: HomeCopy = {
     ['دعم محلي حقيقي', 'دعم على الواتساب كل يوم ما عدا الأحد، وزيارات للموقع إذا احتجت.'],
     ['كل شي في مكان واحد', 'المبيعات والمخزون والمشتريات والمصاريف والموظفين والتقارير مع بعض.'],
   ],
+  quoteEyebrow: 'رأي عميل', quoteH2: 'شو يقولون عملاؤنا',
+  quote: 'هذا الكاشير الخامس لمحل، وكملنا تقريباً أربع سنوات. ما أشتكي من شي. مشكورين على الترتيب والخدمة الطيبة، ما قصّرتوا.',
+  quoteBy: 'حمد القمزي', quoteRole: 'صاحب محل هاشي الدار',
   faqTitle: 'أسئلة يسألونا عنها أصحاب المحلات',
   faq: [
     ['بكم OxPOS؟', 'OxPOS بـ 1,500 درهم وتشمل صيانة السنة الأولى، وبعدها 500 درهم بالسنة. ZainaApp بنفس السعر. TexPOS بـ 1,000 درهم للسنة الأولى، وبعدها 500 درهم بالسنة.'],

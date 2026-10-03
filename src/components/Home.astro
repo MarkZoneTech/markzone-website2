@@ -125,6 +125,16 @@ const tick = '<svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" /></svg>
     </div>
   </section>
 
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head"><span class="eyebrow">{t.quoteEyebrow}</span><h2>{t.quoteH2}</h2></div>
+      <figure class="tq">
+        <blockquote>{t.quote}</blockquote>
+        <figcaption><strong>{t.quoteBy}</strong><span>{t.quoteRole}</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
   <section class="section section--muted">
     <div class="wrap faq">
       <div class="section-head"><span class="eyebrow">FAQ</span><h2>{t.faqTitle}</h2></div>
@@ -144,6 +154,10 @@ const tick = '<svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" /></svg>
 </Base>
 
 <style>
+  .tq { max-width: 760px; margin: 0 auto; background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-card); box-shadow: var(--shadow); padding: 32px 28px; text-align: center; }
+  .tq blockquote { margin: 0 0 18px; font-size: 1.2rem; line-height: 1.7; color: var(--ink); }
+  .tq figcaption { display: flex; flex-direction: column; gap: 2px; color: var(--ink-muted); }
+  .tq figcaption strong { color: var(--navy); }
   /* HERO */
   .hero { position: relative; overflow: hidden; background: radial-gradient(120% 90% at 85% 10%, #0a5aa8 0%, var(--navy) 45%, var(--navy-deep) 100%); color: #fff; padding-block: 88px 104px; }
   .hero__orbit { position: absolute; width: 900px; inset-inline-end: -220px; top: -120px; opacity: .16; pointer-events: none; }
