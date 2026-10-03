@@ -74,6 +74,7 @@ The single reference for updating markzonetech.com: adding a product or service,
   - Websites: "From 1,500 AED" / «من 1,500 درهم». The final price depends on requirements and is quoted on WhatsApp. (Approved by Fadi, 3 Oct 2026.)
   - Custom software: "Quote on request" / «عرض الأسعار».
   - TexPOS may state "under 3 AED a day in the first year" (1,000 AED ÷ 365). Other per-day or per-month price lines need Fadi's approval per material.
+- **Free trial:** a free 1-hour trial on a Zoom call, for all products (approved by Fadi, 3 Oct 2026). Do not describe it as a self-serve trial.
 - **Timelines:** setup 45 min – 2 hrs, websites within 2 weeks, custom apps from about 2 months.
 - **Numbers:** 400+ businesses since 2019; 15+ on the new-generation apps; all 7 emirates; Google rating 4.4★ from 21 reviews.
 - **Never publish:**
