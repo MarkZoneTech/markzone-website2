@@ -4,15 +4,15 @@
 
 ## Business apps
 
-- [OxPOS](https://markzonetech.com/oxpos): Retail management for supermarkets, fashion and garment stores, cosmetics shops and consignment stores. POS, inventory, purchases, expenses, salaries, VAT reports, multi-branch. 1,500 AED including first-year maintenance, then 500 AED per year.
+- [OxPOS](https://markzonetech.com/oxpos): Retail management for supermarkets, fashion and garment stores, cosmetics shops and consignment stores. POS, inventory, purchases, expenses, salaries, VAT reports, each branch added as a new shop managed from the same platform. 1,500 AED including first-year maintenance, then 500 AED per year.
 - [ZainaApp](https://markzonetech.com/zainaapp): Salon and spa management for ladies' salons, barbershops, spas and beauty lounges. Appointments, online booking page, WhatsApp booking notifications, staff commissions. 1,500 AED including first-year maintenance, then 500 AED per year.
-- [TexPOS](https://markzonetech.com/texpos): Tailoring shop management for custom tailoring, ready-made items and alterations. Saved measurements including shaila and ghutra, job orders sent to the tailor on WhatsApp, deposits, fabric stock. Runs on the shop's own phone. 1,000 AED for the first year, then 500 AED per year.
+- [TexPOS](https://markzonetech.com/texpos): Tailoring shop management for custom tailoring, ready-made items and alterations. Saved measurements including shaila and ghutra, job orders sent to the tailor on WhatsApp, deposits, fabric stock. Works on any device. 1,000 AED for the first year, then 500 AED per year.
 - Coming Soon: MadaPOS (restaurants and cafes) and AqarOS (real estate agencies). See [Coming Soon](https://markzonetech.com/coming-soon).
 
 - [OxPOS for supermarkets](https://markzonetech.com/oxpos/supermarkets), [garment and fashion stores](https://markzonetech.com/oxpos/garment-and-fashion-stores), [cosmetics shops](https://markzonetech.com/oxpos/cosmetics-shops) and [consignment stores](https://markzonetech.com/oxpos/consignment-stores).
 - [ZainaApp for salons and barbershops](https://markzonetech.com/zainaapp/salons-and-barbershops).
 - Buyer guides: [How to choose a retail POS in the UAE](https://markzonetech.com/guides/retail-pos-uae-buyers-guide), [tailoring shop software](https://markzonetech.com/guides/tailoring-software-uae), [salon software](https://markzonetech.com/guides/salon-software-uae).
-- Price comparisons (published prices, checked 6 October 2026): [ZainaApp vs KeynesPOS and Salonist](https://markzonetech.com/compare/zainaapp-vs-keynespos-and-salonist), [TexPOS vs Tailoroo](https://markzonetech.com/compare/texpos-vs-tailoroo), [OxPOS vs Zoho POS](https://markzonetech.com/compare/oxpos-vs-zoho-pos).
+- Price comparisons (published prices, checked 6 October 2026): [ZainaApp vs KeynesPOS and Salonist](https://markzonetech.com/compare/zainaapp-vs-keynespos-and-salonist), [TexPOS vs Tailoroo](https://markzonetech.com/compare/texpos-vs-tailoroo-and-tailorsync), [OxPOS vs Zoho POS](https://markzonetech.com/compare/oxpos-vs-zoho-pos-and-daftra).
 - [MadaPOS](https://markzonetech.com/madapos): restaurant and cafe app, Coming Soon. No launch date or price announced.
 
 OxPOS, ZainaApp and TexPOS are compatible with UAE VAT requirements.

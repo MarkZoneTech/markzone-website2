@@ -16,7 +16,7 @@ faq:
   - q: "Can I see each branch’s figures separately?"
     a: "Yes. OxPOS shows each branch’s indicators separately, while you manage all branches from one screen."
   - q: "Do I need a separate system for each branch?"
-    a: "No. All branches run in one OxPOS system, with staff roles and permissions, so you manage every location from one place."
+    a: "No. Each branch is added as a new shop, and all your shops are managed from the same OxPOS platform, with staff roles and permissions."
 ---
 
 Whether you have one shop or ten, [OxPOS](/oxpos) lets you manage every branch from a single screen. This two-minute lesson shows how to add branches and keep stock and figures organised across them.
@@ -33,7 +33,7 @@ Whether you have one shop or ten, [OxPOS](/oxpos) lets you manage every branch f
 ## Step by step
 
 1. **Open Branch Management.**
-2. **Add a branch** with its name and details.
+2. **Add a branch** as a new shop, with its name and details.
 3. **Link products and stock** to the branch so each location has its own quantities.
 4. **Transfer stock** from a branch with extra quantity to one that is running low.
 5. **Compare branches** using each branch’s own indicators and reports.

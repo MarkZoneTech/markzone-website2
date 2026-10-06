@@ -22,7 +22,7 @@ video:
     - { t: "6:10", label: "Reports, settings and branches" }
 faq:
   - q: "Do I need special hardware to run TexPOS?"
-    a: "No. TexPOS runs on your shop’s own phone, so there is no extra hardware to buy."
+    a: "No. TexPOS works on any device, so there is no extra hardware to buy."
   - q: "How much does TexPOS cost?"
     a: "TexPOS is 1,000 AED for the first year, then 500 AED per year. Setup, onboarding and WhatsApp support are included."
   - q: "Is TexPOS available in Arabic?"

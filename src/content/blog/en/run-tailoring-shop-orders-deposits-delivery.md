@@ -8,7 +8,7 @@ coverAlt: "Tailor's scissors, measuring tape and fabric"
 draft: true
 faq:
   - q: "Do I need a computer or special hardware?"
-    a: "No. TexPOS runs on the shop's own phone."
+    a: "No. TexPOS works on any device."
   - q: "Can I send the job order to my tailor on WhatsApp?"
     a: "Yes. Job orders with a sketch can be printed or sent to the tailor's WhatsApp."
   - q: "Can I take deposits and partial payments?"
@@ -49,6 +49,6 @@ Do customers find you through Instagram, a friend, or by walking past? Customer 
 
 ## One app for the whole order
 
-[TexPOS](/texpos) is made for tailoring shops: custom tailoring, ready-made items and alterations. It works in Arabic and English and runs on the shop's own phone, so no extra hardware is needed. The price is 1,000 AED for the first year, then 500 AED per year.
+[TexPOS](/texpos) is made for tailoring shops: custom tailoring, ready-made items and alterations. It works in Arabic and English and works on any device, so no extra hardware is needed. The price is 1,000 AED for the first year, then 500 AED per year.
 
 [Message us on WhatsApp](https://wa.me/971506552181) and we will show you how an order looks from the counter to the tailor.

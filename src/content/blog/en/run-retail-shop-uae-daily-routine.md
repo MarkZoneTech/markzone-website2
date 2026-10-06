@@ -54,6 +54,6 @@ If you give credit to regular customers, customer accounts show balances and pur
 
 ## One system makes the routine easy
 
-You can run this routine with notebooks and spreadsheets, but it takes discipline and time that most owners do not have. [OxPOS](/oxpos) puts the point of sale, inventory, purchases, expenses, salaries and reports in one place, in Arabic and English, with thermal receipts and multi-branch support with staff roles and permissions. It is 1,500 AED including the first year of maintenance, then 500 AED per year. Setup takes 45 minutes to 2 hours. Compatible hardware available.
+You can run this routine with notebooks and spreadsheets, but it takes discipline and time that most owners do not have. [OxPOS](/oxpos) puts the point of sale, inventory, purchases, expenses, salaries and reports in one place, in Arabic and English, with thermal receipts and branches added as new shops on the same platform, with staff roles and permissions. It is 1,500 AED including the first year of maintenance, then 500 AED per year. Setup takes 45 minutes to 2 hours. Compatible hardware available.
 
 Want to go deeper on stock? Read our guide to [OxPOS inventory management](/blog/oxpos-inventory-management), or [message us on WhatsApp](https://wa.me/971506552181) and we will help you set up.

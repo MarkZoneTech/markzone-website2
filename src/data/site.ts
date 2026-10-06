@@ -23,7 +23,7 @@ export const APPS = [
     for: 'Retail shops',
     who: 'Supermarkets, fashion & garment stores, cosmetics shops and consignment stores.',
     problem: 'Inventory, purchases, salaries and expenses scattered everywhere. OxPOS puts them in one place, with the reports to match.',
-    features: ['Fast point of sale with barcode scanning, split payments and returns', 'Full inventory control with low-stock and expiry alerts', 'Consignment module for stores hosting small vendors', 'Multi-branch with staff roles and permissions'],
+    features: ['Fast point of sale with barcode scanning, split payments and returns', 'Full inventory control with low-stock and expiry alerts', 'Consignment module for stores hosting small vendors', 'Each branch added as a new shop, managed from the same platform, with staff roles and permissions'],
     platform: 'Runs on Windows, managed from any device on the web.',
     price: '1,500', priceNote: 'Includes first-year maintenance', renewal: 'then 500 AED / year',
   },
@@ -42,7 +42,7 @@ export const APPS = [
     who: 'Custom tailoring, ready-made items and alterations.',
     problem: 'Measurements and order details get lost between the counter and the tailor. TexPOS keeps every detail with the order.',
     features: ['Saved customer measurements, including shaila and ghutra', 'Job orders with sketch, printed or sent to the tailor on WhatsApp', 'Deposits, partial payments and overdue tracking', 'Fabric by the meter, items by the piece'],
-    platform: "Runs on the shop's own phone. No hardware needed.",
+    platform: "Works on any device. No hardware needed.",
     price: '1,000', priceNote: 'First year', renewal: 'then 500 AED / year',
   },
 ];
