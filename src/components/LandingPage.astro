@@ -1,4 +1,5 @@
 ---
+import { GRIDS, RESOURCES } from '../data/compare-grids';
 import Base from '../layouts/Base.astro';
 import PageHero from './PageHero.astro';
 import ServiceBody from './ServiceBody.astro';
@@ -20,6 +21,8 @@ const crumbs = [
 ];
 const appName = page.app === 'oxpos' ? 'OxPOS' : page.app === 'texpos' ? 'TexPOS' : 'ZainaApp';
 const isTex = page.app === 'texpos';
+const grid = GRIDS[page.path]?.[lang];
+const related = page.app && /^(compare|guides)\//.test(page.path) ? (RESOURCES[page.app] ?? []).filter((r) => r.href !== page.path) : [];
 const main: object[] = [];
 if (page.kind === 'app') {
   main.push({
@@ -55,10 +58,37 @@ const wa = `${SITE.whatsapp}?text=${encodeURIComponent(c.waText)}`;
       </div>
     </section>
   ) : (
+    <>
+    {grid && (
+      <section class="section">
+        <div class="wrap cmp">
+          <div class="cmp__text">
+            <span class="eyebrow">{c.eyebrow}</span>
+            <h2>{c.h2}</h2>
+            {c.body.map((p) => <p>{p}</p>)}
+          </div>
+          <div class="cmp__grid">
+            <div class="cmp__scroll" tabindex="0" role="region" aria-label={grid.caption}>
+              <table>
+                <caption>{grid.caption}</caption>
+                <thead><tr>{grid.head.map((h, i) => <th scope="col" class={i === 1 ? 'us' : ''}>{h}</th>)}</tr></thead>
+                <tbody>{grid.rows.map((r) => <tr>{r.map((cell, i) => i === 0 ? <th scope="row">{cell}</th> : <td class={i === 1 ? 'us' : ''}>{cell}</td>)}</tr>)}</tbody>
+              </table>
+            </div>
+            <p class="cmp__note">{grid.note}</p>
+          </div>
+        </div>
+      </section>
+    )}
     <ServiceBody lang={lang} ctaLabel={page.kind === 'app' ? (lang === 'ar' ? 'اسأل على الواتساب' : 'Ask on WhatsApp') : undefined} timelineLabel={c.timelineLabel} timeline={c.timeline} price={c.price} waText={c.waText} points={c.points}>
-      <span class="eyebrow">{lang === 'ar' ? 'شو بتحصل' : 'What you get'}</span>
-      <h2>{c.h2}</h2>
-      {c.body.map((p) => <p>{p}</p>)}
+      {!grid && (
+        <>
+          <span class="eyebrow">{lang === 'ar' ? 'شو بتحصل' : 'What you get'}</span>
+          <h2>{c.h2}</h2>
+          {c.body.map((p) => <p>{p}</p>)}
+        </>
+      )}
+      {related.length > 0 && <p>{lang === 'ar' ? 'شوف بعد: ' : 'See also: '}{related.map((r, i) => <>{i > 0 ? ' · ' : ''}<a href={`${pre}/${r.href}`}>{lang === 'ar' ? r.ar : r.en}</a></>)}</p>}
       {page.app && <p>{lang === 'ar'
         ? <>تعرّف على التطبيق كامل في <a href={`/ar/${page.app}`}>{appName}</a>، أو شوف <a href="/ar/websites">المواقع</a> و<a href="/ar/custom-software">البرامج حسب الطلب</a>.</>
         : <>See the full app on the <a href={`/${page.app}`}>{appName}</a> page, or explore our <a href="/websites">websites</a> and <a href="/custom-software">custom software</a>.</>}</p>}
@@ -66,11 +96,25 @@ const wa = `${SITE.whatsapp}?text=${encodeURIComponent(c.waText)}`;
         ? <>تحتاج أكثر من موقع؟ نسوي بعد <a href="/ar/custom-software">برامج وتطبيقات حسب الطلب</a>، وتطبيقات جاهزة مثل <a href="/ar/oxpos">OxPOS</a> و<a href="/ar/zainaapp">ZainaApp</a> و<a href="/ar/texpos">TexPOS</a>.</>
         : <>Need more than a website? We also build <a href="/custom-software">custom software and mobile apps</a>, and ready-made apps like <a href="/oxpos">OxPOS</a>, <a href="/zainaapp">ZainaApp</a> and <a href="/texpos">TexPOS</a>.</>}</p>}
     </ServiceBody>
+    </>
   )}
   <Faq lang={lang} items={c.faq} title={c.faqTitle} />
   <Cta lang={lang} title={c.ctaTitle} text={c.ctaText} />
 </Base>
 <style>
+  .cmp { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.5fr); gap: 40px; align-items: start; }
+  .cmp__text h2 { color: var(--primary); font-size: clamp(26px, 3vw, 34px); }
+  .cmp__text p { font-size: 17px; color: var(--ink-muted); }
+  .cmp__scroll { overflow-x: auto; border: 1px solid var(--border); border-radius: 16px; background: #fff; box-shadow: var(--shadow); }
+  .cmp table { border-collapse: collapse; width: 100%; min-width: 560px; font-size: 15px; }
+  .cmp caption { text-align: start; font: 700 18px/1.3 var(--f-head); color: var(--primary); padding: 16px 18px 8px; }
+  .cmp th, .cmp td { padding: 12px 14px; text-align: start; vertical-align: top; border-top: 1px solid var(--border); color: var(--ink-muted); }
+  .cmp thead th { background: var(--surface-muted); color: var(--ink); font: 700 14px/1.3 var(--f-head); border-top: 0; }
+  .cmp tbody th { font-weight: 600; color: var(--ink); min-width: 120px; }
+  .cmp .us { background: #fff7ee; color: var(--ink); font-weight: 600; }
+  .cmp thead th.us { background: var(--orange); color: #fff; }
+  .cmp__note { font-size: 13px !important; color: var(--ink-muted); margin-top: 12px; }
+  @media (max-width: 1100px) { .cmp { grid-template-columns: 1fr; } }
   .soon { max-width: 760px; }
   .soon h2 { color: var(--primary); font-size: clamp(26px, 3vw, 34px); }
   .soon p { font-size: 18px; color: var(--ink-muted); }

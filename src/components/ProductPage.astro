@@ -7,6 +7,7 @@ import type { Product } from '../data/products';
 import { SITE } from '../data/site';
 import { getTutorials, mmss } from '../data/tutorials';
 import { coverFor } from '../data/blog';
+import { RESOURCES } from '../data/compare-grids';
 
 interface Props { p: Product; all: Product[]; lang: 'en' | 'ar' }
 const { p, all, lang } = Astro.props;
@@ -35,6 +36,8 @@ const CHIP_LINKS: Record<string, string[]> = {
   zainaapp: Array(4).fill('zainaapp/salons-and-barbershops'),
 };
 const chipLinks = CHIP_LINKS[p.slug] ?? [];
+const resources = RESOURCES[p.slug] ?? [];
+const RT = lang === 'ar' ? { e: 'قارن واختر', h: `قبل ما تقرر في ${p.name}` } : { e: 'Compare & learn', h: `Before you decide on ${p.name}` };
 const waHref = `${SITE.whatsapp}?text=${encodeURIComponent(L.wa)}`;
 
 const schema = [
@@ -163,6 +166,22 @@ const heroPhone = p.mobile[0];
   </section>
 
   <Faq items={p.faq} title={L.faqT} lang={lang} />
+
+  {resources.length > 0 && (
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head"><span class="eyebrow">{RT.e}</span><h2>{RT.h}</h2></div>
+        <div class="others">
+          {resources.map((r) => (
+            <a class="other" href={`${pre}/${r.href}`} style={`--accent:${p.accent}`}>
+              <span><strong>{lang === 'ar' ? r.ar : r.en}</strong>{lang === 'ar' ? r.arSub : r.enSub}</span>
+              <span class="other__arrow" aria-hidden="true">{lang === 'ar' ? '←' : '→'}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
 
   <section class="section">
     <div class="wrap">

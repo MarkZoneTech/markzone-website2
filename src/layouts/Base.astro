@@ -146,6 +146,17 @@ const waLabel = lang === 'ar' ? 'كلمنا واتساب' : 'WhatsApp us';
         </ul>
       </div>
       <div>
+        <h2 class="ftr__h">{lang === 'ar' ? 'قارن واختر' : 'Compare & guides'}</h2>
+        <ul>
+          <li><a href={lang === 'ar' ? '/ar/guides/retail-pos-uae-buyers-guide' : '/guides/retail-pos-uae-buyers-guide'}>{lang === 'ar' ? 'دليل أنظمة الكاشير' : 'Retail POS guide'}</a></li>
+          <li><a href={lang === 'ar' ? '/ar/compare/oxpos-vs-zoho-pos' : '/compare/oxpos-vs-zoho-pos'}>OxPOS vs Zoho POS</a></li>
+          <li><a href={lang === 'ar' ? '/ar/guides/tailoring-software-uae' : '/guides/tailoring-software-uae'}>{lang === 'ar' ? 'دليل برامج الخياطة' : 'Tailoring software guide'}</a></li>
+          <li><a href={lang === 'ar' ? '/ar/compare/texpos-vs-tailoroo' : '/compare/texpos-vs-tailoroo'}>TexPOS vs Tailoroo</a></li>
+          <li><a href={lang === 'ar' ? '/ar/guides/salon-software-uae' : '/guides/salon-software-uae'}>{lang === 'ar' ? 'دليل برامج الصالونات' : 'Salon software guide'}</a></li>
+          <li><a href={lang === 'ar' ? '/ar/compare/zainaapp-vs-keynespos-and-salonist' : '/compare/zainaapp-vs-keynespos-and-salonist'}>ZainaApp vs KeynesPOS vs Salonist</a></li>
+        </ul>
+      </div>
+      <div>
         <h2 class="ftr__h">{lang === 'ar' ? 'تواصل معنا' : 'Contact'}</h2>
         <ul class="ftr__contact">
           <li><a href={SITE.whatsapp} rel="noopener">WhatsApp {SITE.phone}</a></li>
@@ -202,7 +213,7 @@ const waLabel = lang === 'ar' ? 'كلمنا واتساب' : 'WhatsApp us';
   .ftr { background: var(--navy-deep); color: #c9d6ea; padding-top: 72px; padding-bottom: env(safe-area-inset-bottom, 0px); }
   .ftr a { color: #fff; text-decoration: none; }
   .ftr a:hover { text-decoration: underline; }
-  .ftr__grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.4fr; gap: 40px; }
+  .ftr__grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.2fr 1.4fr; gap: 40px; }
   .ftr__brand img { width: 200px; margin-bottom: 18px; }
   .ftr__brand p { color: #fff; font: 600 17px/1.4 var(--f-head); }
   :global([dir="rtl"]) .ftr__brand p { font-family: var(--f-ar-head); }
