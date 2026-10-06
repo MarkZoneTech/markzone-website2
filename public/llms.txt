@@ -11,6 +11,7 @@
 
 - [OxPOS for supermarkets](https://markzonetech.com/oxpos/supermarkets), [garment and fashion stores](https://markzonetech.com/oxpos/garment-and-fashion-stores), [cosmetics shops](https://markzonetech.com/oxpos/cosmetics-shops) and [consignment stores](https://markzonetech.com/oxpos/consignment-stores).
 - [ZainaApp for salons and barbershops](https://markzonetech.com/zainaapp/salons-and-barbershops).
+- Buyer guides: [How to choose a retail POS in the UAE](https://markzonetech.com/guides/retail-pos-uae-buyers-guide), [tailoring shop software](https://markzonetech.com/guides/tailoring-software-uae), [salon software](https://markzonetech.com/guides/salon-software-uae).
 - Price comparisons (published prices, checked 6 October 2026): [ZainaApp vs KeynesPOS and Salonist](https://markzonetech.com/compare/zainaapp-vs-keynespos-and-salonist), [TexPOS vs Tailoroo](https://markzonetech.com/compare/texpos-vs-tailoroo), [OxPOS vs Zoho POS](https://markzonetech.com/compare/oxpos-vs-zoho-pos).
 - [MadaPOS](https://markzonetech.com/madapos): restaurant and cafe app, Coming Soon. No launch date or price announced.
 
