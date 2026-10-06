@@ -319,6 +319,83 @@ export const LANDINGS: Landing[] = [
     },
   },
 
+  // ───────────── Comparison: ZainaApp vs KeynesPOS and Salonist ─────────────
+  // Facts checked against each vendor's own public pricing page on 6 Oct 2026.
+  // Keep wording factual and neutral: no claims about competitors beyond their published prices/features.
+  {
+    path: 'compare/zainaapp-vs-keynespos-and-salonist', kind: 'app', app: 'zainaapp',
+    en: {
+      schemaName: 'ZainaApp compared with KeynesPOS and Salonist',
+      title: 'ZainaApp vs KeynesPOS vs Salonist: UAE Salon Software Prices',
+      desc: 'Published UAE salon software prices: ZainaApp 1,500 AED (year one included), KeynesPOS AED 3,000 per branch a year, Salonist from USD 59 a month.',
+      eyebrow: 'Salon software comparison', h1: 'ZainaApp, KeynesPOS and Salonist: what salon software costs in the UAE',
+      lead: 'A simple look at the prices each company publishes, so you can compare like with like before you choose. Checked on 6 October 2026.',
+      h2: 'Published prices side by side',
+      body: [
+        'ZainaApp: 1,500 AED, which includes the first year of maintenance. After that, the renewal is 500 AED per year. Over three years that is 2,500 AED.',
+        'KeynesPOS: its price list page shows AED 3,000 per branch per year, with unlimited team members (keynespos.com/price-list, checked 6 October 2026).',
+        'Salonist: its pricing page shows monthly plans in US dollars: Essential USD 59, Advance USD 109 and Expert USD 179 per month, with unlimited staff on every plan (salonist.io/pricing, checked 6 October 2026). At the dirham’s fixed rate of 3.6725 to the dollar, that is roughly AED 217, 400 and 657 per month.',
+        'These products do not all include the same features, and prices can change at any time, so always confirm the current price and what is included with each company. The companies and product names mentioned belong to their owners. MarkZone is not affiliated with them, and this page is for information only.',
+      ],
+      points: [
+        ['What to compare first', 'Online booking, WhatsApp notifications, staff commissions, inventory, and what the price actually includes.'],
+        ['Ask about the second year', 'ZainaApp renews at 500 AED per year after the first year, which is included in the 1,500 AED.'],
+        ['Check the language and VAT', 'ZainaApp runs in Arabic and English and is compatible with UAE VAT requirements.'],
+        ['See it before you decide', 'We offer a free 1-hour trial on a Zoom call, where we walk you through ZainaApp live.'],
+      ],
+      crumb: 'Salon software comparison', parent: { label: 'ZainaApp', href: '/zainaapp' },
+      timelineLabel: 'Setup', timeline: '45 min – 2 hrs', price: '1,500 AED, first year included',
+      waText: 'Hi MarkZone, I read your salon software comparison and I\'d like to see ZainaApp',
+      faqTitle: 'Questions salon owners ask when comparing',
+      faq: [
+        ['How much does salon software cost in the UAE?', 'It depends on the product and plan. According to their own websites on 6 October 2026, KeynesPOS lists AED 3,000 per branch per year and Salonist lists USD 59 to 179 per month. ZainaApp is 1,500 AED, including the first year of maintenance, then 500 AED per year.'],
+        ['What is included in the ZainaApp price?', 'The 1,500 AED includes the first year of maintenance. ZainaApp covers appointments, an online booking page for your salon, WhatsApp booking notifications, client profiles, staff commissions, POS checkout, inventory and reports.'],
+        ['How much is ZainaApp after the first year?', 'The renewal is 500 AED per year.'],
+        ['Does ZainaApp support Arabic and UAE VAT?', 'Yes. ZainaApp runs in Arabic and English, and it is fully compatible with UAE VAT requirements.'],
+        ['Are these prices up to date?', 'We checked them on 6 October 2026 on each company’s public website. Prices and plans can change, so confirm with the company before you decide.'],
+        ['Can I try ZainaApp before paying?', 'Yes. We offer a free 1-hour trial on a Zoom call, where we walk you through the app live.'],
+        ['How fast can my salon start?', 'Most salons are running the same day. Setup takes between 45 minutes and 2 hours.'],
+      ],
+      ctaTitle: 'Want to see ZainaApp for your salon?',
+      ctaText: 'Tell us about your salon on WhatsApp. We’ll show you ZainaApp on a free 1-hour Zoom call.',
+    },
+    ar: {
+      schemaName: 'مقارنة ZainaApp مع KeynesPOS وSalonist',
+      title: 'ZainaApp وKeynesPOS وSalonist: أسعار برامج الصالونات',
+      desc: 'أسعار برامج الصالونات المعلنة: ZainaApp بـ 1,500 درهم والسنة الأولى مشمولة، وKeynesPOS بـ 3,000 درهم للفرع بالسنة، وSalonist من 59 دولار بالشهر.',
+      eyebrow: 'مقارنة برامج الصالونات', h1: 'ZainaApp وKeynesPOS وSalonist: بكم برنامج الصالون في الإمارات؟',
+      lead: 'نظرة بسيطة على الأسعار اللي تعلنها كل شركة، عشان تقارن بشكل عادل قبل ما تختار. مراجعة بتاريخ 6 أكتوبر 2026.',
+      h2: 'الأسعار المعلنة جنب بعض',
+      body: [
+        'ZainaApp: 1,500 درهم، وتشمل صيانة السنة الأولى. بعدها التجديد 500 درهم بالسنة. يعني 2,500 درهم لثلاث سنوات.',
+        'KeynesPOS: صفحة الأسعار عندهم تذكر 3,000 درهم للفرع بالسنة، مع عدد موظفين غير محدود (keynespos.com/price-list، مراجعة بتاريخ 6 أكتوبر 2026).',
+        'Salonist: صفحة الأسعار عندهم تذكر باقات شهرية بالدولار: Essential بـ 59 دولار، وAdvance بـ 109 دولار، وExpert بـ 179 دولار بالشهر، مع موظفين غير محدودين في كل الباقات (salonist.io/pricing، مراجعة بتاريخ 6 أكتوبر 2026). وبسعر صرف الدرهم الثابت 3.6725 للدولار، يطلع تقريباً 217 و400 و657 درهم بالشهر.',
+        'هالمنتجات ما تشمل نفس المزايا كلها، والأسعار ممكن تتغير في أي وقت، فتأكد دايماً من السعر الحالي ومن اللي يشمله عند كل شركة. أسماء الشركات والمنتجات المذكورة ملك لأصحابها، وماركزون مو تابعة لهم، والصفحة للمعلومات فقط.',
+      ],
+      points: [
+        ['شو تقارن أول شي', 'الحجز أونلاين، إشعارات الواتساب، عمولات الموظفين، المخزون، وشو يشمل السعر فعلاً.'],
+        ['اسأل عن السنة الثانية', 'ZainaApp يتجدد بـ 500 درهم بالسنة بعد السنة الأولى المشمولة في الـ 1,500 درهم.'],
+        ['تأكد من اللغة والضريبة', 'ZainaApp يشتغل بالعربي والإنجليزي ومتوافق مع متطلبات ضريبة القيمة المضافة في الإمارات.'],
+        ['شوفه قبل لا تقرر', 'نوفر لك تجربة مجانية ساعة على مكالمة زوم، نمشّي معاك على ZainaApp مباشرة.'],
+      ],
+      crumb: 'مقارنة برامج الصالونات', parent: { label: 'ZainaApp', href: '/ar/zainaapp' },
+      timelineLabel: 'التجهيز', timeline: '45 دقيقة – ساعتين', price: '1,500 درهم، السنة الأولى مشمولة',
+      waText: 'مرحبا ماركزون، قريت مقارنة برامج الصالونات وأبا أشوف ZainaApp',
+      faqTitle: 'أسئلة أصحاب الصالونات وهم يقارنون',
+      faq: [
+        ['بكم برنامج الصالون في الإمارات؟', 'يعتمد على المنتج والباقة. حسب مواقعهم الرسمية بتاريخ 6 أكتوبر 2026، KeynesPOS يذكر 3,000 درهم للفرع بالسنة، وSalonist يذكر من 59 إلى 179 دولار بالشهر. وZainaApp بـ 1,500 درهم تشمل صيانة السنة الأولى، وبعدها 500 درهم بالسنة.'],
+        ['شو يشمل سعر ZainaApp؟', 'الـ 1,500 درهم تشمل صيانة السنة الأولى. وZainaApp يغطي المواعيد وصفحة حجز أونلاين لصالونك وإشعارات الحجز على الواتساب وملفات الزبائن وعمولات الموظفين والكاشير والمخزون والتقارير.'],
+        ['بكم ZainaApp بعد السنة الأولى؟', 'التجديد 500 درهم بالسنة.'],
+        ['ZainaApp يدعم العربي وضريبة الإمارات؟', 'إيه. ZainaApp يشتغل بالعربي والإنجليزي، ومتوافق بالكامل مع متطلبات ضريبة القيمة المضافة في الإمارات.'],
+        ['هالأسعار محدّثة؟', 'راجعناها بتاريخ 6 أكتوبر 2026 من الموقع الرسمي لكل شركة. الأسعار والباقات ممكن تتغير، فتأكد من الشركة قبل لا تقرر.'],
+        ['أقدر أجرّب ZainaApp قبل ما أدفع؟', 'إيه. نوفر لك تجربة مجانية مدتها ساعة على مكالمة زوم، نمشّي معاك على التطبيق مباشرة.'],
+        ['كم ياخذ صالوني عشان يبدأ؟', 'أغلب الصالونات تشتغل نفس اليوم. التجهيز ياخذ من 45 دقيقة لين ساعتين.'],
+      ],
+      ctaTitle: 'تبا تشوف ZainaApp لصالونك؟',
+      ctaText: 'قول لنا عن صالونك على الواتساب، ونوريك ZainaApp في تجربة مجانية ساعة على زوم.',
+    },
+  },
+
   // ───────────── MadaPOS waitlist ─────────────
   {
     path: 'madapos', kind: 'soon',
