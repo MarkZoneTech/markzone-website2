@@ -13,7 +13,7 @@ export interface LandingCopy {
 }
 export interface Landing {
   path: string; kind: 'app' | 'service' | 'soon';
-  app?: 'oxpos' | 'zainaapp';
+  app?: 'oxpos' | 'zainaapp' | 'texpos';
   en: LandingCopy; ar: LandingCopy;
 }
 
@@ -393,6 +393,156 @@ export const LANDINGS: Landing[] = [
       ],
       ctaTitle: 'تبا تشوف ZainaApp لصالونك؟',
       ctaText: 'قول لنا عن صالونك على الواتساب، ونوريك ZainaApp في تجربة مجانية ساعة على زوم.',
+    },
+  },
+
+  // ───────────── Comparison: TexPOS vs Tailoroo ─────────────
+  // Facts checked against Tailoroo's own public pricing page (tailoroo.com/pricing) on 6 Oct 2026.
+  {
+    path: 'compare/texpos-vs-tailoroo', kind: 'app', app: 'texpos',
+    en: {
+      schemaName: 'TexPOS compared with Tailoroo',
+      title: 'TexPOS vs Tailoroo: UAE Tailoring Software Prices',
+      desc: 'Published UAE tailoring software prices: TexPOS 1,000 AED for the first year, Tailoroo from AED 149 a month plus VAT. Checked 6 October 2026.',
+      eyebrow: 'Tailoring software comparison', h1: 'TexPOS and Tailoroo: what tailoring software costs in the UAE',
+      lead: 'A simple look at the prices each company publishes, so you can compare like with like before you choose. Checked on 6 October 2026.',
+      h2: 'Published prices side by side',
+      body: [
+        'TexPOS: 1,000 AED for the first year, then 500 AED per year. Over three years that is 2,000 AED. TexPOS runs on the shop’s own phone, so no extra hardware is needed.',
+        'Tailoroo: its pricing page shows three monthly plans, all plus VAT: Starter AED 149 (1 branch, up to 3 staff users), Business AED 299 (up to 10 users) and Enterprise AED 499 (unlimited users, multi-branch) (tailoroo.com/pricing, checked 6 October 2026). Over twelve months, Starter adds up to AED 1,788 before VAT.',
+        'These products do not include the same features, and prices can change at any time, so always confirm the current price and what is included with each company. The companies and product names mentioned belong to their owners. MarkZone is not affiliated with them, and this page is for information only.',
+      ],
+      points: [
+        ['What to compare first', 'Saved measurements, how job orders reach the tailor, deposits and partial payments, and how many staff users the price covers.'],
+        ['Monthly or yearly', 'TexPOS is paid per year, with 1,000 AED for the first year and 500 AED per year after. Check whether the other option bills monthly and whether VAT is added.'],
+        ['Check the measurements', 'TexPOS saves customer measurements, including shaila and ghutra, and each job order includes a sketch.'],
+        ['See it before you decide', 'We offer a free 1-hour trial on a Zoom call, where we walk you through TexPOS live.'],
+      ],
+      crumb: 'Tailoring software comparison', parent: { label: 'TexPOS', href: '/texpos' },
+      timelineLabel: 'Hardware', timeline: 'None, runs on your phone', price: '1,000 AED for the first year',
+      waText: 'Hi MarkZone, I read your tailoring software comparison and I\'d like to see TexPOS',
+      faqTitle: 'Questions tailors ask when comparing',
+      faq: [
+        ['How much does tailoring software cost in the UAE?', 'It depends on the product and plan. According to its own website on 6 October 2026, Tailoroo lists AED 149, 299 and 499 per month plus VAT. TexPOS is 1,000 AED for the first year, then 500 AED per year.'],
+        ['How much does TexPOS cost?', 'TexPOS is 1,000 AED for the first year, then 500 AED per year. That works out to under 3 AED a day in the first year.'],
+        ['Do I need a computer or special hardware for TexPOS?', 'No. TexPOS runs on the shop’s own phone, so no hardware is needed.'],
+        ['Can TexPOS save shaila and ghutra measurements?', 'Yes. Customer measurements are saved, including shaila and ghutra.'],
+        ['How do orders reach the tailor?', 'Each job order includes a sketch and can be printed or sent to the tailor’s WhatsApp.'],
+        ['Can customers pay a deposit?', 'Yes. TexPOS handles deposits, partial payments, overdue tracking and payment history.'],
+        ['Are these prices up to date?', 'We checked them on 6 October 2026 on each company’s public website. Prices and plans can change, so confirm with the company before you decide.'],
+        ['Can I try TexPOS before paying?', 'Yes. We offer a free 1-hour trial on a Zoom call, where we walk you through the app live.'],
+      ],
+      ctaTitle: 'Want to see TexPOS for your tailoring shop?',
+      ctaText: 'Tell us about your shop on WhatsApp. We’ll show you TexPOS on a free 1-hour Zoom call.',
+    },
+    ar: {
+      schemaName: 'مقارنة TexPOS مع Tailoroo',
+      title: 'TexPOS وTailoroo: أسعار برامج الخياطة في الإمارات',
+      desc: 'أسعار برامج الخياطة المعلنة: TexPOS بـ 1,000 درهم للسنة الأولى، وTailoroo من 149 درهم بالشهر زائد الضريبة. مراجعة 6 أكتوبر 2026.',
+      eyebrow: 'مقارنة برامج الخياطة', h1: 'TexPOS وTailoroo: بكم برنامج محل الخياطة في الإمارات؟',
+      lead: 'نظرة بسيطة على الأسعار اللي تعلنها كل شركة، عشان تقارن بشكل عادل قبل ما تختار. مراجعة بتاريخ 6 أكتوبر 2026.',
+      h2: 'الأسعار المعلنة جنب بعض',
+      body: [
+        'TexPOS: 1,000 درهم للسنة الأولى، وبعدها 500 درهم بالسنة. يعني 2,000 درهم لثلاث سنوات. وTexPOS يشتغل على تلفون المحل، ما تحتاج أجهزة زيادة.',
+        'Tailoroo: صفحة الأسعار عندهم تذكر ثلاث باقات شهرية، كلها زائد الضريبة: Starter بـ 149 درهم (فرع واحد وحد أقصى 3 مستخدمين)، وBusiness بـ 299 درهم (لين 10 مستخدمين)، وEnterprise بـ 499 درهم (مستخدمين غير محدودين ومتعدد الفروع) (tailoroo.com/pricing، مراجعة بتاريخ 6 أكتوبر 2026). على 12 شهر، باقة Starter تطلع 1,788 درهم قبل الضريبة.',
+        'هالمنتجات ما تشمل نفس المزايا كلها، والأسعار ممكن تتغير في أي وقت، فتأكد دايماً من السعر الحالي ومن اللي يشمله عند كل شركة. أسماء الشركات والمنتجات المذكورة ملك لأصحابها، وماركزون مو تابعة لهم، والصفحة للمعلومات فقط.',
+      ],
+      points: [
+        ['شو تقارن أول شي', 'حفظ المقاسات، وكيف توصل أوامر الشغل للخياط، والعربون والدفعات الجزئية، وكم مستخدم يشمل السعر.'],
+        ['شهري ولا سنوي', 'TexPOS يندفع بالسنة: 1,000 درهم للسنة الأولى وبعدها 500 درهم بالسنة. اسأل الخيار الثاني هل يتحاسب شهرياً وهل الضريبة تنضاف.'],
+        ['تأكد من المقاسات', 'TexPOS يحفظ مقاسات الزبون، وتشمل الشيلة والغترة، وكل أمر شغل فيه رسمة.'],
+        ['شوفه قبل لا تقرر', 'نوفر لك تجربة مجانية ساعة على مكالمة زوم، نمشّي معاك على TexPOS مباشرة.'],
+      ],
+      crumb: 'مقارنة برامج الخياطة', parent: { label: 'TexPOS', href: '/ar/texpos' },
+      timelineLabel: 'الأجهزة', timeline: 'ما تحتاج، يشتغل على تلفونك', price: '1,000 درهم للسنة الأولى',
+      waText: 'مرحبا ماركزون، قريت مقارنة برامج الخياطة وأبا أشوف TexPOS',
+      faqTitle: 'أسئلة الخياطين وهم يقارنون',
+      faq: [
+        ['بكم برنامج محل الخياطة في الإمارات؟', 'يعتمد على المنتج والباقة. حسب موقعهم الرسمي بتاريخ 6 أكتوبر 2026، Tailoroo يذكر 149 و299 و499 درهم بالشهر زائد الضريبة. وTexPOS بـ 1,000 درهم للسنة الأولى، وبعدها 500 درهم بالسنة.'],
+        ['بكم TexPOS؟', 'TexPOS بـ 1,000 درهم للسنة الأولى، وبعدها 500 درهم بالسنة. يعني أقل من 3 دراهم باليوم في السنة الأولى.'],
+        ['أحتاج كمبيوتر أو أجهزة خاصة لـ TexPOS؟', 'لا. TexPOS يشتغل على تلفون المحل، فما تحتاج أي أجهزة.'],
+        ['TexPOS يحفظ مقاسات الشيلة والغترة؟', 'إيه. مقاسات الزبون تنحفظ، وتشمل الشيلة والغترة.'],
+        ['كيف توصل الطلبات للخياط؟', 'كل أمر شغل فيه رسمة، وتقدر تطبعه أو ترسله على واتساب الخياط.'],
+        ['الزبون يقدر يدفع عربون؟', 'إيه. TexPOS يتعامل مع العربون والدفعات الجزئية ومتابعة المتأخرات وسجل الدفعات.'],
+        ['هالأسعار محدّثة؟', 'راجعناها بتاريخ 6 أكتوبر 2026 من الموقع الرسمي لكل شركة. الأسعار والباقات ممكن تتغير، فتأكد من الشركة قبل لا تقرر.'],
+        ['أقدر أجرّب TexPOS قبل ما أدفع؟', 'إيه. نوفر لك تجربة مجانية مدتها ساعة على مكالمة زوم، نمشّي معاك على التطبيق مباشرة.'],
+      ],
+      ctaTitle: 'تبا تشوف TexPOS لمحلك؟',
+      ctaText: 'قول لنا عن محلك على الواتساب، ونوريك TexPOS في تجربة مجانية ساعة على زوم.',
+    },
+  },
+
+  // ───────────── Comparison: OxPOS vs Loyverse ─────────────
+  // Facts checked against Loyverse's own public pricing page (loyverse.com/pricing) on 6 Oct 2026.
+  {
+    path: 'compare/oxpos-vs-loyverse', kind: 'app', app: 'oxpos',
+    en: {
+      schemaName: 'OxPOS compared with Loyverse',
+      title: 'OxPOS vs Loyverse: Retail POS Prices in the UAE',
+      desc: 'Published retail POS prices: OxPOS 1,500 AED with year one included, Loyverse free with paid add-ons from USD 7 a month per store. Checked 6 Oct 2026.',
+      eyebrow: 'Retail POS comparison', h1: 'OxPOS and Loyverse: what a retail POS costs in the UAE',
+      lead: 'A simple look at the prices each company publishes, so you can compare like with like before you choose. Checked on 6 October 2026.',
+      h2: 'Published prices side by side',
+      body: [
+        'OxPOS: 1,500 AED, which includes the first year of maintenance. After that, the renewal is 500 AED per year. Over three years that is 2,500 AED.',
+        'Loyverse: its pricing page shows the point of sale, basic sales analytics, essential inventory and multi-store management as free, with optional paid add-ons per store: unlimited sales history USD 7, employee management USD 25 and advanced inventory USD 25 per month, prices excluding taxes (loyverse.com/pricing, checked 6 October 2026). At the dirham’s fixed rate of 3.6725 to the dollar, that is roughly AED 26, 92 and 92 per month.',
+        'These products do not include the same features, and prices can change at any time, so always confirm the current price and what is included with each company. The companies and product names mentioned belong to their owners. MarkZone is not affiliated with them, and this page is for information only.',
+      ],
+      points: [
+        ['What to compare first', 'What is free and what is an add-on, how long sales history is kept, staff permissions, stock control and the reports you need.'],
+        ['Think about the add-ons', 'If you will need staff management or advanced stock, add those monthly add-ons to the free price before you compare.'],
+        ['Check VAT reports', 'OxPOS includes VAT reports alongside sales, P&L, stock value and payment-type reports, all exportable to PDF or Excel.'],
+        ['See it before you decide', 'We offer a free 1-hour trial on a Zoom call, where we walk you through OxPOS live.'],
+      ],
+      crumb: 'Retail POS comparison', parent: { label: 'OxPOS', href: '/oxpos' },
+      timelineLabel: 'Setup', timeline: '45 min – 2 hrs', price: '1,500 AED, first year included',
+      waText: 'Hi MarkZone, I read your retail POS comparison and I\'d like to see OxPOS',
+      faqTitle: 'Questions shop owners ask when comparing',
+      faq: [
+        ['How much does a retail POS cost in the UAE?', 'It depends on the product and what you need. According to its own website on 6 October 2026, Loyverse is free to start, with paid add-ons from USD 7 per month per store. OxPOS is 1,500 AED, including the first year of maintenance, then 500 AED per year.'],
+        EN.oxCost,
+        EN.oxVat,
+        EN.hw,
+        ['Are these prices up to date?', 'We checked them on 6 October 2026 on each company’s public website. Prices and plans can change, so confirm with the company before you decide.'],
+        EN.trial,
+        EN.oxStart,
+      ],
+      ctaTitle: OX_EN.ctaTitle,
+      ctaText: OX_EN.ctaText,
+    },
+    ar: {
+      schemaName: 'مقارنة OxPOS مع Loyverse',
+      title: 'OxPOS وLoyverse: أسعار نقاط البيع للمحلات في الإمارات',
+      desc: 'أسعار نقاط البيع المعلنة: OxPOS بـ 1,500 درهم والسنة الأولى مشمولة، وLoyverse مجاني مع إضافات مدفوعة من 7 دولار بالشهر للمتجر. مراجعة 6 أكتوبر 2026.',
+      eyebrow: 'مقارنة نقاط البيع', h1: 'OxPOS وLoyverse: بكم نظام نقطة البيع للمحل في الإمارات؟',
+      lead: 'نظرة بسيطة على الأسعار اللي تعلنها كل شركة، عشان تقارن بشكل عادل قبل ما تختار. مراجعة بتاريخ 6 أكتوبر 2026.',
+      h2: 'الأسعار المعلنة جنب بعض',
+      body: [
+        'OxPOS: 1,500 درهم، وتشمل صيانة السنة الأولى. بعدها التجديد 500 درهم بالسنة. يعني 2,500 درهم لثلاث سنوات.',
+        'Loyverse: صفحة الأسعار عندهم تذكر إن نقطة البيع وتحليلات المبيعات الأساسية والمخزون الأساسي وإدارة المتاجر المتعددة مجانية، مع إضافات مدفوعة اختيارية لكل متجر: سجل مبيعات غير محدود بـ 7 دولار، وإدارة الموظفين بـ 25 دولار، والمخزون المتقدم بـ 25 دولار بالشهر، والأسعار بدون ضرائب (loyverse.com/pricing، مراجعة بتاريخ 6 أكتوبر 2026). وبسعر صرف الدرهم الثابت 3.6725 للدولار، يطلع تقريباً 26 و92 و92 درهم بالشهر.',
+        'هالمنتجات ما تشمل نفس المزايا كلها، والأسعار ممكن تتغير في أي وقت، فتأكد دايماً من السعر الحالي ومن اللي يشمله عند كل شركة. أسماء الشركات والمنتجات المذكورة ملك لأصحابها، وماركزون مو تابعة لهم، والصفحة للمعلومات فقط.',
+      ],
+      points: [
+        ['شو تقارن أول شي', 'شو المجاني وشو الإضافات المدفوعة، وكم مدة حفظ سجل المبيعات، وصلاحيات الموظفين، وإدارة المخزون، والتقارير اللي تحتاجها.'],
+        ['فكّر بالإضافات', 'إذا بتحتاج إدارة الموظفين أو مخزون متقدم، ضيف الإضافات الشهرية على السعر المجاني قبل لا تقارن.'],
+        ['تأكد من تقارير الضريبة', 'OxPOS فيه تقارير الضريبة مع تقارير المبيعات والأرباح والخسائر وقيمة المخزون وأنواع الدفع، وكلها تنطلع PDF أو Excel.'],
+        ['شوفه قبل لا تقرر', 'نوفر لك تجربة مجانية ساعة على مكالمة زوم، نمشّي معاك على OxPOS مباشرة.'],
+      ],
+      crumb: 'مقارنة نقاط البيع', parent: { label: 'OxPOS', href: '/ar/oxpos' },
+      timelineLabel: 'التجهيز', timeline: '45 دقيقة – ساعتين', price: '1,500 درهم، السنة الأولى مشمولة',
+      waText: 'مرحبا ماركزون، قريت مقارنة نقاط البيع وأبا أشوف OxPOS',
+      faqTitle: 'أسئلة أصحاب المحلات وهم يقارنون',
+      faq: [
+        ['بكم نظام نقطة البيع للمحل في الإمارات؟', 'يعتمد على المنتج وعلى اللي تحتاجه. حسب موقعهم الرسمي بتاريخ 6 أكتوبر 2026، Loyverse مجاني للبداية مع إضافات مدفوعة من 7 دولار بالشهر للمتجر. وOxPOS بـ 1,500 درهم تشمل صيانة السنة الأولى، وبعدها 500 درهم بالسنة.'],
+        AR.oxCost,
+        AR.oxVat,
+        AR.hw,
+        ['هالأسعار محدّثة؟', 'راجعناها بتاريخ 6 أكتوبر 2026 من الموقع الرسمي لكل شركة. الأسعار والباقات ممكن تتغير، فتأكد من الشركة قبل لا تقرر.'],
+        AR.trial,
+        AR.oxStart,
+      ],
+      ctaTitle: OX_AR.ctaTitle,
+      ctaText: OX_AR.ctaText,
     },
   },
 

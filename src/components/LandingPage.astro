@@ -18,13 +18,14 @@ const crumbs = [
   ...(c.parent ? [{ name: c.parent.label, item: `${SITE.url}${c.parent.href}` }] : []),
   { name: c.crumb, item: url },
 ];
+const appName = page.app === 'oxpos' ? 'OxPOS' : page.app === 'texpos' ? 'TexPOS' : 'ZainaApp';
+const isTex = page.app === 'texpos';
 const main: object[] = [];
 if (page.kind === 'app') {
-  const isOx = page.app === 'oxpos';
   main.push({
-    '@context': 'https://schema.org', '@type': 'SoftwareApplication', name: isOx ? 'OxPOS' : 'ZainaApp', applicationCategory: 'BusinessApplication',
-    operatingSystem: 'Windows, Web', description: c.desc, url, inLanguage,
-    offers: { '@type': 'Offer', price: '1500', priceCurrency: 'AED', description: lang === 'ar' ? '1,500 درهم تشمل صيانة السنة الأولى، ثم 500 درهم بالسنة' : '1,500 AED including first-year maintenance, then 500 AED per year' },
+    '@context': 'https://schema.org', '@type': 'SoftwareApplication', name: appName, applicationCategory: 'BusinessApplication',
+    operatingSystem: isTex ? 'Android, iOS' : 'Windows, Web', description: c.desc, url, inLanguage,
+    offers: { '@type': 'Offer', price: isTex ? '1000' : '1500', priceCurrency: 'AED', description: isTex ? (lang === 'ar' ? '1,000 درهم للسنة الأولى، ثم 500 درهم بالسنة' : '1,000 AED for the first year, then 500 AED per year') : (lang === 'ar' ? '1,500 درهم تشمل صيانة السنة الأولى، ثم 500 درهم بالسنة' : '1,500 AED including first-year maintenance, then 500 AED per year') },
     publisher: { '@id': `${SITE.url}/#business` },
   });
 } else if (page.kind === 'service') {
@@ -59,8 +60,8 @@ const wa = `${SITE.whatsapp}?text=${encodeURIComponent(c.waText)}`;
       <h2>{c.h2}</h2>
       {c.body.map((p) => <p>{p}</p>)}
       {page.app && <p>{lang === 'ar'
-        ? <>تعرّف على التطبيق كامل في <a href={`/ar/${page.app}`}>{page.app === 'oxpos' ? 'OxPOS' : 'ZainaApp'}</a>، أو شوف <a href="/ar/websites">المواقع</a> و<a href="/ar/custom-software">البرامج حسب الطلب</a>.</>
-        : <>See the full app on the <a href={`/${page.app}`}>{page.app === 'oxpos' ? 'OxPOS' : 'ZainaApp'}</a> page, or explore our <a href="/websites">websites</a> and <a href="/custom-software">custom software</a>.</>}</p>}
+        ? <>تعرّف على التطبيق كامل في <a href={`/ar/${page.app}`}>{appName}</a>، أو شوف <a href="/ar/websites">المواقع</a> و<a href="/ar/custom-software">البرامج حسب الطلب</a>.</>
+        : <>See the full app on the <a href={`/${page.app}`}>{appName}</a> page, or explore our <a href="/websites">websites</a> and <a href="/custom-software">custom software</a>.</>}</p>}
       {page.kind === 'service' && <p>{lang === 'ar'
         ? <>تحتاج أكثر من موقع؟ نسوي بعد <a href="/ar/custom-software">برامج وتطبيقات حسب الطلب</a>، وتطبيقات جاهزة مثل <a href="/ar/oxpos">OxPOS</a> و<a href="/ar/zainaapp">ZainaApp</a> و<a href="/ar/texpos">TexPOS</a>.</>
         : <>Need more than a website? We also build <a href="/custom-software">custom software and mobile apps</a>, and ready-made apps like <a href="/oxpos">OxPOS</a>, <a href="/zainaapp">ZainaApp</a> and <a href="/texpos">TexPOS</a>.</>}</p>}
