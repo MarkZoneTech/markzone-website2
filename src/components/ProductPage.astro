@@ -73,6 +73,12 @@ const heroPhone = p.mobile[0];
           <a class="btn btn--cta" href={waHref} rel="noopener">{L.ask}</a>
           <a class="btn btn--outline" href="#features">{L.see}</a>
         </div>
+        {resources.length > 0 && (
+          <div class="phero__cmp">
+            <span>{lang === 'ar' ? 'تقارن بين الخيارات؟' : 'Comparing your options?'}</span>
+            {resources.map((r) => <a href={`${pre}/${r.href}`}>{lang === 'ar' ? r.ar : r.en} <b aria-hidden="true">{lang === 'ar' ? '←' : '→'}</b></a>)}
+          </div>
+        )}
       </div>
       <div class="phero__visual">
         {heroShot && (
@@ -226,6 +232,10 @@ const heroPhone = p.mobile[0];
   .phero__amount { font: 800 42px/1 var(--f-head); color: var(--price); }
   .phero__amount small { font-size: 18px; }
   .phero__note { font-size: 14px; color: var(--ink-muted); line-height: 1.45; }
+  .phero__cmp { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; margin-top: 22px; padding: 14px 18px; border-radius: 14px; background: #fff; border: 1px solid var(--border); border-inline-start: 5px solid var(--accent); box-shadow: var(--shadow); font-size: 15px; }
+  .phero__cmp span { color: var(--ink); font-weight: 700; }
+  .phero__cmp a { color: var(--primary); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+  .phero__cmp a:hover { text-decoration-thickness: 2px; }
   .phero__ctas { display: flex; flex-wrap: wrap; gap: 12px; }
   .phero__visual { position: relative; padding-bottom: 36px; min-height: 360px; }
   .browser { margin: 0; background: #fff; border-radius: 14px; overflow: hidden; box-shadow: var(--shadow-lg); border: 1px solid var(--border); }
