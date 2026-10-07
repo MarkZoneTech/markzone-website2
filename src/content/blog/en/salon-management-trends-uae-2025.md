@@ -55,4 +55,4 @@ Owners want to know, quickly: how much did we take today, who performed best, an
 
 None of these changes requires a big team or a complicated system. They require one organized place for bookings, clients, staff and sales, in Arabic and English, with support you can reach.
 
-ZainaApp runs on Windows, and the web app lets you manage the salon from any device. It is 1,500 AED including the first year of maintenance, then 500 AED per year. [See ZainaApp](/zainaapp), or [ask us on WhatsApp](https://wa.me/971506552181) how it would fit your salon.
+ZainaApp works on any device. It is 1,500 AED including the first year of maintenance, then 500 AED per year. [See ZainaApp](/zainaapp), or [ask us on WhatsApp](https://wa.me/971506552181) how it would fit your salon.

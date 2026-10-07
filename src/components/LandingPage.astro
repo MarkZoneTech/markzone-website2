@@ -27,7 +27,7 @@ const main: object[] = [];
 if (page.kind === 'app') {
   main.push({
     '@context': 'https://schema.org', '@type': 'SoftwareApplication', name: appName, applicationCategory: 'BusinessApplication',
-    operatingSystem: isTex ? 'Android, iOS' : 'Windows, Web', description: c.desc, url, inLanguage,
+    operatingSystem: 'Web, Windows, Android, iOS', description: c.desc, url, inLanguage,
     offers: { '@type': 'Offer', price: isTex ? '1000' : '1500', priceCurrency: 'AED', description: isTex ? (lang === 'ar' ? '1,000 درهم للسنة الأولى، ثم 500 درهم بالسنة' : '1,000 AED for the first year, then 500 AED per year') : (lang === 'ar' ? '1,500 درهم تشمل صيانة السنة الأولى، ثم 500 درهم بالسنة' : '1,500 AED including first-year maintenance, then 500 AED per year') },
     publisher: { '@id': `${SITE.url}/#business` },
   });

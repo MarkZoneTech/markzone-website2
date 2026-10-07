@@ -75,7 +75,7 @@ export const EN: HomeCopy = {
   faq: [
     ['How much does OxPOS cost?', 'OxPOS is 1,500 AED including the first year of maintenance, then 500 AED per year. ZainaApp is priced the same. TexPOS is 1,000 AED for the first year, then 500 AED per year.'],
     ['How long does setup take?', 'Most businesses are up and running the same day. Setup usually takes between 45 minutes and 2 hours.'],
-    ['Do I need to buy new hardware?', 'Not necessarily. OxPOS and ZainaApp run on Windows and can be managed from any device on the web, and TexPOS runs on any device. Compatible hardware is available if you need it.'],
+    ['Do I need to buy new hardware?', 'Not necessarily. All our apps work on any device. Compatible hardware is available if you need it.'],
     ['Which emirates do you serve?', 'We are based in Dubai and serve businesses in all 7 emirates.'],
     ['What support do I get?', 'Full WhatsApp support daily from 10 AM to 10 PM (Sunday off), plus on-site visits when needed.'],
   ],
@@ -83,8 +83,8 @@ export const EN: HomeCopy = {
   ctaText: 'Tell us what you sell and how you work. We’ll show you the right app on WhatsApp, same day.', ctaCall: 'Call us',
   aed: 'AED',
   apps: {
-    oxpos: { for: 'Retail shops', problem: 'Inventory, purchases, salaries and expenses scattered everywhere. OxPOS puts them in one place, with the reports to match.', features: ['Fast point of sale with barcode scanning, split payments and returns', 'Full inventory control with low-stock and expiry alerts', 'Consignment module for stores hosting small vendors', 'Each branch added as a new shop, managed from the same platform, with staff roles and permissions'], platform: 'Runs on Windows, managed from any device on the web.', priceNote: 'Includes first-year maintenance', renewal: 'then 500 AED / year', shotAlt: 'OxPOS products screen with stock levels and prices' },
-    zainaapp: { for: 'Salons & spas', problem: 'Messy appointment books and staff commissions nobody can track. ZainaApp organizes both.', features: ['Appointments calendar with walk-ins and live booking alerts', 'Online booking page for every salon', 'Automatic WhatsApp booking notifications', 'Staff commissions, attendance and performance'], platform: 'Runs on Windows, managed from any device on the web.', priceNote: 'Includes first-year maintenance', renewal: 'then 500 AED / year', shotAlt: 'ZainaApp appointments calendar' },
+    oxpos: { for: 'Retail shops', problem: 'Inventory, purchases, salaries and expenses scattered everywhere. OxPOS puts them in one place, with the reports to match.', features: ['Fast point of sale with barcode scanning, split payments and returns', 'Full inventory control with low-stock and expiry alerts', 'Consignment module for stores hosting small vendors', 'Each branch added as a new shop, managed from the same platform, with staff roles and permissions'], platform: 'Works on any device.', priceNote: 'Includes first-year maintenance', renewal: 'then 500 AED / year', shotAlt: 'OxPOS products screen with stock levels and prices' },
+    zainaapp: { for: 'Salons & spas', problem: 'Messy appointment books and staff commissions nobody can track. ZainaApp organizes both.', features: ['Appointments calendar with walk-ins and live booking alerts', 'Online booking page for every salon', 'Automatic WhatsApp booking notifications', 'Staff commissions, attendance and performance'], platform: 'Works on any device.', priceNote: 'Includes first-year maintenance', renewal: 'then 500 AED / year', shotAlt: 'ZainaApp appointments calendar' },
     texpos: { for: 'Tailoring shops', problem: 'Measurements and order details get lost between the counter and the tailor. TexPOS keeps every detail with the order.', features: ['Saved customer measurements, including shaila and ghutra', 'Job orders with sketch, printed or sent to the tailor on WhatsApp', 'Deposits, partial payments and overdue tracking', 'Fabric by the meter, items by the piece'], platform: "Works on any device. No hardware needed.", priceNote: 'First year', renewal: 'then 500 AED / year', shotAlt: 'TexPOS saved customer measurements on a phone' },
   },
 };
@@ -145,7 +145,7 @@ export const AR: HomeCopy = {
   faq: [
     ['بكم OxPOS؟', 'OxPOS بـ 1,500 درهم وتشمل صيانة السنة الأولى، وبعدها 500 درهم بالسنة. ZainaApp بنفس السعر. TexPOS بـ 1,000 درهم للسنة الأولى، وبعدها 500 درهم بالسنة.'],
     ['التركيب ياخذ كم وقت؟', 'أغلب الشركات تشتغل من نفس اليوم. التجهيز عادةً ياخذ من 45 دقيقة لين ساعتين.'],
-    ['لازم أشتري أجهزة جديدة؟', 'مب شرط. OxPOS وZainaApp يشتغلون على ويندوز وتقدر تتابعهم من أي جهاز عن طريق الويب، وTexPOS يشتغل على أي جهاز. وإذا تحتاج أجهزة، الأجهزة المتوافقة متوفرة.'],
+    ['لازم أشتري أجهزة جديدة؟', 'مب شرط. كل تطبيقاتنا تشتغل على أي جهاز. وإذا تحتاج أجهزة، الأجهزة المتوافقة متوفرة.'],
     ['أي إمارات تخدمون؟', 'مقرنا في دبي ونخدم الشركات في كل الإمارات السبع.'],
     ['شو الدعم اللي بحصّله؟', 'دعم كامل على الواتساب يومياً من 10 الصبح لين 10 الليل (الأحد إجازة)، وزيارات للموقع إذا احتاج الأمر.'],
   ],
@@ -153,8 +153,8 @@ export const AR: HomeCopy = {
   ctaText: 'قول لنا شو تبيع وكيف تشتغل، ونوريك التطبيق المناسب على الواتساب في نفس اليوم.', ctaCall: 'اتصل بنا',
   aed: 'درهم',
   apps: {
-    oxpos: { for: 'محلات التجزئة', problem: 'المخزون والمشتريات والرواتب والمصاريف متفرقة في كل مكان. OxPOS يجمعها في مكان واحد مع التقارير اللي تحتاجها.', features: ['نقطة بيع سريعة مع الباركود وتقسيم الدفع والمرتجعات', 'تحكم كامل في المخزون مع تنبيهات النقص وانتهاء الصلاحية', 'نظام بضاعة الأمانة للمحلات اللي تعرض منتجات المشاريع المنزلية والبياعين الصغار', 'كل فرع ينضاف كمحل جديد وتديره من نفس المنصة، مع صلاحيات لكل موظف'], platform: 'يشتغل على ويندوز، وتتابع شغلك من أي جهاز عن طريق الويب.', priceNote: 'تشمل صيانة السنة الأولى', renewal: 'وبعدها 500 درهم بالسنة', shotAlt: 'شاشة المنتجات في OxPOS مع الكميات والأسعار' },
-    zainaapp: { for: 'صالونات وسبا', problem: 'دفتر مواعيد ملخبط وعمولات موظفين محد يقدر يحسبها. ZainaApp ينظم الثنتين.', features: ['تقويم مواعيد مع الووك إن وتنبيهات الحجز أول بأول', 'صفحة حجز أونلاين لكل صالون', 'إشعارات حجز تلقائية على الواتساب', 'عمولات الموظفين والحضور والأداء'], platform: 'يشتغل على ويندوز، وتتابع صالونك من أي جهاز عن طريق الويب.', priceNote: 'تشمل صيانة السنة الأولى', renewal: 'وبعدها 500 درهم بالسنة', shotAlt: 'تقويم المواعيد في ZainaApp' },
+    oxpos: { for: 'محلات التجزئة', problem: 'المخزون والمشتريات والرواتب والمصاريف متفرقة في كل مكان. OxPOS يجمعها في مكان واحد مع التقارير اللي تحتاجها.', features: ['نقطة بيع سريعة مع الباركود وتقسيم الدفع والمرتجعات', 'تحكم كامل في المخزون مع تنبيهات النقص وانتهاء الصلاحية', 'نظام بضاعة الأمانة للمحلات اللي تعرض منتجات المشاريع المنزلية والبياعين الصغار', 'كل فرع ينضاف كمحل جديد وتديره من نفس المنصة، مع صلاحيات لكل موظف'], platform: 'يشتغل على أي جهاز.', priceNote: 'تشمل صيانة السنة الأولى', renewal: 'وبعدها 500 درهم بالسنة', shotAlt: 'شاشة المنتجات في OxPOS مع الكميات والأسعار' },
+    zainaapp: { for: 'صالونات وسبا', problem: 'دفتر مواعيد ملخبط وعمولات موظفين محد يقدر يحسبها. ZainaApp ينظم الثنتين.', features: ['تقويم مواعيد مع الووك إن وتنبيهات الحجز أول بأول', 'صفحة حجز أونلاين لكل صالون', 'إشعارات حجز تلقائية على الواتساب', 'عمولات الموظفين والحضور والأداء'], platform: 'يشتغل على أي جهاز.', priceNote: 'تشمل صيانة السنة الأولى', renewal: 'وبعدها 500 درهم بالسنة', shotAlt: 'تقويم المواعيد في ZainaApp' },
     texpos: { for: 'محلات الخياطة', problem: 'المقاسات وتفاصيل الطلب تضيع بين الكاونتر والخياط. TexPOS يحفظ كل تفصيل مع الطلب.', features: ['حفظ مقاسات الزباين، ومنها الشيلة والغترة', 'أوامر شغل مع رسمة، تنطبع أو تنرسل للخياط على الواتساب', 'العربون والدفعات الجزئية ومتابعة المتأخر', 'القماش بالمتر والقطع بالحبة'], platform: 'يشتغل على أي جهاز، وما يحتاج أجهزة.', priceNote: 'السنة الأولى', renewal: 'وبعدها 500 درهم بالسنة', shotAlt: 'مقاسات الزبون محفوظة في TexPOS على التلفون' },
   },
 };

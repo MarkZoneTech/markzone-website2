@@ -49,6 +49,6 @@ Check out clients through a point of sale with sequential invoice numbers, then 
 
 ## Get organized once, benefit every day
 
-[ZainaApp](/zainaapp) is built for ladies' salons, barbershops, spas and beauty lounges. It works in Arabic and English, prints thermal receipts, and runs on Windows with a web app. The price is 1,500 AED including the first year of maintenance, then 500 AED per year.
+[ZainaApp](/zainaapp) is built for ladies' salons, barbershops, spas and beauty lounges. It works in Arabic and English, prints thermal receipts, and works on any device. The price is 1,500 AED including the first year of maintenance, then 500 AED per year.
 
 Struggling with missed appointments? Read [how to reduce no-shows at your salon](/blog/reduce-salon-no-shows-zainaapp), or [message us on WhatsApp](https://wa.me/971506552181) and we will walk you through it.

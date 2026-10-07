@@ -24,7 +24,7 @@ export const APPS = [
     who: 'Supermarkets, fashion & garment stores, cosmetics shops and consignment stores.',
     problem: 'Inventory, purchases, salaries and expenses scattered everywhere. OxPOS puts them in one place, with the reports to match.',
     features: ['Fast point of sale with barcode scanning, split payments and returns', 'Full inventory control with low-stock and expiry alerts', 'Consignment module for stores hosting small vendors', 'Each branch added as a new shop, managed from the same platform, with staff roles and permissions'],
-    platform: 'Runs on Windows, managed from any device on the web.',
+    platform: 'Works on any device.',
     price: '1,500', priceNote: 'Includes first-year maintenance', renewal: 'then 500 AED / year',
   },
   {
@@ -33,7 +33,7 @@ export const APPS = [
     who: "Ladies' salons, barbershops, spas and beauty lounges.",
     problem: 'Messy appointment books and staff commissions nobody can track. ZainaApp organizes both.',
     features: ['Appointments calendar with walk-ins and live booking alerts', 'Online booking page for every salon', 'Automatic WhatsApp booking notifications', 'Staff commissions, attendance and performance'],
-    platform: 'Runs on Windows, managed from any device on the web.',
+    platform: 'Works on any device.',
     price: '1,500', priceNote: 'Includes first-year maintenance', renewal: 'then 500 AED / year',
   },
   {

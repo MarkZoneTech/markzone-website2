@@ -35,7 +35,7 @@ export const PRODUCTS: Product[] = [
       { h: 'Customer accounts', p: 'Customer balances and full purchase history.' },
       { h: 'Arabic & English', p: 'Thermal receipts plus a custom label and invoice designer.' },
     ],
-    platform: 'Runs fully on Windows, and the web app lets you manage the business from any device.',
+    platform: 'Works on any device.',
     price: '1,500', priceNote: 'Includes first-year maintenance', renewal: 'then 500 AED / year',
     desktop: [
       { src: '/img/screens/oxpos-inventory.webp', alt: 'OxPOS inventory management with stock value, low-stock and out-of-stock counts' },
@@ -80,7 +80,7 @@ export const PRODUCTS: Product[] = [
       { h: 'Reports', p: 'Sales, end-of-day, employee performance and commission reports.' },
       { h: 'Arabic & English', p: 'Bilingual app with thermal receipt printing.' },
     ],
-    platform: 'Runs on Windows, and the web app lets you manage the salon from any device.',
+    platform: 'Works on any device.',
     price: '1,500', priceNote: 'Includes first-year maintenance', renewal: 'then 500 AED / year',
     desktop: [
       { src: '/img/screens/zaina-appointments.webp', alt: 'ZainaApp staff and appointments calendar' },

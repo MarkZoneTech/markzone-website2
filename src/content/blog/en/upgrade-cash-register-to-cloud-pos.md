@@ -8,7 +8,7 @@ product: oxpos
 coverAlt: "Retail shop counter with a modern point of sale system"
 faq:
   - q: "Do I need to replace all my equipment to move from a cash register?"
-    a: "Not always. OxPOS runs on Windows and the web app lets you manage the business from any device, so many shops start with equipment they already have. Compatible hardware is available if you need it."
+    a: "Not always. OxPOS works on any device, so many shops start with equipment they already have. Compatible hardware is available if you need it."
   - q: "How long does it take to switch?"
     a: "With MarkZone, most shops are running the same day. Setup usually takes between 45 minutes and 2 hours, and your items can be migrated from Excel where available."
   - q: "Is a modern system expensive for a small shop?"

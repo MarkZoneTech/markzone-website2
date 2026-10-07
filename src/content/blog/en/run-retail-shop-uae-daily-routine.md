@@ -9,7 +9,7 @@ faq:
   - q: "How long does OxPOS take to set up?"
     a: "Setup takes between 45 minutes and 2 hours."
   - q: "Can I manage my shop from any device?"
-    a: "OxPOS runs fully on Windows, and the web app lets you manage the business from any device."
+    a: "OxPOS works on any device."
   - q: "Does OxPOS work in Arabic?"
     a: "Yes. OxPOS works in Arabic and English and prints thermal receipts."
 ---

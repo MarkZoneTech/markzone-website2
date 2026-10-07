@@ -43,7 +43,7 @@ const waHref = `${SITE.whatsapp}?text=${encodeURIComponent(L.wa)}`;
 const schema = [
   {
     '@context': 'https://schema.org', '@type': 'SoftwareApplication', name: p.name, applicationCategory: 'BusinessApplication',
-    operatingSystem: p.slug === 'texpos' ? 'Mobile' : 'Windows, Web', description: p.seoDesc, url, inLanguage: lang === 'ar' ? 'ar-AE' : 'en-AE',
+    operatingSystem: 'Web, Windows, Android, iOS', description: p.seoDesc, url, inLanguage: lang === 'ar' ? 'ar-AE' : 'en-AE',
     image: `${SITE.url}${(p.desktop[0] ?? p.mobile[0]).src}`,
     offers: { '@type': 'Offer', price: p.price.replace(',', ''), priceCurrency: 'AED', description: `${p.priceNote}, ${p.renewal}` },
     publisher: { '@id': `${SITE.url}/#business` },

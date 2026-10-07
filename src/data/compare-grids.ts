@@ -101,6 +101,8 @@ export const GRIDS: Record<string, { en: Grid; ar: Grid }> = {
 export const RESOURCES: Record<string, Resource[]> = {
   oxpos: [
     { href: 'guides/retail-pos-uae-buyers-guide', en: 'How to choose a retail POS in the UAE', ar: 'كيف تختار نظام كاشير لمحلك', enSub: 'Buyer’s guide', arSub: 'دليل الشراء' },
+    { href: 'guides/pos-system-cost-uae', en: 'How much does a POS cost in the UAE?', ar: 'بكم نظام الكاشير في الإمارات', enSub: 'Cost guide', arSub: 'دليل الأسعار' },
+    { href: 'guides/multi-branch-shop-software-uae', en: 'Managing several shops from one platform', ar: 'إدارة أكثر من محل من منصة وحدة', enSub: 'Multi-branch guide', arSub: 'دليل الفروع' },
     { href: 'compare/oxpos-vs-zoho-pos-and-daftra', en: 'OxPOS vs Zoho POS vs Daftra', ar: 'OxPOS مقابل Zoho POS وDaftra', enSub: 'Prices side by side', arSub: 'الأسعار جنب بعض' },
   ],
   texpos: [

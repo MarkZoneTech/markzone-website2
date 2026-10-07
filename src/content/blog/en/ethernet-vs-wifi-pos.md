@@ -53,7 +53,7 @@ Every connection fails sometimes. Plan for it:
 
 ## How this relates to your system
 
-[OxPOS](/oxpos) runs on Windows at the counter, and the web app lets you manage the business from any device. A stable connection keeps everything in step between the counter and your other devices. [TexPOS](/texpos) works on any device, so a good signal where staff actually use the phone matters.
+[OxPOS](/oxpos) works on any device. A stable connection keeps everything in step between the counter and your other devices. [TexPOS](/texpos) works on any device, so a good signal where staff actually use the phone matters.
 
 ## Keep the counter calm
 
