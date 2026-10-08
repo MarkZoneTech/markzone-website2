@@ -5,7 +5,6 @@ date: 2026-10-08
 category: salon-business
 product: zainaapp
 coverAlt: "كرسي صالون ومراية وتقويم مواعيد"
-draft: true
 faq:
   - q: "ZainaApp لصالونات السيدات بس؟"
     a: "لا. هو مسوّى لصالونات السيدات والحلاقة والسبا ومراكز التجميل وأي نشاط تجميل مشابه."

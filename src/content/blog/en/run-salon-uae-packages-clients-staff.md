@@ -5,7 +5,6 @@ date: 2026-10-08
 category: salon-business
 product: zainaapp
 coverAlt: "Salon chair and mirror with an appointment calendar"
-draft: true
 faq:
   - q: "Is ZainaApp only for ladies' salons?"
     a: "No. It is made for ladies' salons, barbershops, spas, beauty lounges and similar beauty businesses."
