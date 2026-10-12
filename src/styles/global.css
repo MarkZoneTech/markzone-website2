@@ -1,30 +1,33 @@
 /* MarkZone Branding tokens — logo artwork is the master for colour */
 :root {
-  --navy: #04478b;
-  --navy-deep: #032f5e;
-  --teal: #06abae;
-  --orange: #fa8606;
+  /* MarkZone Branding Kit (approved 8 Oct 2026) */
+  --navy: #003c87;          /* Primary */
+  --navy-deep: #002a63;     /* shade of Primary, for gradient depth only */
+  --navy-lift: #1f5395;     /* tint of Primary, for gradient highlight only */
+  --teal: #00a5a5;          /* Secondary */
+  --orange: #f07800;        /* Accent: buttons, highlights, key numbers */
   --teal-tint: #d9f2f2;
+  --teal-on-dark: #80d2d2;  /* tint of Secondary for small labels on navy */
   --surface: #ffffff;
-  --surface-muted: #f5f7fa;
+  --surface-muted: #f2f4f7; /* Light Gray */
   --border: #e5e7eb;
-  --ink: #1a1a2e;
-  --ink-muted: #5f6675;
-  --primary: #04478b;
-  --teal-text: #00757a;
-  --on-orange: #1a1a2e;
-  --price: #b35600;
-  --focus: #04478b;
+  --ink: #1a1a1a;           /* Text: all body text */
+  --ink-muted: #1a1a1a;
+  --primary: #003c87;
+  --teal-text: #007777;     /* Secondary, darkened so small labels pass contrast */
+  --on-orange: #1a1a1a;
+  --price: #b35600;         /* Accent, darkened so price text passes contrast */
+  --focus: #003c87;
 
-  --f-head: "Poppins", "Montserrat", Arial, sans-serif;
-  --f-body: "Inter Variable", "Inter", "Open Sans", system-ui, sans-serif;
-  --f-ar-head: "Cairo", "Noto Sans Arabic", Arial, sans-serif;
-  --f-ar-body: "Tajawal", "Noto Sans Arabic", sans-serif;
+  --f-head: "Montserrat", Arial, sans-serif;
+  --f-body: "Montserrat", Arial, sans-serif;
+  --f-ar-head: "Almarai", Tahoma, sans-serif;
+  --f-ar-body: "Almarai", Tahoma, sans-serif;
 
   --r-card: 16px;
   --r-sm: 10px;
-  --shadow: 0 1px 2px rgba(4, 71, 139, .06), 0 8px 24px rgba(4, 71, 139, .08);
-  --shadow-lg: 0 2px 4px rgba(3, 47, 94, .08), 0 24px 48px rgba(3, 47, 94, .16);
+  --shadow: 0 1px 2px rgba(0, 60, 135, .06), 0 8px 24px rgba(0, 60, 135, .08);
+  --shadow-lg: 0 2px 4px rgba(0, 42, 99, .08), 0 24px 48px rgba(0, 42, 99, .16);
   --wrap: 1180px;
 }
 
@@ -65,8 +68,8 @@ p { margin: 0 0 1em; }
 [dir="rtl"] .btn { font-family: var(--f-ar-head); }
 .btn:hover { transform: translateY(-1px); }
 .btn svg { width: 20px; height: 20px; flex: none; }
-.btn--cta { background: var(--orange); color: var(--on-orange); box-shadow: 0 6px 18px rgba(250, 134, 6, .35); }
-.btn--cta:hover { background: #ff9524; }
+.btn--cta { background: var(--orange); color: var(--on-orange); box-shadow: 0 6px 18px rgba(240, 120, 0, .35); }
+.btn--cta:hover { background: #ff8a1f; }
 .btn--primary { background: var(--primary); color: #fff; }
 .btn--primary:hover { background: var(--navy-deep); }
 .btn--ghost { border-color: rgba(255, 255, 255, .45); color: #fff; }

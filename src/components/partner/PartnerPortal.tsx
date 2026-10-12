@@ -343,7 +343,7 @@ function Funnel({ rows }: { rows: [string, number][] }) {
 function MarketingKit({ t, lang, link, landing }: { t: (k: any) => string; lang: Lang; link: string; landing: string }) {
   const [copied, setCopied] = useState<string | null>(null);
   const [qr, setQr] = useState<string>('');
-  useEffect(() => { QRCode.toDataURL(link, { width: 320, margin: 1, color: { dark: '#04478B', light: '#ffffff' } }).then(setQr).catch(() => {}); }, [link]);
+  useEffect(() => { QRCode.toDataURL(link, { width: 320, margin: 1, color: { dark: '#003C87', light: '#ffffff' } }).then(setQr).catch(() => {}); }, [link]);
   const message = lang === 'ar'
     ? `تعرف على ماركزون؟ عندهم تطبيقات تنظّم شغل المحلات والصالونات ومحلات الخياطة، بسعر مناسب ودعم على الواتساب. شوف من هني: ${link}`
     : `Do you know MarkZone? They build apps that organize shops, salons and tailoring businesses, at a fair price with real WhatsApp support. Have a look: ${link}`;

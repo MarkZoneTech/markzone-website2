@@ -36,13 +36,15 @@ The single reference for updating markzonetech.com: adding a product or service,
 
 ## 3. Design system (MarkZone Branding)
 
-- **Colours** (the logo is the master):
-  - Navy `#04478B`, with deep navy `#032F5E` for hero and footer backgrounds.
-  - Teal `#06ABAE`, and `#00757A` for teal text on light backgrounds.
-  - Orange `#FA8606` for main action buttons only, with dark text on it.
-  - Price colour `#B35600`.
-  - Surfaces are white and `#F5F7FA`; borders `#E5E7EB`; text `#1A1A2E` and `#5F6675`.
-- **Fonts** (self-hosted): English headings Poppins, body Inter. Arabic headings Cairo, body Tajawal.
+- **Colours** (MarkZone Branding Kit, approved 8 Oct 2026; tokens in `src/styles/global.css`):
+  - Navy `#003C87` (primary), with `#002A63` (shade) and `#1F5395` (lift) for gradients.
+  - Teal `#00A5A5` (secondary), `#007777` for small teal text on light backgrounds, `#80D2D2` for small labels on navy.
+  - Orange `#F07800` is the accent: buttons, highlights and key numbers only, one accent moment per page, dark text `#1A1A1A` on it. Never for body text.
+  - Price colour `#B35600` (darker orange for contrast).
+  - Text `#1A1A1A`; backgrounds white and `#F2F4F7`. Gold is not a MarkZone colour (only ZainaApp / TexPOS).
+- **Fonts** (self-hosted via @fontsource): English Montserrat (700 headlines, 600 subheads, 400 body); Arabic Almarai (800 headlines, 700 headings, 400 body). Fallbacks Arial / Tahoma.
+- **Logos:** official kit files only (`public/img/brand/`, `mz-logo.webp` colour, `mz-logo-rev.webp` white on navy). Never stretch, recolour, outline or recreate. Clear space = height of the "M".
+- **Footer standard:** DED Licence No. 1574303 · Mohammed Bin Rashid Establishment for SME Development — Member; markzonetech.com · +971 50 655 2181; Instagram @markzone.ae · TikTok @markzonetech. No VAT/TRN, no tool or platform names, no ownership wording (no "Emirati Management").
 - **Product sub-brands** keep their own identity on their pages and cards:
   - OxPOS: orange `#DF7F36`.
   - ZainaApp: gold `#B8862F` on black.

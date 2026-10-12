@@ -18,8 +18,8 @@
   ]
  },
  "/img/mz-logo-rev.webp": {
-  "w": 520,
-  "h": 153,
+  "w": 800,
+  "h": 236,
   "stem": "img-mz-logo-rev",
   "variants": [
    80,
@@ -29,12 +29,13 @@
    320,
    400,
    480,
-   520
+   640,
+   800
   ]
  },
  "/img/mz-logo.webp": {
-  "w": 520,
-  "h": 153,
+  "w": 800,
+  "h": 236,
   "stem": "img-mz-logo",
   "variants": [
    80,
@@ -44,19 +45,8 @@
    320,
    400,
    480,
-   520
-  ]
- },
- "/img/mz-symbol-rev.webp": {
-  "w": 256,
-  "h": 222,
-  "stem": "img-mz-symbol-rev",
-  "variants": [
-   80,
-   120,
-   160,
-   240,
-   256
+   640,
+   800
   ]
  },
  "/img/oxpos-logo.webp": {

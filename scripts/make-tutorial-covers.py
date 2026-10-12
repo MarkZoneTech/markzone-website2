@@ -6,15 +6,17 @@ import os, re, glob, sys
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-EN_B = os.path.join(ROOT, 'node_modules/@fontsource/poppins/files/poppins-latin-700-normal.woff')
-EN_M = os.path.join(ROOT, 'node_modules/@fontsource/poppins/files/poppins-latin-600-normal.woff')
-AR = os.path.join(ROOT, 'scripts/fonts/Cairo.ttf')
+EN_B = os.path.join(ROOT, 'node_modules/@fontsource/montserrat/files/montserrat-latin-700-normal.woff')
+EN_M = os.path.join(ROOT, 'node_modules/@fontsource/montserrat/files/montserrat-latin-600-normal.woff')
+AR_DIR = os.path.join(ROOT, 'scripts/fonts')
+AR_FILES = {'Bold': 'Almarai_800ExtraBold.ttf', 'SemiBold': 'Almarai_700Bold.ttf'}  # kit Arabic: ExtraBold / Bold
+AR = 'ar'
 IMG = os.path.join(ROOT, 'public/img')
 FORCE = '--force' in sys.argv
 W, H = 1200, 630
 
 SERIES = {
-    'oxpos': {'bg': ((3, 34, 70), (4, 71, 139)), 'accent': (223, 127, 54), 'logo': 'oxpos-logo.webp', 'name': 'OxPOS'},
+    'oxpos': {'bg': ((0, 30, 72), (0, 60, 135)), 'accent': (223, 127, 54), 'logo': 'oxpos-logo.webp', 'name': 'OxPOS'},
     'texpos': {'bg': ((12, 14, 22), (32, 36, 52)), 'accent': (191, 155, 48), 'logo': 'texpos-icon.webp', 'name': 'TexPOS'},
     'zainaapp': {'bg': ((10, 10, 10), (40, 34, 24)), 'accent': (184, 134, 47), 'logo': 'zaina-icon.webp', 'name': 'ZainaApp'},
 }
@@ -33,9 +35,8 @@ def fm(path):
     return g('title'), g('category'), g('cover'), g('series'), g('lesson')
 
 def font(path, size, weight=None):
-    f = ImageFont.truetype(path, size)
-    if weight: f.set_variation_by_name(weight)
-    return f
+    if path == 'ar': return ImageFont.truetype(os.path.join(AR_DIR, AR_FILES[weight or 'Bold']), size)
+    return ImageFont.truetype(path, size)
 
 def bg(s):
     (a, b) = SERIES[s]['bg']
@@ -115,7 +116,7 @@ def make(path, lang):
     # subtle orbit motif
     for r, a in [(430, 40), (360, 28)]:
         cx = 200 if rtl else W - 200
-        d.ellipse([cx - r, -r // 2, cx + r, r * 1.5], outline=(6, 171, 174, a), width=12)
+        d.ellipse([cx - r, -r // 2, cx + r, r * 1.5], outline=(0, 165, 165, a), width=12)
     shot(im, slug, rtl, acc); d = ImageDraw.Draw(im, 'RGBA')
     X = W - 64 if rtl else 64
     logo_chip(im, series, X, 58, rtl); d = ImageDraw.Draw(im, 'RGBA')
