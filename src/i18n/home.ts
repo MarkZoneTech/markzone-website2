@@ -48,7 +48,8 @@ export const EN: HomeCopy = {
   services: [
     { h: 'Business management apps', p: 'Ready-made apps for each industry, set up and running the same day.', t: 'From 1,000 AED', href: '#apps' },
     { h: 'Websites & web design', p: 'A professional website for your business, delivered within 2 weeks.', t: 'From 1,000 AED', href: '/websites' },
-    { h: 'Custom software & mobile apps', p: 'Systems built around exactly how you work, from about 2 months depending on size. Mobile apps are built on top and add about 1 month.', t: 'Quote on request', href: '/custom-software' },
+    { h: 'Custom software', p: 'Web systems built around exactly how you work, from about 2 months depending on size.', t: 'Quote on request', href: '/custom-software' },
+    { h: 'Mobile apps', p: 'Your own app for customers, staff or owners, built on top of your web app. Adds about 1 month.', t: 'Quote on request', href: '/mobile-apps' },
   ],
   inclEyebrow: 'Included with every app', inclH2: 'Outstanding service is the standard. Never an upgrade.',
   inclP: 'Whether you choose a ready-made app or a custom system, every client gets the same support from day one.', inclCta: 'Talk to us',
@@ -118,7 +119,8 @@ export const AR: HomeCopy = {
   services: [
     { h: 'تطبيقات إدارة الأعمال', p: 'تطبيقات جاهزة لكل مجال، تتركب وتشتغل من نفس اليوم.', t: 'من 1,000 درهم', href: '#apps' },
     { h: 'المواقع الإلكترونية', p: 'موقع احترافي لشغلك، يتسلم خلال أسبوعين.', t: 'من 1,000 درهم', href: '/ar/websites' },
-    { h: 'برامج وتطبيقات حسب الطلب', p: 'أنظمة مبنية على طريقة شغلك بالضبط، من حوالي شهرين حسب حجم المشروع. وتطبيقات الجوال تتبني فوقها وتزيد حوالي شهر.', t: 'عرض الأسعار', href: '/ar/custom-software' },
+    { h: 'برامج حسب الطلب', p: 'أنظمة ويب مبنية على طريقة شغلك بالضبط، من حوالي شهرين حسب حجم المشروع.', t: 'عرض الأسعار', href: '/ar/custom-software' },
+    { h: 'تطبيقات الجوال', p: 'تطبيق خاص فيك للعملاء أو الموظفين أو المالك، يتبني فوق تطبيق الويب حقك. يزيد حوالي شهر.', t: 'عرض الأسعار', href: '/ar/mobile-apps' },
   ],
   inclEyebrow: 'مشمول مع كل تطبيق', inclH2: 'الخدمة الممتازة هي الأساس.. مب إضافة بفلوس.',
   inclP: 'سواء اخترت تطبيق جاهز أو نظام خاص، كل عميل ياخذ نفس الدعم من أول يوم.', inclCta: 'تكلّم ويانا',

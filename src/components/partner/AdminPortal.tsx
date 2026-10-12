@@ -5,7 +5,7 @@ import { makeT, type Lang } from '../../lib/portal-i18n';
 
 interface Props { lang?: Lang }
 
-const LANDING_PAGES = ['/', '/oxpos', '/zainaapp', '/texpos', '/websites', '/custom-software', '/contact', '/coming-soon'];
+const LANDING_PAGES = ['/', '/oxpos', '/zainaapp', '/texpos', '/websites', '/custom-software', '/mobile-apps', '/contact', '/coming-soon'];
 const STATUSES = ['pending', 'contacted', 'qualified', 'converted', 'rejected'];
 
 export default function AdminPortal({ lang = 'en' }: Props) {

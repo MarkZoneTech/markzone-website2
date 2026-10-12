@@ -230,8 +230,9 @@ const tick = '<svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" /></svg>
   .stats__l { display: block; font-size: 15px; color: var(--ink); max-width: 220px; }
 
   /* SERVICES */
-  .svc { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-  .svc__card { display: flex; flex-direction: column; padding: 32px; border: 1px solid var(--border); border-radius: 20px; text-decoration: none; color: var(--ink); transition: border-color .15s, box-shadow .15s, transform .15s; }
+  .svc { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  @media (max-width: 1180px) and (min-width: 1021px) { .svc { grid-template-columns: repeat(2, 1fr); } }
+  .svc__card { display: flex; flex-direction: column; padding: 28px; border: 1px solid var(--border); border-radius: 20px; text-decoration: none; color: var(--ink); transition: border-color .15s, box-shadow .15s, transform .15s; }
   .svc__card:hover { border-color: var(--teal); box-shadow: var(--shadow); transform: translateY(-2px); }
   .svc__num { font: 700 14px/1 var(--f-head); color: var(--teal-text); margin-bottom: 24px; }
   .svc__card h3 { font-size: 21px; color: var(--primary); }

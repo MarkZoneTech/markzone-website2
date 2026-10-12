@@ -982,12 +982,12 @@ export const LANDINGS: Landing[] = [
 
   // ───────────── Websites: Dubai / Sharjah / Ras Al Khaimah ─────────────
   {
-    path: 'websites/dubai-sharjah-ras-al-khaimah', kind: 'service',
+    path: 'websites/uae-all-emirates', kind: 'service',
     en: {
-      schemaName: 'Website design in Dubai, Sharjah and Ras Al Khaimah',
-      title: 'Website Design in Dubai, Sharjah & Ras Al Khaimah | MarkZone',
+      schemaName: 'Website design across the UAE',
+      title: 'Website Design in the UAE, All 7 Emirates | MarkZone',
       desc: 'MarkZone builds professional websites for businesses in Dubai, Sharjah, Ras Al Khaimah, Al Ain and all 7 emirates. From 1,000 AED, delivered within 2 weeks.',
-      eyebrow: 'Websites in Dubai, Sharjah & Ras Al Khaimah', h1: 'Website design for businesses in Dubai, Sharjah and Ras Al Khaimah',
+      eyebrow: 'Websites across all 7 emirates', h1: 'Website design for businesses across all 7 emirates',
       lead: 'Based in Dubai, serving all 7 emirates, including Al Ain. A clear, professional website delivered within 2 weeks, with real local support on WhatsApp.',
       h2: 'A website for your business, wherever in the UAE you are',
       body: [
@@ -1001,7 +1001,7 @@ export const LANDINGS: Landing[] = [
         ['All 7 emirates', 'Based in Dubai, serving businesses across the UAE, including Al Ain.'],
         ['Real local support', 'Real people on WhatsApp, plus on-site visits when needed.'],
       ],
-      crumb: 'Dubai, Sharjah & Ras Al Khaimah', parent: { label: 'Websites', href: '/websites' },
+      crumb: 'All 7 emirates', parent: { label: 'Websites', href: '/websites' },
       timelineLabel: 'Delivery', timeline: 'Within 2 weeks', price: 'From 1,000 AED',
       waText: 'Hi MarkZone, I\'d like a quote for a website',
       faqTitle: 'Website questions',
@@ -1017,10 +1017,10 @@ export const LANDINGS: Landing[] = [
       ctaTitle: 'Let’s talk about your website', ctaText: 'Tell us about your business on WhatsApp and we’ll send you a clear quote.',
     },
     ar: {
-      schemaName: 'تصميم مواقع في دبي والشارقة ورأس الخيمة',
-      title: 'تصميم مواقع في دبي والشارقة ورأس الخيمة | ماركزون',
+      schemaName: 'تصميم مواقع في الإمارات',
+      title: 'تصميم مواقع في الإمارات السبع | ماركزون',
       desc: 'ماركزون تسوي مواقع احترافية للشركات في دبي والشارقة ورأس الخيمة ورأس الخيمة والعين وكل الإمارات السبع. من 1,000 درهم، وتتسلم خلال أسبوعين.',
-      eyebrow: 'مواقع في دبي والشارقة ورأس الخيمة', h1: 'تصميم مواقع للشركات في دبي والشارقة ورأس الخيمة',
+      eyebrow: 'مواقع في كل الإمارات السبع', h1: 'تصميم مواقع للشركات في كل الإمارات السبع',
       lead: 'مقرنا في دبي ونخدم الإمارات السبع، ومنها العين. موقع احترافي وواضح يتسلم خلال أسبوعين، مع دعم محلي حقيقي على الواتساب.',
       h2: 'موقع لشغلك، وين ما كنت في الإمارات',
       body: [
@@ -1034,7 +1034,7 @@ export const LANDINGS: Landing[] = [
         ['الإمارات السبع', 'مقرنا في دبي ونخدم الشركات في كل الإمارات، ومنها العين.'],
         ['دعم محلي حقيقي', 'ناس حقيقيين على الواتساب، وزيارات للموقع إذا احتاج الأمر.'],
       ],
-      crumb: 'دبي والشارقة ورأس الخيمة', parent: { label: 'المواقع', href: '/ar/websites' },
+      crumb: 'الإمارات السبع', parent: { label: 'المواقع', href: '/ar/websites' },
       timelineLabel: 'التسليم', timeline: 'خلال أسبوعين', price: 'من 1,000 درهم',
       waText: 'مرحبا ماركزون، أبا عرض سعر لموقع',
       faqTitle: 'أسئلة عن المواقع',

@@ -2,7 +2,7 @@
 title: "The MarkZone Growth Partner Program"
 description: "Know a UAE shop, salon or tailor that needs to get organized? How the MarkZone Growth Partner program works, and how to join on WhatsApp."
 date: 2026-01-09
-updated: 2026-09-21
+updated: 2026-10-12
 category: markzone-news
 product: none
 coverAlt: "Business owners shaking hands after a referral"
@@ -32,7 +32,7 @@ Any business that could benefit from what MarkZone offers:
 - [ZainaApp](/zainaapp) for ladies’ salons, barbershops, spas and beauty lounges
 - [TexPOS](/texpos) for custom tailoring, ready-made items and alterations
 - [Websites](/websites), delivered within 2 weeks
-- [Custom software and mobile apps](/custom-software) for businesses with unique processes
+- [Custom software](/custom-software) and [mobile apps](/mobile-apps) for businesses with unique processes
 
 ## How it works
 

@@ -19,6 +19,10 @@
 /request-demo                              /contact          301
 /get-quote                                 /contact          301
 /privacy-policy                            /privacy          301
+# Renamed pages (permanent)
+/websites/dubai-sharjah-ras-al-khaimah     /websites/uae-all-emirates 301
+/ar/websites/dubai-sharjah-ras-al-khaimah  /ar/websites/uae-all-emirates 301
+
 # Retired blog posts
 /blog/uae-e-invoicing-mandate-2026          /blog             301
 /blog/success-story-al-amal-grocery         /oxpos            301

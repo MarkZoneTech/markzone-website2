@@ -1,0 +1,46 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import ServiceBody from '../components/ServiceBody.astro';
+import NeedsGrid from '../components/NeedsGrid.astro';
+import Faq from '../components/Faq.astro';
+import Cta from '../components/Cta.astro';
+import { SITE } from '../data/site';
+const faq: [string, string][] = [
+  ['How long does a mobile app take?', 'A mobile app is built on top of a web app, so its timeline is the web app build time plus 1 extra month.'],
+  ['How much does a mobile app cost?', 'Prices vary a lot with the size of the app, so every project is priced individually after a free consultation, with a clear quote and no hidden costs.'],
+  ['Why does a mobile app need a web app?', 'The mobile app depends on the web app behind it, where your data and logic live. That is why we build the two together, and why the timeline is the web app time plus 1 month.'],
+  ['Are your ready-made apps mobile apps?', 'No. OxPOS, ZainaApp and TexPOS work on any device. The Mobile Apps service is for custom builds only.'],
+  ['Is there a free consultation?', 'Yes. We listen to your business, find what is slowing it down, and recommend what to build, with a timeline and a price.'],
+  ['What support do I get after delivery?', 'Every client gets full WhatsApp support daily from 10 AM to 10 PM (Sunday off), plus on-site visits when needed. Ongoing support terms after delivery are discussed per project, depending on its size.'],
+];
+const schema = [
+  { '@context': 'https://schema.org', '@type': 'Service', name: 'Custom mobile app development', serviceType: 'Mobile app development', provider: { '@id': `${SITE.url}/#business` }, areaServed: 'AE', url: `${SITE.url}/mobile-apps`, description: 'Custom mobile apps for UAE businesses, built on top of a web app. Timeline is the web app build time plus 1 month.' },
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) },
+];
+---
+<Base title="Custom Mobile App Development in Dubai | MarkZone" description="Custom mobile apps for UAE businesses: customer, staff, owner, loyalty and delivery apps built on your web app. Free consultation and local WhatsApp support." alternate={{ en: '/mobile-apps', ar: '/ar/mobile-apps' }} schema={schema}>
+  <PageHero eyebrow="Mobile apps" title="Your own mobile app, built around your business" lead="Give customers, staff or owners an app on their phone. We build it on top of your web app, so everything stays in sync." crumb={[{ href: '/mobile-apps', label: 'Mobile Apps' }]} />
+  <ServiceBody timelineLabel="Timeline" timeline="Web app + 1 month" waText="Hi MarkZone, I'd like to discuss a mobile app" points={[
+    ['Built on your web app', 'The app and the system behind it work together, so updates are live.'],
+    ['Built around your workflow', 'We design it around how your customers and team actually work.'],
+    ['Free consultation first', 'We recommend what to build, with a timeline and a price.'],
+    ['Real local support', 'WhatsApp support daily and on-site visits when needed.'],
+  ]}>
+    <span class="eyebrow">Why a mobile app</span>
+    <h2>A direct channel to your customers and team</h2>
+    <p>A mobile app puts your business on your customers' phones and gives your team and you live information wherever you are.</p>
+    <p>A mobile app depends on the web app behind it, so its timeline is the web app build time plus 1 extra month. If you need the web system first, see <a href="/custom-software">custom software</a>.</p>
+    <p>Prices vary a lot with the size of the app, so every project is priced after a free consultation.</p>
+  </ServiceBody>
+  <NeedsGrid eyebrow="What we build" title="Which app do you need?" items={[
+  ['Customer app', 'Customers order, book or track from their phone, giving you a direct channel and repeat business.'],
+  ['Staff or field app', 'Your team works from their phones and updates are live.'],
+  ['Owner app', 'You monitor sales and reports from anywhere.'],
+  ['Loyalty or membership app', 'Customers come back for points and offers.'],
+  ['Delivery or driver app', 'You assign and track deliveries in real time.'],
+  ['Any other need', 'We find it together in the free consultation.'],
+]} />
+  <Faq items={faq} title="Mobile app questions" />
+  <Cta title="Tell us about the app you want" text="Describe your idea on WhatsApp and we’ll set up your free consultation." />
+</Base>
