@@ -71,12 +71,13 @@ The single reference for updating markzonetech.com: adding a product or service,
 - **Pricing:**
   - OxPOS and ZainaApp: 1,500 AED including first-year maintenance, then 500 AED/year.
   - TexPOS: 1,000 AED first year, then 500 AED/year.
-  - Websites: "From 1,500 AED" / «من 1,500 درهم». The final price depends on requirements and is quoted on WhatsApp. (Approved by Fadi, 3 Oct 2026.)
-  - Custom software: "Quote on request" / «عرض الأسعار».
+  - Websites: "From 1,000 AED" / «من 1,000 درهم» (approved 11 Oct 2026). Prices are not standard: the final price depends on requirements and website type, quoted on WhatsApp. A .com domain is included at normal domain rates (3 suggested names; custom domains extra). Yearly fee 500 AED covers hosting and maintenance; domain renewal is separate. Free consultation before building.
+  - Custom software and mobile apps: "Quote on request" / «عرض الأسعار». No starting-from price; priced per project after a free consultation.
   - TexPOS may state "under 3 AED a day in the first year" (1,000 AED ÷ 365). Other per-day or per-month price lines need Fadi's approval per material.
-- **Free trial:** a free 1-hour trial on a Zoom call, for all products (approved by Fadi, 3 Oct 2026). Do not describe it as a self-serve trial.
-- **Timelines:** setup 45 min – 2 hrs, websites within 2 weeks, custom apps from about 2 months.
-- **Numbers:** 400+ businesses since 2019; 15+ on the new-generation apps; all 7 emirates; Google rating 4.4★ from 21 reviews.
+- **Free trial:** a free 1-hour trial on a Zoom call, for the ready-made apps only (approved by Fadi, 3 Oct 2026). Do not describe it as a self-serve trial.
+- **Free consultation** (approved 11 Oct 2026): for websites, custom software and mobile apps. Never mix it up with the free trial.
+- **Timelines:** setup 45 min – 2 hrs, websites within 2 weeks, custom software from about 2 months, mobile apps = the web app build time plus 1 extra month.
+- **Numbers:** 400+ businesses since 2019; 15+ on the new-generation apps; all 7 emirates, including Al Ain; Google rating 4.5★ from 27 reviews (set in `src/data/site.ts`).
 - **Never publish:**
   - e-invoicing, Track A/B/C/D, or MarkZone Manager by name (say only "integrated accounting solution").
   - Rent-a-Wheel, Vela, Jusoor, or competitor names.
@@ -123,7 +124,7 @@ The single reference for updating markzonetech.com: adding a product or service,
 
 ## 6b. Landing pages (business-type and city pages)
 
-Copy for these lives in `src/data/landing.ts` (EN + AR side by side), rendered by `src/components/LandingPage.astro`. Routes: `src/pages/[group]/[slug].astro` (and `ar/`), plus `madapos.astro`. To add one, add an entry to `LANDINGS` using only Master File facts (reuse the shared answers at the top), then build and run the audit. Current pages: OxPOS for supermarkets, garment & fashion stores, cosmetics shops, consignment stores; ZainaApp for salons & barbershops; MadaPOS Coming Soon (no price or date announced); Websites for Dubai, Sharjah & Ras Al Khaimah. Product-page audience chips link to them.
+Copy for these lives in `src/data/landing.ts` (EN + AR side by side), rendered by `src/components/LandingPage.astro`. Routes: `src/pages/[group]/[slug].astro` (and `ar/`), plus `madapos.astro`. To add one, add an entry to `LANDINGS` using only Master File facts (reuse the shared answers at the top), then build and run the audit. Current pages: OxPOS for supermarkets, garment & fashion stores, cosmetics shops, consignment stores; ZainaApp for salons & barbershops; MadaPOS Coming Soon (no price or date announced); Websites for Dubai, Sharjah & Ras Al Khaimah (copy also covers all 7 emirates, including Al Ain). Product-page audience chips link to them.
 
 ## 7. Adding a new service
 

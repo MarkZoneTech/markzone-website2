@@ -7,18 +7,21 @@ import Cta from '../components/Cta.astro';
 import { SITE } from '../data/site';
 const faq: [string, string][] = [
   ['How long does a website take?', 'Websites are delivered within 2 weeks.'],
-  ['How much does a website cost?', 'Websites start from 1,500 AED. The final price depends on what your business needs, and we send you a clear quote on WhatsApp before we start, with no hidden costs.'],
+  ['How much does a website cost?', 'Websites start from 1,000 AED. Website prices are not standard: the final price depends on your requirements and the type of website, and we send you a clear quote on WhatsApp before we start, with no hidden costs.'],
+  ['Is a domain included?', 'Yes. A .com domain is included, at normal domain rates. We suggest 3 domain names related to your business, and any custom domain you need is charged extra.'],
+  ['Is there a yearly fee?', 'Yes. The yearly fee is 500 AED per year and covers hosting and maintenance. Domain renewal is charged separately at normal domain rates.'],
+  ['Is there a free consultation?', 'Yes. Before we build, we listen to your business, find what is slowing it down, and recommend what to build, with a timeline and a price.'],
   ['Do you support the website after launch?', 'Yes. Every client gets full WhatsApp support daily from 10 AM to 10 PM (Sunday off), plus on-site visits when needed.'],
   ['Which emirates do you work with?', 'We are based in Dubai and serve businesses in all 7 emirates.'],
 ];
 const schema = [
-  { '@context': 'https://schema.org', '@type': 'Service', name: 'Website design & development', serviceType: 'Web design', provider: { '@id': `${SITE.url}/#business` }, areaServed: 'AE', url: `${SITE.url}/websites`, description: 'Professional websites for UAE businesses, delivered within 2 weeks.', offers: { '@type': 'Offer', priceCurrency: 'AED', priceSpecification: { '@type': 'PriceSpecification', minPrice: 1500, priceCurrency: 'AED' }, description: 'Starting price. The final price depends on requirements.' } },
+  { '@context': 'https://schema.org', '@type': 'Service', name: 'Website design & development', serviceType: 'Web design', provider: { '@id': `${SITE.url}/#business` }, areaServed: 'AE', url: `${SITE.url}/websites`, description: 'Professional websites for UAE businesses, delivered within 2 weeks.', offers: { '@type': 'Offer', priceCurrency: 'AED', priceSpecification: { '@type': 'PriceSpecification', minPrice: 1000, priceCurrency: 'AED' }, description: 'Starting price. The final price depends on requirements.' } },
   { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) },
 ];
 ---
 <Base title="Website Design in Dubai, Delivered in 2 Weeks | MarkZone" description="Professional website design for UAE businesses by MarkZone Technology in Dubai. Delivered within 2 weeks, with real local WhatsApp support." alternate={{ en: '/websites', ar: '/ar/websites' }} schema={schema}>
   <PageHero eyebrow="Websites & web design" title="A professional website, live within 2 weeks" lead="Your website is often the first thing a customer sees. We build it quickly, keep it clear, and stay on WhatsApp for you after launch." crumb={[{ href: '/websites', label: 'Websites' }]} />
-  <ServiceBody timelineLabel="Delivery" timeline="Within 2 weeks" price="From 1,500 AED" waText="Hi MarkZone, I'd like a quote for a website" points={[
+  <ServiceBody timelineLabel="Delivery" timeline="Within 2 weeks" price="From 1,000 AED" waText="Hi MarkZone, I'd like a quote for a website" points={[
     ['Fast delivery', 'Your website is delivered within 2 weeks.'],
     ['Built around your business', 'We start from how you sell and what your customers need to know.'],
     ['Honest pricing', 'A clear quote up front, with no hidden costs.'],
@@ -27,6 +30,7 @@ const schema = [
     <span class="eyebrow">What you get</span>
     <h2>A website that does its job</h2>
     <p>We build websites for UAE businesses that need to look professional and turn visitors into WhatsApp conversations and calls.</p>
+    <p>Every website starts with a free consultation: we listen to your business, find what is slowing it down, and recommend what to build, with a timeline and a price.</p>
     <p>Based in Dubai, we also build websites for businesses in <a href="/websites/dubai-sharjah-ras-al-khaimah">Sharjah, Ras Al Khaimah and across the UAE</a>.</p>
     <p>Need more than a website? We also build <a href="/custom-software">custom software and mobile apps</a>, and ready-made apps like <a href="/oxpos">OxPOS</a>, <a href="/zainaapp">ZainaApp</a> and <a href="/texpos">TexPOS</a>.</p>
   </ServiceBody>
