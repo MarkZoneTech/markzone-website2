@@ -5,7 +5,6 @@ date: 2026-10-15
 category: business-growth
 product: texpos
 coverAlt: "مقص خياطة وشريط قياس وقماش"
-draft: true
 faq:
   - q: "أحتاج كمبيوتر أو أجهزة خاصة؟"
     a: "لا. TexPOS يشتغل على أي جهاز."

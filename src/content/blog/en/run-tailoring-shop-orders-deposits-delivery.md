@@ -5,7 +5,6 @@ date: 2026-10-15
 category: business-growth
 product: texpos
 coverAlt: "Tailor's scissors, measuring tape and fabric"
-draft: true
 faq:
   - q: "Do I need a computer or special hardware?"
     a: "No. TexPOS works on any device."
