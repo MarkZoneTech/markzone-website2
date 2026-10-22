@@ -5,7 +5,6 @@ date: 2026-10-22
 category: retail-tips
 product: oxpos
 coverAlt: "Store shelves with products from different small vendors"
-draft: true
 faq:
   - q: "Is OxPOS suitable for a store with many small vendors?"
     a: "Yes. OxPOS includes a consignment module for stores hosting home businesses and small vendors."
