@@ -5,7 +5,6 @@ date: 2026-10-29
 category: business-growth
 product: none
 coverAlt: "Organized business dashboard with a rising arrow"
-draft: true
 faq:
   - q: "I am not technical. Can I still use this?"
     a: "Yes. The apps are built around how you already work, with onboarding and setup included, and WhatsApp support from real people in the UAE."
