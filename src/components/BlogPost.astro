@@ -111,7 +111,9 @@ const alternate = twin ? { en: `/blog/${post.id}`, ar: `/ar/blog/${post.id}` } :
       {v ? (
         <div class={`vid${v.vertical ? " vid--v" : ""}`} data-id={v.id} data-vertical={v.vertical ? "1" : undefined}>
           <button class="vid__btn" type="button" aria-label={`${L.play}: ${d.title}`}>
-            <img src={cover} alt={d.coverAlt ?? d.title} width="1200" height="630" fetchpriority="high" />
+            {v.vertical
+              ? <img src={ytThumb(v.id)} data-fb={`https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`} onerror="this.onerror=null;this.src=this.dataset.fb" alt={d.title} width="1280" height="720" fetchpriority="high" />
+              : <img src={cover} alt={d.coverAlt ?? d.title} width="1200" height="630" fetchpriority="high" />}
             <span class="vid__play" aria-hidden="true"><span>▶</span>{L.play}</span>
           </button>
           <p class="vid__meta"><a href={ytWatch(v.id)} rel="noopener" target="_blank">{L.yt} ↗</a><a href={`${base}/tutorials`}>{L.all}</a></p>
@@ -175,7 +177,6 @@ const alternate = twin ? { en: `/blog/${post.id}`, ar: `/ar/blog/${post.id}` } :
         f.title = box.querySelector('button')?.getAttribute('aria-label') ?? 'Video';
         f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
         f.allowFullscreen = true;
-        if (box.dataset.vertical) box.classList.add('vid--v-on');
         const old = box.querySelector('.vid__btn, iframe'); old?.replaceWith(f);
       };
       box?.querySelector('.vid__btn')?.addEventListener('click', () => load());
@@ -194,8 +195,9 @@ const alternate = twin ? { en: `/blog/${post.id}`, ar: `/ar/blog/${post.id}` } :
   .vid__play span { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: #f00; font-size: 12px; }
   .vid__btn:hover .vid__play, .vid__btn:focus-visible .vid__play { background: #000; }
   :global([dir="rtl"]) .vid__play { padding: 9px 12px 9px 20px; font-family: var(--f-ar-head); }
-  .vid--v-on { max-width: 400px; }
-  .vid--v-on :global(iframe) { aspect-ratio: 9 / 16; }
+  .vid--v { max-width: 400px; }
+  .vid--v .vid__btn, .vid--v :global(iframe) { aspect-ratio: 9 / 16; }
+  .vid--v .vid__btn img { object-position: center; }
   .vid__meta { display: flex; gap: 20px; justify-content: flex-end; font-size: 14px; margin: 12px 4px 0; }
   .vid__meta a { color: var(--primary); }
   .chap { border: 1px solid var(--border); border-radius: 16px; padding: 18px 22px; margin-bottom: 32px; background: var(--surface-muted); }
