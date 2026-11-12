@@ -51,7 +51,7 @@ x-fields: &fields
     fields:
       - { label: Question, name: q, widget: string }
       - { label: Answer, name: a, widget: text }
-  - label: "Video (only for the Video tutorials category)"
+  - label: "Video (YouTube video for this post)"
     name: video
     widget: object
     required: false
@@ -60,14 +60,17 @@ x-fields: &fields
       - { label: "YouTube video ID (the part after watch?v=)", name: id, widget: string }
       - { label: "Length in seconds (e.g. 4:05 = 245)", name: duration, widget: number, value_type: int }
       - { label: "YouTube upload date", name: uploaded, widget: datetime, format: "YYYY-MM-DD", time_format: false }
-      - label: "App"
+      - { label: "Vertical video (9:16)?", name: vertical, widget: boolean, default: false, required: false }
+      - label: "App (tutorials only; leave empty for a video on a normal post)"
         name: series
         widget: select
+        required: false
         options: [{ label: OxPOS, value: oxpos }, { label: TexPOS, value: texpos }, { label: ZainaApp, value: zainaapp }]
-      - { label: "Lesson number (order in the series)", name: lesson, widget: number, value_type: int }
-      - label: "Learning path"
+      - { label: "Lesson number (tutorials only)", name: lesson, widget: number, value_type: int, required: false }
+      - label: "Learning path (tutorials only)"
         name: group
         widget: select
+        required: false
         options:
           - { label: "Getting started", value: start }
           - { label: "Selling at the counter", value: selling }

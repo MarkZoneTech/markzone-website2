@@ -2,9 +2,25 @@
 title: "How to Run a Tailoring Shop: Orders, Deposits, Delivery"
 description: "Run a tailoring shop without lost measurements, unpaid balances or remakes. A practical order-to-delivery guide for UAE tailors."
 date: 2026-10-15
+updated: 2026-11-12
 category: business-growth
 product: texpos
 coverAlt: "Tailor's scissors, measuring tape and fabric"
+video:
+  id: B4zcK1HL7Mo
+  duration: 210
+  uploaded: "2026-11-12T09:00:00+04:00"
+  vertical: true
+  chapters:
+    - { t: "0:00", label: "The mistakes that cost a tailoring shop money" }
+    - { t: "0:40", label: "Take the whole order at the counter" }
+    - { t: "1:05", label: "Save every customer's measurements" }
+    - { t: "1:20", label: "Give the tailor a clear job order" }
+    - { t: "1:38", label: "Take a deposit and track the balance" }
+    - { t: "1:59", label: "Track fabric like cash" }
+    - { t: "2:23", label: "Send invoices the way customers prefer" }
+    - { t: "2:38", label: "Know where your customers come from" }
+    - { t: "3:10", label: "One app for the whole order" }
 faq:
   - q: "Do I need a computer or special hardware?"
     a: "No. TexPOS works on any device."

@@ -26,9 +26,10 @@ const post = z.object({
     id: z.string(),                       // YouTube video id
     duration: z.number().int(),           // seconds
     uploaded: z.string(),                 // ISO date-time of the YouTube upload
-    series: z.enum(['oxpos', 'texpos', 'zainaapp']),
-    lesson: z.number().int(),             // order inside the series
-    group: z.string(),                    // learning-path key (see src/data/tutorials.ts)
+    series: z.enum(['oxpos', 'texpos', 'zainaapp']).optional(),   // tutorials only; leave out for a video on a normal blog post
+    lesson: z.number().int().optional(),  // order inside the series
+    group: z.string().optional(),         // learning-path key (see src/data/tutorials.ts)
+    vertical: z.boolean().default(false), // true for 9:16 videos (player opens in a vertical frame)
     chapters: z.array(z.object({ t: z.string(), label: z.string() })).default([]),
   }).optional(),
 });

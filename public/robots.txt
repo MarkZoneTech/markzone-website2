@@ -3,3 +3,4 @@ Allow: /
 Disallow: /admin
 
 Sitemap: https://markzonetech.com/sitemap-index.xml
+Sitemap: https://markzonetech.com/video-sitemap.xml

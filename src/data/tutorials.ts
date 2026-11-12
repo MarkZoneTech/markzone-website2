@@ -33,7 +33,7 @@ export const GROUPS: Record<string, { en: string; ar: string }> = {
 };
 
 export async function getTutorials(lang: Lang, series?: SeriesKey): Promise<Post[]> {
-  const all = (await getPosts(lang)).filter((p) => p.data.category === 'tutorials' && p.data.video);
+  const all = (await getPosts(lang)).filter((p) => p.data.category === 'tutorials' && p.data.video && p.data.video.series);
   return all.filter((p) => !series || p.data.video!.series === series).sort((a, b) => a.data.video!.lesson - b.data.video!.lesson);
 }
 

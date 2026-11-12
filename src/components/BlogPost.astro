@@ -18,11 +18,12 @@ const url = `${SITE.url}${base}/${post.id}`;
 const cover = coverFor(post, lang);
 const modified = d.updated ?? d.date;
 const v = d.video;
-const lessons = v ? posts.filter((p) => p.data.video?.series === v.series).sort((a, b) => a.data.video!.lesson - b.data.video!.lesson) : [];
-const idx = v ? lessons.findIndex((p) => p.id === post.id) : -1;
+const isTut = !!v?.series;
+const lessons = isTut && v ? posts.filter((p) => p.data.video?.series === v.series).sort((a, b) => a.data.video!.lesson - b.data.video!.lesson) : [];
+const idx = isTut ? lessons.findIndex((p) => p.id === post.id) : -1;
 const prev = idx > 0 ? lessons[idx - 1] : undefined;
 const next = idx >= 0 && idx < lessons.length - 1 ? lessons[idx + 1] : undefined;
-const related = v
+const related = isTut
   ? [...lessons.slice(idx + 1), ...lessons.slice(0, Math.max(0, idx))].filter((p) => p.id !== post.id).slice(0, 3)
   : posts.filter((p) => p.id !== post.id && p.data.category === d.category).slice(0, 3);
 const more = related.length < 3 ? posts.filter((p) => p.id !== post.id && !related.includes(p)).slice(0, 3 - related.length) : [];
@@ -31,11 +32,11 @@ const catHref = d.category === 'tutorials' ? `${base}/tutorials` : `${base}/cate
 const L = lang === 'ar' ? {
   home: 'الرئيسية', blog: 'المدونة', by: 'بقلم ماركزون تكنولوجي', upd: 'آخر تحديث', read: (n: number) => `${n} دقائق قراءة`,
   k: 'نظّم شغلك مع', more: 'اعرف أكثر', q: 'عندك سؤال؟', qp: 'ناس حقيقيين في الإمارات على الواتساب، يومياً من 10 الصبح لين 10 الليل (الأحد إجازة).', wa: 'كلمنا واتساب',
-  share: 'شارك المقال على الواتساب', play: 'شغّل الفيديو', lesson: (n: number, m: number) => `الدرس ${n} من ${m}`, yt: 'شاهد على يوتيوب', inVid: 'محتويات الفيديو', narr: 'الشرح بالعربي', prev: '→ الدرس السابق', next: 'الدرس التالي ←', all: 'كل الشروحات', tut: 'شروحات فيديو', faq: 'أسئلة شائعة', keep: 'اقرأ بعد', rel: 'مقالات ذات صلة', inLang: 'ar-AE',
+  share: 'شارك المقال على الواتساب', play: 'شغّل الفيديو', vidWord: 'فيديو', lesson: (n: number, m: number) => `الدرس ${n} من ${m}`, yt: 'شاهد على يوتيوب', inVid: 'محتويات الفيديو', narr: 'الشرح بالعربي', prev: '→ الدرس السابق', next: 'الدرس التالي ←', all: 'كل الشروحات', tut: 'شروحات فيديو', faq: 'أسئلة شائعة', keep: 'اقرأ بعد', rel: 'مقالات ذات صلة', inLang: 'ar-AE',
 } : {
   home: 'Home', blog: 'Blog', by: 'By MarkZone Technology', upd: 'Updated', read: (n: number) => `${n} min read`,
   k: 'Get organized with', more: 'Learn more', q: 'Questions?', qp: 'Real people in the UAE on WhatsApp, daily 10 AM – 10 PM (Sunday off).', wa: 'WhatsApp us',
-  share: 'Share this article on WhatsApp', play: 'Play video', lesson: (n: number, m: number) => `Lesson ${n} of ${m}`, yt: 'Watch on YouTube', inVid: 'In this video', narr: 'Narrated in Arabic', prev: '← Previous lesson', next: 'Next lesson →', all: 'All tutorials', tut: 'Video tutorials', faq: 'Common questions', keep: 'Keep reading', rel: 'Related articles', inLang: 'en-AE',
+  share: 'Share this article on WhatsApp', play: 'Play video', vidWord: 'video', lesson: (n: number, m: number) => `Lesson ${n} of ${m}`, yt: 'Watch on YouTube', inVid: 'In this video', narr: 'Narrated in Arabic', prev: '← Previous lesson', next: 'Next lesson →', all: 'All tutorials', tut: 'Video tutorials', faq: 'Common questions', keep: 'Keep reading', rel: 'Related articles', inLang: 'en-AE',
 };
 const BOX: Record<Lang, Record<string, { name: string; href: string; text: string }>> = {
   en: {
@@ -69,8 +70,8 @@ const schema: object[] = [
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: L.home, item: `${SITE.url}${pre || '/'}` },
       { '@type': 'ListItem', position: 2, name: L.blog, item: `${SITE.url}${base}` },
-      ...(v ? [{ '@type': 'ListItem', position: 3, name: L.tut, item: `${SITE.url}${base}/tutorials` }] : []),
-      { '@type': 'ListItem', position: v ? 4 : 3, name: d.title, item: url },
+      ...(isTut ? [{ '@type': 'ListItem', position: 3, name: L.tut, item: `${SITE.url}${base}/tutorials` }] : []),
+      { '@type': 'ListItem', position: isTut ? 4 : 3, name: d.title, item: url },
     ],
   },
 ];
@@ -102,13 +103,13 @@ const alternate = twin ? { en: `/blog/${post.id}`, ar: `/ar/blog/${post.id}` } :
         <p class="ah__meta">
           <span>{L.by}</span>
           <span>{L.upd} <time datetime={modified.toISOString()}>{fmtDate(modified, lang)}</time></span>
-          {v ? <span>{L.lesson(idx + 1, lessons.length)} · {mmss(v.duration)} · {L.narr}</span> : <span>{L.read(readingTime(post.body))}</span>}
+          {isTut && v ? <span>{L.lesson(idx + 1, lessons.length)} · {mmss(v.duration)} · {L.narr}</span> : <span>{L.read(readingTime(post.body))}{v ? ` · ${L.vidWord} ${mmss(v.duration)}` : ''}</span>}
         </p>
       </div>
     </header>
     <div class="wrap">
       {v ? (
-        <div class="vid" data-id={v.id}>
+        <div class={`vid${v.vertical ? " vid--v" : ""}`} data-id={v.id} data-vertical={v.vertical ? "1" : undefined}>
           <button class="vid__btn" type="button" aria-label={`${L.play}: ${d.title}`}>
             <img src={cover} alt={d.coverAlt ?? d.title} width="1200" height="630" fetchpriority="high" />
             <span class="vid__play" aria-hidden="true"><span>▶</span>{L.play}</span>
@@ -174,6 +175,7 @@ const alternate = twin ? { en: `/blog/${post.id}`, ar: `/ar/blog/${post.id}` } :
         f.title = box.querySelector('button')?.getAttribute('aria-label') ?? 'Video';
         f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
         f.allowFullscreen = true;
+        if (box.dataset.vertical) box.classList.add('vid--v-on');
         const old = box.querySelector('.vid__btn, iframe'); old?.replaceWith(f);
       };
       box?.querySelector('.vid__btn')?.addEventListener('click', () => load());
@@ -192,6 +194,8 @@ const alternate = twin ? { en: `/blog/${post.id}`, ar: `/ar/blog/${post.id}` } :
   .vid__play span { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: #f00; font-size: 12px; }
   .vid__btn:hover .vid__play, .vid__btn:focus-visible .vid__play { background: #000; }
   :global([dir="rtl"]) .vid__play { padding: 9px 12px 9px 20px; font-family: var(--f-ar-head); }
+  .vid--v-on { max-width: 400px; }
+  .vid--v-on :global(iframe) { aspect-ratio: 9 / 16; }
   .vid__meta { display: flex; gap: 20px; justify-content: flex-end; font-size: 14px; margin: 12px 4px 0; }
   .vid__meta a { color: var(--primary); }
   .chap { border: 1px solid var(--border); border-radius: 16px; padding: 18px 22px; margin-bottom: 32px; background: var(--surface-muted); }

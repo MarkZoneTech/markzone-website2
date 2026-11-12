@@ -160,6 +160,9 @@ Create `src/pages/<service>.astro` and `src/pages/ar/<service>.astro` from the W
 - **Covers:** `python3 scripts/make-tutorial-covers.py` (EN + AR; `--force` to redo). Add a screenshot for a new slug in its `SHOTS` map.
 - **After publishing,** paste the page link into the YouTube video description (links both ways).
 
+- **A video on a normal blog post** (not a tutorial): add only `id`, `duration`, `uploaded`, `chapters` and `vertical: true` for 9:16 videos; leave `series`, `lesson` and `group` out. The post gets the same lite player, chapter list and VideoObject schema, and no lesson navigation. Vertical videos show the wide cover first and open in a 9:16 player on click.
+- **Video sitemap:** `/video-sitemap.xml` is generated from every post with a video and is listed in `robots.txt`. Submit it once in Google Search Console.
+
 ## 9. Before every release
 
 - `npm run build` passes.

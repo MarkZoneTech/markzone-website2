@@ -2,9 +2,26 @@
 title: "Why UAE Small Businesses Struggle, and 7 Steps to Organize"
 description: "Many SMEs lose sales not from weak marketing but from poor internal organization. Seven practical steps to organize your business."
 date: 2026-10-29
+updated: 2026-11-12
 category: business-growth
 product: none
 coverAlt: "Organized business dashboard with a rising arrow"
+video:
+  id: QzilFqkBwsg
+  duration: 243
+  uploaded: "2026-11-12T09:00:00+04:00"
+  vertical: true
+  chapters:
+    - { t: "0:00", label: "Why small businesses struggle" }
+    - { t: "0:50", label: "Decide what you need to track" }
+    - { t: "1:17", label: "Put everything in one place" }
+    - { t: "1:38", label: "Close every day" }
+    - { t: "1:59", label: "Never lose customer details" }
+    - { t: "2:14", label: "Give everyone a clear role" }
+    - { t: "2:32", label: "Check your numbers every week" }
+    - { t: "2:50", label: "Choose software built for your business" }
+    - { t: "3:38", label: "Setup and support" }
+    - { t: "3:53", label: "Organize your business" }
 faq:
   - q: "I am not technical. Can I still use this?"
     a: "Yes. The apps are built around how you already work, with onboarding and setup included, and WhatsApp support from real people in the UAE."
