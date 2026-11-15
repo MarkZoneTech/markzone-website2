@@ -2,10 +2,15 @@
 title: "The MarkZone Growth Partner Program"
 description: "Know a UAE shop, salon or tailor that needs to get organized? How the MarkZone Growth Partner program works, and how to join on WhatsApp."
 date: 2026-01-09
-updated: 2026-10-12
+updated: 2026-11-15
 category: markzone-news
 product: none
 coverAlt: "Business owners shaking hands after a referral"
+video:
+  id: A5pDFqN0_Ao
+  duration: 52
+  uploaded: "2026-11-15T20:01:56+04:00"
+  vertical: true
 faq:
   - q: "How do I join the Growth Partner program?"
     a: "Message MarkZone on WhatsApp. We will explain how the program works and share the current partner terms."
