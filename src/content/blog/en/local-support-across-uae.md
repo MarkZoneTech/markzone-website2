@@ -2,10 +2,15 @@
 title: "How MarkZone Support Works Across the UAE"
 description: "What happens after you buy from MarkZone: onboarding, Excel data migration, WhatsApp support daily 10 AM–10 PM, and on-site visits across the UAE."
 date: 2026-01-09
-updated: 2026-09-21
+updated: 2026-11-15
 category: markzone-news
 product: none
 coverAlt: "MarkZone support specialist helping a shop owner"
+video:
+  id: gGTWPwIxTN0
+  duration: 163
+  uploaded: "2026-11-15T12:48:00+04:00"
+  vertical: true
 faq:
   - q: "What are MarkZone’s support hours?"
     a: "Full WhatsApp support is available daily from 10 AM to 10 PM. Sunday is off."
