@@ -4,6 +4,11 @@ description: "مجتمع واتساب لأصحاب المشاريع اليديد
 date: 2026-11-26
 category: markzone-news
 product: none
+video:
+  id: mpWq7HgR-mo
+  duration: 32
+  uploaded: "2026-11-26T10:17:18+04:00"
+  vertical: true
 coverAlt: "مجتمع ماركزون لأصحاب المشاريع في الواتساب"
 faq:
   - q: "الانضمام مجاني؟"

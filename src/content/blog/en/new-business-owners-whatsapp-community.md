@@ -4,6 +4,11 @@ description: "A WhatsApp community for new UAE business owners: marketing tips, 
 date: 2026-11-26
 category: markzone-news
 product: none
+video:
+  id: mpWq7HgR-mo
+  duration: 32
+  uploaded: "2026-11-26T10:17:18+04:00"
+  vertical: true
 coverAlt: "MarkZone Business Owners Community on WhatsApp"
 faq:
   - q: "Is it free to join?"
