@@ -2,6 +2,7 @@
 title: "How to Run a Retail Shop in the UAE: A Daily Routine"
 description: "A simple daily and weekly routine for UAE shop owners: cash, stock, purchases, expenses and reports, so you know your real profit."
 date: 2026-10-01
+updated: 2026-11-26
 category: retail-tips
 product: oxpos
 coverAlt: "Retail shop counter with barcode scanner and stock shelves"
@@ -57,3 +58,5 @@ If you give credit to regular customers, customer accounts show balances and pur
 You can run this routine with notebooks and spreadsheets, but it takes discipline and time that most owners do not have. [OxPOS](/oxpos) puts the point of sale, inventory, purchases, expenses, salaries and reports in one place, in Arabic and English, with thermal receipts and branches added as new shops on the same platform, with staff roles and permissions. It is 1,500 AED including the first year of maintenance, then 500 AED per year. Setup takes 45 minutes to 2 hours. Compatible hardware available.
 
 Want to go deeper on stock? Read our guide to [OxPOS inventory management](/blog/oxpos-inventory-management), or [message us on WhatsApp](https://wa.me/971506552181) and we will help you set up.
+
+New to running a business? See our [free community for new business owners](/community).

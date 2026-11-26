@@ -1,0 +1,42 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from './PageHero.astro';
+import Faq from './Faq.astro';
+import { SITE } from '../data/site';
+import { COMMUNITY } from '../data/community';
+interface Props { lang: 'en' | 'ar' }
+const { lang } = Astro.props;
+const c = COMMUNITY[lang];
+const url = `${SITE.url}${lang === 'ar' ? '/ar' : ''}/community`;
+const schema = [
+  { '@context': 'https://schema.org', '@type': 'WebPage', name: c.h1, description: c.description, url, inLanguage: lang === 'ar' ? 'ar-AE' : 'en-AE', publisher: { '@id': `${SITE.url}/#business` } },
+  { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+    { '@type': 'ListItem', position: 1, name: lang === 'ar' ? 'الرئيسية' : 'Home', item: lang === 'ar' ? `${SITE.url}/ar` : SITE.url },
+    { '@type': 'ListItem', position: 2, name: c.crumb, item: url },
+  ] },
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: c.faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) },
+];
+const post = `${lang === 'ar' ? '/ar' : ''}/blog/new-business-owners-whatsapp-community`;
+---
+<Base title={c.title} description={c.description} lang={lang} alternate={{ en: '/community', ar: '/ar/community' }} schema={schema}>
+  <PageHero lang={lang} eyebrow={c.eyebrow} title={c.h1} lead={c.lead} crumb={[{ href: lang === 'ar' ? '/ar/community' : '/community', label: c.crumb }]}>
+    <p class="join"><a class="btn btn--cta" href={COMMUNITY.invite} target="_blank" rel="noopener">{c.join}</a></p>
+  </PageHero>
+  <section class="section">
+    <div class="wrap cm">
+      {c.sections.map(([h, p]) => <div><h2>{h}</h2><p>{p}</p></div>)}
+      <div><h2>{c.howH}</h2><ol>{c.how.map((s) => <li>{s}</li>)}</ol></div>
+      <p class="cm__note">{c.note}</p>
+      <p><a href={post}>{c.more}</a></p>
+    </div>
+  </section>
+  <Faq lang={lang} items={c.faq} title={c.faqH} />
+</Base>
+<style>
+  .join { margin: 26px 0 0; }
+  .cm { max-width: 760px; }
+  .cm h2 { color: var(--primary); font-size: 27px; margin: 32px 0 10px; }
+  .cm p, .cm li { font-size: 18px; line-height: 1.8; }
+  .cm ol { padding-inline-start: 24px; }
+  .cm__note { color: var(--ink-muted); margin-top: 28px; }
+</style>

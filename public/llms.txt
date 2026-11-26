@@ -25,6 +25,10 @@ Free trial: a free 1-hour trial of any ready-made app on a Zoom call. Websites, 
 - [Custom software (web apps)](https://markzonetech.com/custom-software): Built around how the business works, delivered from about 2 months depending on size. Priced per project after a free consultation.
 - [Mobile apps](https://markzonetech.com/mobile-apps): Custom customer, staff, owner, loyalty and delivery apps built on top of a web app. Timeline is the web app build time plus 1 month. Priced per project after a free consultation.
 
+## Free community for new business owners
+
+- [Business owners community](https://markzonetech.com/community): A free WhatsApp group run by MarkZone Technology for new and future business owners in the UAE. Marketing advice, supplier contacts shared by members, suggestions and peer support. Open to non-customers; the group admin approves new members. Arabic: https://markzonetech.com/ar/community
+
 ## Support
 
 - Onboarding and setup (typically 45 minutes to 2 hours), data migration from Excel where available, and on-site visits when needed.

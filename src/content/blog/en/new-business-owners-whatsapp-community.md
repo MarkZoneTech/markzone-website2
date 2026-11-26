@@ -75,3 +75,5 @@ You’ll find more practical articles on [our blog](/blog) and step-by-step vide
 You don’t have to figure it all out alone. Join, say hello, and ask your first question today. New requests are approved by the group admin.
 
 <p class="join"><a class="btn btn--cta" href="https://chat.whatsapp.com/CChnmF6bZh920TjcxUnLgz?s=cl&amp;p=i&amp;iam=2" target="_blank" rel="noopener">Join the Community on WhatsApp</a></p>
+
+New to running a business? See our [free community for new business owners](/community).

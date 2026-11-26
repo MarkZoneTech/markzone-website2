@@ -75,3 +75,5 @@ faq:
 مب لازم تعرف كل شي بروحك. انضم، سلّم علينا، واسأل أول سؤال اليوم. طلبات الانضمام يوافق عليها مشرف القروب.
 
 <p class="join"><a class="btn btn--cta" href="https://chat.whatsapp.com/CChnmF6bZh920TjcxUnLgz?s=cl&amp;p=i&amp;iam=2" target="_blank" rel="noopener">انضم للمجتمع في الواتساب</a></p>
+
+يديد في عالم المشاريع؟ شوف [مجتمعنا المجاني لأصحاب المشاريع](/ar/community).
