@@ -230,6 +230,8 @@ const alternate = twin ? { en: `/blog/${post.id}`, ar: `/ar/blog/${post.id}` } :
   .prose :global(li) { margin-bottom: .5em; }
   .prose :global(strong) { color: var(--ink); }
   .prose :global(a) { color: var(--primary); text-underline-offset: 3px; }
+  .prose :global(.join) { text-align: center; margin: 28px 0; }
+  .prose :global(.join a.btn--cta) { color: var(--on-orange); text-decoration: none; }
   .prose :global(blockquote) { margin: 28px 0; padding: 18px 24px; background: var(--teal-tint); border-inline-start: 4px solid var(--teal); border-radius: 0 12px 12px 0; }
   .prose :global(img) { border-radius: 14px; margin: 24px 0; }
   .side { display: flex; flex-direction: column; gap: 18px; position: sticky; top: 100px; align-self: start; }
